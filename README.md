@@ -4,12 +4,13 @@
 
 [![NPM](https://img.shields.io/npm/v/kinetic-ui.svg)](https://www.npmjs.com/package/kinetic-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-[Kinetic UI Documentation](https://kinetic-ui.herokuapp.com/)
+## [Kinetic UI Documentation](https://aqueous-mountain-73542.herokuapp.com/)
 
 ## Install
 
 ```bash
 yarn add kinetic-ui
+yarn add @fortawesome/fontawesome-svg-core
 yarn add @fortawesome/free-solid-svg-icons
 yarn add @fortawesome/free-regular-svg-icons
 yarn add @fortawesome/free-brands-svg-icons
