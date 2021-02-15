@@ -44,7 +44,11 @@ render(App)`}</code>
         <h2>Basic Theme</h2>
       </div>
       <div className={cn.block}>
-        <p>Below are a few ways to setup a custom theme.</p>
+        <p>
+          The theme function uses a spread operator for each of the components and builds off of one another so omitting
+          keys will not affect the theme itself. The minimum for a custom theme would be passing in the primary,
+          secondary and font color into the ThemeProvider.
+        </p>
       </div>
       <pre className="code code-javascript">
         <label>JS</label>
@@ -54,7 +58,6 @@ render(App)`}</code>
     "secondary": "#91a7ff",
   },
   globals: {
-    font_size: "13px",
     font_primary_color: "#212529",
   },
 }
@@ -63,7 +66,12 @@ render(App)`}</code>
       <div className={cn.header}>
         <h2>Custom Theme Style</h2>
       </div>
-
+      <div className={cn.block}>
+        <p>
+          For more control over the theme here is an example passing in custom colors, fonts and backgrounds. The colors
+          objects will translate to different variants for the Button component.
+        </p>
+      </div>
       <pre className="code code-javascript">
         <label>JS</label>
         <code>{`const theme = {
@@ -155,7 +163,13 @@ render(App)`}</code>
       <div className={cn.header}>
         <h2>Advanced Theme Style</h2>
       </div>
-
+      <div className={cn.block}>
+        <p>
+          Advanced themes include all of the below keys in the theme object. This can get messy very quickly so we
+          recommend using the basic or custom theme guidelines. Another option would be to pass the theme directly into
+          a component using the theme prop. All components have a theme prop for fine tuning.
+        </p>
+      </div>
       <pre className="code code-javascript">
         <label>JS</label>
         <code>{`const theme = {
