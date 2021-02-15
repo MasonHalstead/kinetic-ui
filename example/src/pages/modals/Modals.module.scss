@@ -1,0 +1,23 @@
+.header {
+  margin: 5px 10px;
+  h2 {
+    margin: 0px;
+  }
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 20px;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  flex-grow: 1;
+  font-weight: 500;
+  font-size: 15px;
+}

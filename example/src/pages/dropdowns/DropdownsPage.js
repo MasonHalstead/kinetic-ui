@@ -1,0 +1,88 @@
+import React from 'react';
+import { Dropdown, Table } from 'kinetic-ui';
+import { CustomCell } from './Cells';
+import { headers, options, dropdown_rows } from './constants';
+import cn from './Dropdowns.module.scss';
+
+const DropdownsPage = () => {
+  return (
+    <div className={cn.page}>
+      <div className={cn.header}>
+        <h2>Dropdowns</h2>
+      </div>
+      <pre className="code code-javascript">
+        <label>JSX</label>
+        <code>{`import React from 'react'
+import { options } from './options'
+import { Dropdown, Modal } from 'kinetic-ui'
+
+// options basic example
+const options = [
+  {
+    name: 'Option 1',
+    uuid: 1 // required key
+  },
+];
+
+// options example
+const options_custom = [
+  {
+    select: 'Option 1',
+    uuid: 1 // required key
+  },
+];
+
+<div className={cn.wrapper}>
+  <Dropdown label="Default Value" options={options} default_value="render default value" />
+  <Dropdown label="Left Icon" left_icon={['fas', 'coins']} options={options} margin="0px 10px 0px 10px" />
+  <Dropdown label="Right Icon" options={options} right_icon={['fas', 'coins']} />
+</div>
+<div className={cn.wrapper}>
+  <Dropdown label="Disabled" options={options} disabled />
+  <Dropdown label="Placeholder" placeholder="select options..." options={options} margin="0px 10px 0px 10px" />
+  <Dropdown label="Allow Nullable" options={options} error_message="remove item" default_value="Option 1" nullable />
+</div>
+<div className={cn.wrapper}>
+  <Dropdown label="Background #ebeeff" options={options} background="#ebeeff" />
+  <Dropdown label="Text Align" options={options} text_align="center" margin="0px 10px 0px 10px" />
+  <Dropdown label="Scroll Height" options={options} scroll_height={50} />
+</div>`}</code>
+      </pre>
+      <div className={cn.wrapperFlex}>
+        <Dropdown label="Default Value" options={options} default_value="render default value" />
+        <Dropdown label="Left Icon" left_icon={['fas', 'coins']} options={options} margin="0px 10px 0px 10px" />
+        <Dropdown label="Right Icon" options={options} right_icon={['fas', 'coins']} />
+      </div>
+      <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
+        <Dropdown label="Disabled" options={options} disabled />
+        <Dropdown label="Placeholder" placeholder="select options..." options={options} margin="0px 10px 0px 10px" />
+        <Dropdown
+          label="Allow Nullable"
+          options={options}
+          error_message="remove item"
+          default_value="Option 1"
+          nullable
+        />
+      </div>
+      <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
+        <Dropdown label="Background #ebeeff" options={options} background="#ebeeff" />
+        <Dropdown label="Text Align" options={options} text_align="center" margin="0px 10px 0px 10px" />
+        <Dropdown label="Scroll Height" options={options} scroll_height={50} />
+      </div>
+      <div className={cn.header}>
+        <h2>Dropdown Props</h2>
+      </div>
+      <div className={cn.wrapper}>
+        <Table headers={headers} rows={dropdown_rows} settings={{ rows_flex: true }}>
+          <CustomCell lazy="name" />
+          <CustomCell lazy="type" />
+          <CustomCell lazy="default" />
+          <CustomCell lazy="options" />
+          <CustomCell lazy="description" />
+        </Table>
+      </div>
+    </div>
+  );
+};
+
+export default DropdownsPage;
