@@ -2,7 +2,11 @@
 
 > React Component Library
 
-[![NPM](https://img.shields.io/npm/v/kinetic-ui.svg)](https://www.npmjs.com/package/kinetic-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[(https://img.shields.io/npm/v/kinetic-ui.svg)](https://www.npmjs.com/package/kinetic-ui)
+[(https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[(https://img.shields.io/badge/documentation-yes-brightgreen)](https://aqueous-mountain-73542.herokuapp.com/)
+[(https://img.shields.io/bundlephobia/min/kinetic-ui/1.2.3)]
+[(https://img.shields.io/npm/l/kinetic-ui)]
 
 ## [Kinetic UI Documentation](https://aqueous-mountain-73542.herokuapp.com/)
 
@@ -21,7 +25,7 @@ yarn add @fortawesome/free-brands-svg-icons
 ```jsx
 import React from 'react'
 import { ThemeProvider, Button } from 'kinetic-ui'
-import 'kinetic-ui/index.css'
+import 'kinetic-ui/dist/index.css'
 
 // fontawesome for icons
 import { library } from '@fortawesome/fontawesome-svg-core'
