@@ -1,3 +1,6 @@
+.page {
+  padding: 10px 5px;
+}
 .header {
   margin: 5px 10px;
   h2 {
@@ -10,4 +13,13 @@
   justify-content: space-between;
   flex-grow: 1;
   margin: 20px;
+}
+.block {
+  margin: 10px;
+  margin-bottom: 0px;
+  p {
+    font-size: 14px;
+    margin: 10px 0px;
+    line-height: 1.5;
+  }
 }

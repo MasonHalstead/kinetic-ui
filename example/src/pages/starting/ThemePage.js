@@ -1,77 +1,61 @@
 import React from 'react';
-import { Table } from 'kinetic-ui';
-import { CustomCell } from './Cells';
-import { headers, theme_rows } from './constants';
 import cn from './Starting.module.scss';
 
 const ThemePage = () => {
   return (
-    <div>
+    <div className={cn.page}>
       <div className={cn.header}>
-        <h2>ThemeProvider</h2>
+        <h2>Theme</h2>
       </div>
-
+      <div className={cn.block}>
+        <p>
+          kinetic-ui uses a provider context pattern to pass the theme throughout the library. There are a few ways to
+          control the theme including at a per component level. The easiest way is to select a default theme or pass
+          down the initial theme object into the ThemeProvider.
+        </p>
+        <p>Below are a few ways to setup a custom theme.</p>
+      </div>
       <pre className="code code-javascript">
         <label>JSX</label>
-        <code>{`import React from "react
-import { ThemeProvider, Button } from "kinetic-ui"
+        <code>{`import React from 'react'
+import ReactDOM from 'react-dom';
+import { ThemeProvider } from 'kinetic-ui'
+import 'kinetic-ui/dist/index.css'
 
-const App = () => {
-  <ThemeProvider default_theme="kinetic" theme={theme} google_fonts={google_font}>
-    <Button>It Works!</Button>
-  </ThemeProvider>
-}
-`}</code>
+// fontawesome for icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+library.add(far, fas, fab)
+
+const render = (Component) =>
+  ReactDOM.render(
+    <ThemeProvider default_theme='kinetic' theme={theme}>
+      <Component />
+    </ThemeProvider>,
+    document.getElementById('root')
+  )
+
+render(App)`}</code>
       </pre>
       <div className={cn.header}>
-        <h2>Basic Theme Style</h2>
+        <h2>Basic Theme</h2>
       </div>
-
+      <div className={cn.block}>
+        <p>Below are a few ways to setup a custom theme.</p>
+      </div>
       <pre className="code code-javascript">
         <label>JS</label>
         <code>{`const theme = {
   "colors": {
     "primary": "#273546",
     "secondary": "#91a7ff",
-    "green": "#5cb85c",
-    "orange": "#f0ad4e",
-    "blue": "#3e96ed",
-    "red": "#d9534f",
-    "pink": "#e542af",
-    "purple": "#9966cc",
-    "yellow": "#fff4d3",
-    "grey": "#818fa3",
-    "transparent": "transparent"
   },
   globals: {
-    primary_font: "'Roboto', sans-serif",
-    secondary_font: "'Roboto', sans-serif",
-    monospace_font: "",
     font_size: "13px",
     font_primary_color: "#212529",
-    font_secondary_color: "#fff",
-    switch_on: "#273546",
-    switch_handle: "#fff",
-    switch_off: "#dde2e6",
-    switch_off_handle: "#fff",
-    active_color: "#91a7ff",
-    border_color: "#b2bbc3",
-    placeholder_color: "#636c72",
-  },
-  backgrounds: {
-    background_tooltip: "#2e3440",
-    background_input_disabled: "#f5f5f5",
-    background_option_hover: "rgba(0, 0, 0, 0.05)",
-    background_option_selected: "rgba(0, 0, 0, 0.03)",
-    background_option_active: "rgba(0, 0, 0, 0.05)",
-    background_accordion: "#fff",
-    background_header: "#f7f8f9",
-    background_row_striped: "#f7f8f9",
-    background_row_hover: "#e4edf9",
-    background_modal: "#fff",
-    background_tab: "rgba(25, 118, 210, 0.8)",
-    background_progress: "#f8f9fe",
-    background_progress_bar: "#273546",
   },
 }
 `}</code>
@@ -362,18 +346,6 @@ const App = () => {
 }
 `}</code>
       </pre>
-      <div className={cn.header}>
-        <h2>ThemeProvider Props</h2>
-      </div>
-      <div className={cn.wrapper}>
-        <Table headers={headers} rows={theme_rows} settings={{ rows_flex: true }}>
-          <CustomCell lazy="name" />
-          <CustomCell lazy="type" />
-          <CustomCell lazy="default" />
-          <CustomCell lazy="options" />
-          <CustomCell lazy="description" />
-        </Table>
-      </div>
     </div>
   );
 };

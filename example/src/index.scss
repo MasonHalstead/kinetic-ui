@@ -13,11 +13,11 @@ body,
 
 a {
   text-decoration: none;
-  color: #3295f9;
-  font-size: 13px;
+  color: #91a7ff;
+  font-size: 14px;
   cursor: pointer;
   &:hover {
-    color: #3295f9;
+    color: darken(#91a7ff, 5%);
   }
 }
 
@@ -65,7 +65,7 @@ pre.code code {
   line-height: 19px;
   color: #ddd;
   overflow-y: scroll;
-  min-height: 100px;
+  min-height: 50px;
 }
 
 // pre::after {

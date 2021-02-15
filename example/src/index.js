@@ -17,7 +17,7 @@ library.add(far, fas);
 
 const render = (Component) =>
   ReactDOM.render(
-    <ThemeProvider default_theme="kinetic">
+    <ThemeProvider>
       <Component />
     </ThemeProvider>,
     document.getElementById('root'),

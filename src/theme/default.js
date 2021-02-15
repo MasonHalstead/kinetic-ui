@@ -1,3 +1,5 @@
+import { lighten } from 'polished'
+
 export const createTheme = (override) => {
   const {
     globals,
@@ -35,7 +37,7 @@ export const createTheme = (override) => {
   }
 
   const default_globals = {
-    primary_font: `'Open Sans', sans-serif`,
+    primary_font: `'Roboto', sans-serif`,
     secondary_font: `'Roboto', sans-serif`,
     monospace_font: '',
     font_size: '13px',
@@ -45,7 +47,7 @@ export const createTheme = (override) => {
     switch_handle: '#fff',
     switch_off: '#dde2e6',
     switch_off_handle: '#fff',
-    active_color: '#87b8f8',
+    active_color: lighten(0.1, default_colors.primary),
     border_color: '#b2bbc3',
     placeholder_color: '#636c72',
     ...globals
@@ -56,13 +58,13 @@ export const createTheme = (override) => {
     font_label_family: default_globals.primary_font,
     font_label_size: default_globals.font_size,
     font_label_transform: 'none',
-    font_label_weight: 600,
+    font_label_weight: 500,
     font_label_color: default_globals.font_primary_color,
     // font button settings
     font_button_family: default_globals.secondary_font,
     font_button_size: default_globals.font_size,
-    font_button_transform: 'uppercase',
-    font_button_weight: 500,
+    font_button_transform: 'none',
+    font_button_weight: 400,
     // font input settings
     font_input_family: default_globals.primary_font,
     font_input_size: default_globals.font_size,
@@ -79,7 +81,7 @@ export const createTheme = (override) => {
     font_option_active: default_colors.primary,
     font_option_family: default_globals.primary_font,
     font_option_size: default_globals.font_size,
-    font_option_hover: default_colors.primary,
+    font_option_hover: default_colors.secondary,
     // font variants settings
     font_light_color: default_globals.font_secondary_color,
     font_dark_color: default_globals.font_primary_color,
@@ -87,19 +89,20 @@ export const createTheme = (override) => {
     font_accordion_family: default_globals.primary_font,
     font_accordion_size: default_globals.font_size,
     font_accordion_color: default_globals.font_primary_color,
-    font_accordion_hover: default_colors.primary,
+    font_accordion_hover: default_colors.secondary,
     font_accordion_transform: 'none',
-    font_accordion_weight: 600,
+    font_accordion_weight: 500,
     // font table settings
     font_table_family: default_globals.primary_font,
     font_table_size: default_globals.font_size,
-    font_table_color: default_colors.primary,
-    font_table_weight: 600,
-    font_table_transform: 'uppercase',
+    font_table_color: default_globals.font_primary_color,
+    font_table_weight: 500,
+    font_table_transform: 'none',
     // font tabs settings
     font_tab_color: '#fff',
     ...fonts
   }
+
   const default_backgrounds = {
     background_tooltip: '#2e3440',
     background_input_disabled: '#f5f5f5',
@@ -113,7 +116,7 @@ export const createTheme = (override) => {
     background_modal: '#fff',
     background_tab: 'rgba(25, 118, 210, 0.8)',
     background_progress: '#f8f9fe',
-    background_progress_bar: '#0a91ed',
+    background_progress_bar: default_colors.primary,
     ...backgrounds
   }
   const default_borders = {
