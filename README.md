@@ -2,18 +2,26 @@
 
 > React Component Library
 
-[(https://img.shields.io/npm/v/kinetic-ui.svg)](https://www.npmjs.com/package/kinetic-ui)
-[(https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[(https://img.shields.io/badge/documentation-yes-brightgreen)](https://aqueous-mountain-73542.herokuapp.com/)
-[(https://img.shields.io/bundlephobia/min/kinetic-ui/1.2.3)]
-[(https://img.shields.io/npm/l/kinetic-ui)]
+[![NPM](https://img.shields.io/npm/v/kinetic-ui.svg)](https://www.npmjs.com/package/kinetic-ui)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen)](https://aqueous-mountain-73542.herokuapp.com/)
+![Size](https://img.shields.io/bundlephobia/min/kinetic-ui/1.2.3)
+![License](https://img.shields.io/npm/l/kinetic-ui)
 
-## [Kinetic UI Documentation](https://aqueous-mountain-73542.herokuapp.com/)
+## [Documentation](https://aqueous-mountain-73542.herokuapp.com/)
+
+kinetic-ui was created to speed up development time while maintaining flexibility. Most of the components can be interchangable and are not limited to the combination that has been put together inside the library.
+
+The documentation is sparse but will be growing constantly. A lot of the core components are available and there will be more to come.
+
+[check out the documentation here](https://aqueous-mountain-73542.herokuapp.com/http:// 'Check out the documentation here')
 
 ## Install
 
 ```bash
 yarn add kinetic-ui
+
+// requires fontawesome icons
 yarn add @fortawesome/fontawesome-svg-core
 yarn add @fortawesome/free-solid-svg-icons
 yarn add @fortawesome/free-regular-svg-icons
