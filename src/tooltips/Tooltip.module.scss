@@ -1,0 +1,25 @@
+.tooltip {
+  display: none;
+  align-self: center;
+  position: absolute;
+  line-height: 1;
+  width: max-content;
+  border-radius: 3px;
+  padding: 4px 5px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  z-index: 5;
+  p {
+    margin: 0px;
+  }
+}
+
+.caret {
+  display: block;
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  background-color: inherit;
+  border-radius: 0 0 0 2px;
+  clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}

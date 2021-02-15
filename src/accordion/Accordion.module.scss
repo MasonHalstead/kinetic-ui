@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  .accordion {
+    width: 100%;
+    cursor: pointer;
+  }
+  .summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    margin-bottom: -1px;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+    &:hover [data-role='tooltip'] {
+      display: block;
+    }
+    .spacer {
+      flex-grow: 1;
+    }
+    p {
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      font-family: inherit;
+      margin: 0px;
+    }
+  }
+  .content {
+    overflow: auto;
+    transition: max-height 0.6s ease;
+  }
+}

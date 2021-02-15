@@ -1,0 +1,16 @@
+.wizard {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.content {
+  flex-grow: 1;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px 15px 10px;
+}
+.flex {
+  flex-grow: 1;
+}

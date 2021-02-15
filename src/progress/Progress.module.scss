@@ -1,0 +1,19 @@
+.progress {
+  height: 8px;
+  width: 100%;
+}
+.bar {
+  height: 100%;
+  position: relative;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: width 3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.percent {
+  position: absolute;
+  right: 0;
+  top: -14px;
+  margin: 0px;
+  font-size: 12px;
+  font-weight: 500;
+}

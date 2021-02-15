@@ -1,0 +1,58 @@
+.wrapper {
+  .custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &:hover [data-role='tooltip'] {
+      display: block;
+    }
+  }
+  .textarea {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 3px;
+    textarea {
+      padding: 5px;
+      resize: vertical;
+    }
+    textarea:focus {
+      outline: 0;
+    }
+    &:hover [data-role='tooltip'] {
+      display: block;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+  .disabled {
+    cursor: default;
+    .base.fake {
+      cursor: default;
+    }
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    cursor: pointer;
+    font-size: 13px;
+    outline: none;
+  }
+  .base {
+    border: none;
+    flex-grow: 1;
+    padding: 0px 5px;
+    border-radius: 3px;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    &:focus {
+      outline: 0;
+    }
+  }
+}

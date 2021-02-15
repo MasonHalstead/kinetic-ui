@@ -1,0 +1,54 @@
+.modal {
+  display: none;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  z-index: 100;
+}
+.content {
+  position: relative;
+  height: max-content;
+  min-height: 50px;
+  min-width: 100px;
+  border-radius: 2px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.content.mobile {
+  height: inherit;
+  padding: 0px;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 0px;
+  flex-grow: 1;
+  border: none;
+}
+
+.modal.mobile {
+  padding: 0px;
+}
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
+}
+.close:hover .icon {
+  opacity: 0.8;
+}
+.body {
+  padding: 10px;
+}

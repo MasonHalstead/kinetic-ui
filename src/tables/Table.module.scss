@@ -1,0 +1,145 @@
+.borders {
+  box-sizing: border-box;
+  box-shadow: 1px 0 0 0 #b2bbc3, 0 1px 0 0 #b2bbc3, 1px 1px 0 0 #b2bbc3,
+    1px 0 0 0 #b2bbc3 inset, 0 1px 0 0 #b2bbc3 inset;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  .headers {
+    box-sizing: border-box;
+    display: flex;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    flex-grow: 0;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 10px;
+    width: 100%;
+    z-index: 1;
+    .heading {
+      display: flex;
+      justify-content: center;
+      padding: 0px 5px;
+      cursor: pointer;
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .icon {
+      float: right;
+      text-align: center;
+      min-width: 22px;
+    }
+  }
+  .headers .children {
+    display: flex;
+    flex-grow: 1;
+    min-height: 10px;
+    width: 100%;
+  }
+  .resizer {
+    position: relative;
+    // max-height: max-content !important;
+  }
+  .autosizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+  }
+  .rows {
+    position: relative;
+    box-sizing: border-box;
+    & > div:first-child {
+      border-top: none;
+    }
+    & > div:last-child {
+      border-bottom: none;
+    }
+  }
+  .rows.scroll {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .row {
+    display: flex;
+  }
+  .cell {
+    line-height: inherit;
+  }
+  .wrapper p,
+  .wrapper span,
+  .cell p,
+  .cell span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    line-height: inherit;
+    margin: 0px;
+    font-size: 13px;
+    padding: 0px 5px;
+  }
+}
+.rowsFlex {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
+.rowsFlex p,
+.rowsFlex span {
+  white-space: normal !important;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  .cells {
+    display: flex;
+    cursor: pointer;
+  }
+  .contentWrapper {
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+    transition: max-height 0.6s ease;
+  }
+  .content {
+    padding: 20px;
+  }
+  .summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:hover [data-role='tooltip'] {
+      display: block;
+    }
+    .spacer {
+      flex-grow: 1;
+    }
+    p {
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      font-family: inherit;
+      margin: 0px;
+    }
+  }
+}
