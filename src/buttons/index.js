@@ -1,3 +1,4 @@
 import { Button } from './Button'
+import { ButtonBase } from './ButtonBase'
 
-export { Button }
+export { Button, ButtonBase }

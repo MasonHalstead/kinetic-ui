@@ -1,4 +1,4 @@
-import { Button } from './buttons/index'
+import { Button, ButtonBase } from './buttons/index'
 import { Accordion } from './accordion/index'
 import {
   ThemeProvider,
@@ -8,7 +8,7 @@ import {
 } from './theme/index'
 import { Label } from './labels/index'
 import { Option } from './options/index'
-import { Dropdown, DropdownIcon } from './dropdowns/index'
+import { Dropdown, DropdownIcon, DropdownBase } from './dropdowns/index'
 import { Wizard } from './wizard/index'
 import {
   Input,
@@ -17,8 +17,8 @@ import {
   InputNumber,
   InputPercent
 } from './inputs/index'
-import { Table, TableAccordion, Cell } from './tables/index'
-import { Textarea } from './textarea/index'
+import { Table, TableBase, TableAccordion, Cell } from './tables/index'
+import { Textarea, TextareaBase } from './textarea/index'
 import { Tooltip } from './tooltips/index'
 import { Select } from './selects/index'
 import { Switch } from './switch/index'
@@ -27,6 +27,7 @@ import { Modal } from './modal/Modal'
 
 export {
   Button,
+  ButtonBase,
   Accordion,
   Modal,
   ThemeProvider,
@@ -37,6 +38,7 @@ export {
   Label,
   Option,
   Dropdown,
+  DropdownBase,
   DropdownIcon,
   Input,
   InputBase,
@@ -44,9 +46,11 @@ export {
   InputNumber,
   InputPercent,
   Table,
+  TableBase,
   TableAccordion,
   Cell,
   Textarea,
+  TextareaBase,
   Tooltip,
   Select,
   Switch,

@@ -1,3 +1,4 @@
 import { Textarea } from './Textarea'
+import { TextareaBase } from './TextareaBase'
 
-export { Textarea }
+export { Textarea, TextareaBase }

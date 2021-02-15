@@ -14,7 +14,7 @@ kinetic-ui was created to speed up development time while maintaining flexibilit
 
 The documentation is sparse but will be growing constantly. A lot of the core components are available and there will be more to come.
 
-[check out the documentation here](https://aqueous-mountain-73542.herokuapp.com/http:// 'Check out the documentation here')
+[check out the documentation here](https://aqueous-mountain-73542.herokuapp.com)
 
 ## Install
 
