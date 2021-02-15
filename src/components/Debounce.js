@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 import { useCallback, useEffect } from 'react'
 
-export const useDebounce = (fn, delay, dependency) => {
+export const useDebounce = (fn, value, debounce, delay, dependency) => {
   const callback = useCallback(fn, dependency)
 
   useEffect(() => {
+    if (value === debounce) {
+      return
+    }
     const handler = setTimeout(() => {
       if (delay) {
         callback()

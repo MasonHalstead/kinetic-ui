@@ -6,11 +6,16 @@ import cn from './Buttons.module.scss';
 
 const ButtonsPage = () => {
   return (
-    <div>
+    <div className={cn.page}>
       <div className={cn.header}>
         <h2>Buttons</h2>
       </div>
-
+      <div className={cn.block}>
+        <p>
+          Button variants depend on the colors object passed into the ThemeProvider. If more variants are needed pass
+          the colors into the theme.
+        </p>
+      </div>
       <pre className="code code-javascript">
         <label>JSX</label>
         <code>{`import React from 'react'

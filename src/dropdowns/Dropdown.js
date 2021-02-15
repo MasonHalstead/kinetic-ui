@@ -13,6 +13,7 @@ export const Dropdown = ({
   margin,
   background,
   default_value,
+  value,
   width,
   height,
   disabled,
@@ -32,6 +33,7 @@ export const Dropdown = ({
   const dropdowns = useTheme('dropdowns', theme)
   return (
     <DropdownBase
+      value={value}
       default_value={default_value}
       options={options}
       option_key={option_key}

@@ -10,7 +10,10 @@ const options = {
   ],
   buttons: [{ link: '/buttons', name: 'Buttons' }],
   dropdowns: [{ link: '/dropdowns', name: 'Dropdowns' }],
-  inputs: [{ link: '/inputs', name: 'Input' }],
+  inputs: [
+    { link: '/inputs', name: 'Inputs' },
+    { link: '/inputs-special', name: 'Inputs Special' },
+  ],
   modals: [
     { link: '/modals', name: 'Modals' },
     { link: '/modals-wizard', name: 'Modals Wizard' },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useDebounce } from '../components/Debounce'
 import { InputBase } from './InputBase'
@@ -6,11 +6,12 @@ import cn from './Input.module.scss'
 
 export const Input = ({
   placeholder,
-  value,
   debounce,
   text_align,
   type,
   name,
+  value,
+  default_value,
   ...rest
 }) => {
   const [debounce_value, setValue] = useState('')
@@ -24,13 +25,29 @@ export const Input = ({
     rest.onChange(e.target.value)
   }
 
-  useDebounce(() => rest.onChange(debounce_value), debounce, [debounce_value])
+  useEffect(() => {
+    if (debounce) {
+      setValue(default_value)
+    }
+  }, [default_value])
 
-  const props = { value }
+  useDebounce(
+    () => rest.onChange(debounce_value),
+    default_value,
+    debounce_value,
+    debounce,
+    [debounce_value]
+  )
 
-  if (debounce) {
+  const props = { value, default_value }
+
+  if (default_value) {
     props.value = undefined
-    props.default_value = value
+    props.default_value = default_value
+  }
+  if (value) {
+    props.value = value
+    props.default_value = undefined
   }
   return (
     <InputBase {...rest}>

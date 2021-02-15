@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useDebounce } from '../components/Debounce'
 import { InputBase } from './InputBase'
@@ -8,6 +8,7 @@ import cn from './Input.module.scss'
 export const InputPercent = ({
   placeholder,
   value,
+  default_value,
   name,
   debounce,
   thousand_separator,
@@ -37,17 +38,35 @@ export const InputPercent = ({
     })
   }
 
-  useDebounce(() => rest.onChange(debounce_value), debounce, [
-    debounce_value.value
-  ])
+  useEffect(() => {
+    if (debounce) {
+      setValue({
+        float_value: null,
+        formatted_value: null,
+        value: default_value
+      })
+    }
+  }, [default_value])
+
+  useDebounce(
+    () => rest.onChange(debounce_value),
+    default_value,
+    debounce_value.value,
+    debounce,
+    [debounce_value]
+  )
 
   const props = {
     value: debounce_value.formatted_value
   }
 
-  if (debounce) {
+  if (default_value) {
     props.value = undefined
-    props.default_value = debounce_value.formatted_value
+    props.default_value = default_value
+  }
+  if (value) {
+    props.value = value
+    props.default_value = undefined
   }
 
   return (

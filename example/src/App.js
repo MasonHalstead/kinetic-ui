@@ -15,6 +15,7 @@ export const App = () => {
         <PublicRouter exact path={routes.BUTTONS} component={WaitingComponent(pages.ButtonsPage)} />
         <PublicRouter exact path={routes.DROPDOWNS} component={WaitingComponent(pages.DropdownsPage)} />
         <PublicRouter exact path={routes.INPUTS} component={WaitingComponent(pages.InputsPage)} />
+        <PublicRouter exact path={routes.INPUTS_SPECIAL} component={WaitingComponent(pages.InputsSpecialPage)} />
         <PublicRouter exact path={routes.MODALS} component={WaitingComponent(pages.ModalsPage)} />
         <PublicRouter exact path={routes.MODALS_WIZARD} component={WaitingComponent(pages.ModalsWizardPage)} />
 

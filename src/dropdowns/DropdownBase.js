@@ -39,6 +39,7 @@ export const DropdownBase = ({
   multi_select,
   children,
   default_value,
+  value,
   options,
   option_key,
   nullable,
@@ -65,7 +66,17 @@ export const DropdownBase = ({
         remove: true
       }))
     }
-  }, [options])
+    if (value) {
+      const index = findOptionIndex(options, option_key, value)
+      setSettings((prev) => ({
+        ...prev,
+        selected: index,
+        active: index,
+        value: value,
+        remove: true
+      }))
+    }
+  }, [options, value])
 
   useEffect(() => {
     if (open) {
@@ -85,19 +96,22 @@ export const DropdownBase = ({
     setOpen(false)
   }
 
-  const onChange = (value) => {
-    rest.onChange(value)
+  const onChange = (v) => {
+    rest.onChange(v)
   }
 
   const onRemove = () => {
     rest.onSelect(null)
-    setSettings((prev) => ({
-      ...prev,
-      selected: -1,
-      active: -1,
-      value: null,
-      remove: false
-    }))
+
+    if (!value) {
+      setSettings((prev) => ({
+        ...prev,
+        selected: -1,
+        active: -1,
+        value: null,
+        remove: false
+      }))
+    }
   }
 
   const onSelect = (option, i) => {
@@ -106,13 +120,15 @@ export const DropdownBase = ({
     } else {
       rest.onSelect(option)
       setOpen(false)
-      setSettings((prev) => ({
-        ...prev,
-        selected: i,
-        active: i,
-        value: option[option_key],
-        remove: true
-      }))
+      if (!value) {
+        setSettings((prev) => ({
+          ...prev,
+          selected: i,
+          active: i,
+          value: option[option_key],
+          remove: true
+        }))
+      }
       inputRef.current.blur()
     }
   }
@@ -154,7 +170,7 @@ export const DropdownBase = ({
     }
   }
 
-  const { value, active, selected, remove } = settings
+  const { active, selected, remove } = settings
 
   // special case inside input base
   // abusing the input component a little bit
@@ -175,7 +191,7 @@ export const DropdownBase = ({
             onChange,
             onSelect,
             onRemove,
-            value,
+            value: settings.value,
             active,
             selected,
             open,
@@ -191,6 +207,7 @@ DropdownBase.defaultProps = {
   multi_select: false,
   width: '100%',
   default_value: null,
+  value: null,
   options: [],
   option_key: 'name',
   nullable: false,
@@ -203,6 +220,7 @@ DropdownBase.propTypes = {
   multi_select: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   default_value: PropTypes.string,
+  value: PropTypes.string,
   options: PropTypes.array,
   option_key: PropTypes.string,
   nullable: PropTypes.bool,
