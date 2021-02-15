@@ -10,7 +10,7 @@
 
 ## [Documentation](https://aqueous-mountain-73542.herokuapp.com/)
 
-kinetic-ui was created to speed up development time while maintaining flexibility. This library is opionionated and was built from many iterations on multiple projects. Most of the components can be interchangable and are not limited to the combination that has been put together inside the library.
+kinetic-ui was created to speed up development time while maintaining flexibility. This library is opionionated and was built from many iterations on multiple personal projects. Most of the components can be interchangable and are not limited to the combination that has been put together inside the library.
 
 I use this library on all of my projects and thought it would be nice to share not only for my own personal use but for others as well.
 
@@ -34,6 +34,7 @@ yarn add @fortawesome/free-brands-svg-icons
 
 ```jsx
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { ThemeProvider, Button } from 'kinetic-ui'
 import 'kinetic-ui/dist/index.css'
 
