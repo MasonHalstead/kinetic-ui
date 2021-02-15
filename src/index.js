@@ -15,7 +15,8 @@ import {
   InputBase,
   InputCurrency,
   InputNumber,
-  InputPercent
+  InputPercent,
+  InputPhone
 } from './inputs/index'
 import { Table, TableBase, TableAccordion, Cell } from './tables/index'
 import { Textarea, TextareaBase } from './textarea/index'
@@ -45,6 +46,7 @@ export {
   InputCurrency,
   InputNumber,
   InputPercent,
+  InputPhone,
   Table,
   TableBase,
   TableAccordion,
