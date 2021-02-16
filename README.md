@@ -10,9 +10,7 @@
 
 ## [Documentation](https://aqueous-mountain-73542.herokuapp.com/)
 
-kinetic-ui was created to speed up development time while maintaining flexibility. This library is opionionated and was built from many iterations on multiple personal projects. Most of the components can be interchangable and are not limited to the combination that has been put together inside the library.
-
-I use this library on all of my projects and thought it would be nice to share not only for my own personal use but for others as well.
+kinetic-ui was created to speed up development time while maintaining flexibility. This library is opionionated and wasn't built to do everything for you. Most of the components can be interchangable and are not limited to the combination that has been put together inside the library.
 
 The documentation is sparse but will be growing constantly. A lot of the core components are available and there will be more to come.
 

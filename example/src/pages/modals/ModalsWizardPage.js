@@ -5,7 +5,7 @@ import { headers, wizard_rows } from './constants';
 import cn from './Modals.module.scss';
 
 const Page = ({ page }) => {
-  return <div className={cn.page}>{page}</div>;
+  return <div className={cn.wizard}>{page}</div>;
 };
 
 const ModalsWizardPage = () => {

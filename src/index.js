@@ -18,6 +18,7 @@ import {
   InputPercent,
   InputPhone
 } from './inputs/index'
+import { Progress } from './progress/index'
 import { Table, TableBase, TableAccordion, Cell } from './tables/index'
 import { Textarea, TextareaBase } from './textarea/index'
 import { Tooltip } from './tooltips/index'
@@ -31,6 +32,7 @@ export {
   ButtonBase,
   Accordion,
   Modal,
+  Progress,
   ThemeProvider,
   useTheme,
   createDefaultTheme,
