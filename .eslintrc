@@ -24,12 +24,24 @@
     }
   },
   "rules": {
+    "arrow-body-style": [1, "as-needed"],
     "space-before-function-paren": 0,
-    "react/prop-types": 0,
+    "react/prop-types": 1,
+    "react/default-props-match-prop-types": 1,
     "react/jsx-handler-names": 0,
     "react/jsx-fragments": 0,
+    "react/no-render-return-value": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-closing-tag-location": 0,
     "react/no-unused-prop-types": 0,
+    "react-hooks/exhaustive-deps": 0,
     "import/export": 0,
-    "camelcase": 0
+    "camelcase": 0,
+    "no-param-reassign": 1,
+    "newline-per-chained-call": 0,
+    "no-confusing-arrow": 0,
+    "no-unused-vars": 1,
+    "prefer-template": 1,
+    "prefer-destructuring": 1
   }
 }

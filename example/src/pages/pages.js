@@ -8,6 +8,7 @@ export const ModalsPage = lazy(() => import('pages/modals/ModalsPage'));
 export const ModalsWizardPage = lazy(() => import('pages/modals/ModalsWizardPage'));
 export const InputsPage = lazy(() => import('pages/inputs/InputsPage'));
 export const InputsSpecialPage = lazy(() => import('pages/inputs/InputsSpecialPage'));
-export const TablesPage = lazy(() => import('pages/tables/TablesPage'));
+export const TableBasicsPage = lazy(() => import('pages/tables/TableBasicsPage'));
+export const TableHeadersPage = lazy(() => import('pages/tables/TableHeadersPage'));
 export const TablesAccordionPage = lazy(() => import('pages/tables/TablesAccordionPage'));
 export const ErrorPage = lazy(() => import('pages/error/ErrorPage'));

@@ -63,6 +63,8 @@ export const TableBase = ({
     submit_text: null,
     submit_disabled: false,
     pagination: null,
+    button_variant: 'primary',
+    button_size: 'medium',
     onSubmit: () => {}
   })
   const [sorting, setSorting] = useState({
@@ -106,6 +108,7 @@ export const TableBase = ({
   }, [useEffectUpdate(footer)])
 
   useEffect(() => {
+    console.log(sorting, 'am i berrr')
     rowFilters(settings_controlled)
   }, [sorting, settings_controlled])
 

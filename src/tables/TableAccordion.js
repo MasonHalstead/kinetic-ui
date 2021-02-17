@@ -8,6 +8,7 @@ export const TableAccordion = ({
   children,
   headers,
   settings,
+  transition,
   ...rest
 }) => {
   const header = {
@@ -21,15 +22,23 @@ export const TableAccordion = ({
       settings={{ ...settings, accordion: true }}
       headers={[...headers, header]}
     >
-      <RowAccordion accordion={accordion}>{children}</RowAccordion>
+      <RowAccordion accordion={accordion} transition={transition}>
+        {children}
+      </RowAccordion>
     </TableBase>
   )
 }
 TableAccordion.defaultProps = {
+  headers: [],
+  settings: {},
+  transition: 600,
   accordion: () => {},
   children: () => {}
 }
 TableAccordion.propTypes = {
+  headers: PropTypes.array,
+  settings: PropTypes.object,
+  transition: PropTypes.number,
   accordion: PropTypes.any,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

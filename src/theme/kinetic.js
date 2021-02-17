@@ -91,6 +91,7 @@ export const createTheme = (override) => {
     font_accordion_transform: 'none',
     font_accordion_weight: 500,
     // font table settings
+    font_header_hover: default_colors.secondary,
     font_table_family: default_globals.primary_font,
     font_table_size: default_globals.font_size,
     font_table_color: default_colors.primary,
@@ -204,6 +205,7 @@ export const createTheme = (override) => {
   const default_tables = {
     border_table_color: default_globals.border_color,
     background_header: default_backgrounds.background_header,
+    font_header_hover: default_fonts.font_header_hover,
     font_table_family: default_fonts.font_table_family,
     font_table_size: default_fonts.font_table_size,
     font_table_color: default_fonts.font_table_color,

@@ -19,8 +19,12 @@ const options = {
     { link: '/modals-wizard', name: 'Modals Wizard' },
   ],
   tables: [
-    { link: '/tables', name: 'Table' },
-    { link: '/tables-accordion', name: 'Table Accordion' },
+    { link: '/table-basics', name: 'Table Basics' },
+    { link: '/table-headers', name: 'Table Headers' },
+    { link: '/table-settings', name: 'Table Settings' },
+    { link: '/table-footer', name: 'Table Footer' },
+    { link: '/table-variations', name: 'Table Variations' },
+    { link: '/table-accordion', name: 'Table Accordion' },
   ],
 };
 export const Menu = () => {

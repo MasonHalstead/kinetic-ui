@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { HeadersElement, HeaderElement } from './elements'
+import { HeadersElement, HeaderElement, ContentElement } from './elements'
+import classNames from 'classnames'
 import cn from './Table.module.scss'
 
 export const Headers = ({ headers, theme, settings, onSortHeaders }) => {
@@ -64,7 +65,12 @@ export const Headers = ({ headers, theme, settings, onSortHeaders }) => {
           flexGrow: header.flex_grow
         }}
       >
-        <div className={cn.heading} onClick={() => onSort(header)}>
+        <ContentElement
+          theme={theme}
+          sort_direction={sort_direction}
+          className={classNames(cn.heading, { [cn.action]: sort_direction })}
+          onClick={() => onSort(header)}
+        >
           <span
             style={{
               height: `${header_row_height}px`,
@@ -95,7 +101,7 @@ export const Headers = ({ headers, theme, settings, onSortHeaders }) => {
               )}
             </span>
           )}
-        </div>
+        </ContentElement>
         {header.children && (
           <div className={cn.children}>
             {header.children.map((h) => insertHeaders(h))}

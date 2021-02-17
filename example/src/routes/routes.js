@@ -8,7 +8,8 @@ export const routes = {
   INPUTS_SPECIAL: '/inputs-special',
   MODALS: '/modals',
   MODALS_WIZARD: '/modals-wizard',
-  TABLES: '/tables',
+  TABLE_BASICS: '/table-basics',
+  TABLE_HEADERS: '/table-headers',
   TABLES_ACCORDION: '/tables-accordion',
   DATA: '/data',
 };

@@ -18,34 +18,64 @@ export const RowAccordion = ({
   expanded_icon,
   expand_icon,
   children,
+  transition,
   settings,
   row_index,
   row,
-  headers,
-  header
+  headers
 }) => {
   const [expand, setExpand] = useState(false)
+  const [content, setContent] = useState(false)
   const [height, setHeight] = useState(0)
   const contentRef = useRef()
 
   useEffect(() => {
-    const { current } = contentRef
+    // initial expand & content show
     setExpand(expanded)
-    if (current && expanded) {
-      setHeight(current.scrollHeight)
-    } else {
-      setHeight(0)
-    }
+    setContent(expanded)
   }, [])
-  const setAccordion = () => {
-    if (expand) {
+
+  useEffect(() => {
+    if (content) {
+      // measure height on content trigger
+      setContentHeight()
+    }
+  }, [content])
+
+  useEffect(() => {
+    // height change needs to continue the measure of content
+    // checks content is true because height: 0 will trigger
+    if (content && expand) {
+      setContentHeight()
+    }
+  }, [height])
+
+  const setAccordion = async () => {
+    if (!expand) {
+      // opens content and fires content useEffect
+      setExpand(true)
+      setContent(true)
+    } else {
+      // closes everything and hides content after transition is done
       setExpand(false)
       setHeight(0)
-    } else {
-      setExpand(true)
-      setHeight(contentRef.current.scrollHeight)
+      setTimeout(() => setContent(false), transition)
     }
   }
+  const setContentHeight = () => {
+    const { current } = contentRef
+
+    // sets the initial height which fires the height useEffect
+    if (current) {
+      setHeight(current.scrollHeight)
+    }
+    // measure the current height and ref height
+    // make sure the accordion opens all the way
+    if (current && current.scrollHeight !== height) {
+      setHeight(current.scrollHeight)
+    }
+  }
+
   const { rows_striped, row_height, row_highlight } = settings
   return (
     <RowElement
@@ -58,17 +88,18 @@ export const RowAccordion = ({
         className={cn.cells}
         style={{ minHeight: row_height, lineHeight: `${row_height}px` }}
       >
-        {Children.map(children, (child, i) => {
-          return (
-            <CellWrapper header={headers[i]} settings={settings} theme={theme}>
-              {cloneElement(child, {
-                row,
-                header,
-                settings
-              })}
-            </CellWrapper>
-          )
-        })}
+        {Children.map(children, (child, i) => (
+          <CellWrapper header={headers[i]} settings={settings} theme={theme}>
+            {cloneElement(child, {
+              row,
+              header: headers[i],
+              transition,
+              row_index,
+              expanded: expand,
+              settings
+            })}
+          </CellWrapper>
+        ))}
         <CellWrapper
           header={headers[headers.length - 1]}
           settings={settings}
@@ -82,6 +113,7 @@ export const RowAccordion = ({
       </div>
       <AccordionElement
         className={cn.contentWrapper}
+        transition={transition}
         ref={contentRef}
         theme={theme}
         expand={expand}
@@ -91,7 +123,16 @@ export const RowAccordion = ({
           className={cn.content}
           style={{ borderTop: `1px solid ${theme.border_table_color}` }}
         >
-          {accordion({ row, settings })}
+          {content &&
+            accordion({
+              row,
+              settings,
+              theme,
+              transition,
+              row_index,
+              headers,
+              expanded: expand
+            })}
         </div>
       </AccordionElement>
     </RowElement>
@@ -99,6 +140,11 @@ export const RowAccordion = ({
 }
 RowAccordion.defaultProps = {
   theme: {},
+  transition: 600,
+  settings: {},
+  row_index: -1,
+  row: {},
+  headers: [],
   expanded: false,
   accordion: () => {},
   expanded_icon: ['fas', 'chevron-down'],
@@ -110,6 +156,12 @@ RowAccordion.propTypes = {
   expand_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   expanded: PropTypes.bool,
   theme: PropTypes.object,
+  transition: PropTypes.number,
+  settings: PropTypes.object,
+  row_index: PropTypes.number,
+  row: PropTypes.object,
+  headers: PropTypes.array,
+  header: PropTypes.object,
   accordion: PropTypes.any,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

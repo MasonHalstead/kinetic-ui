@@ -30,6 +30,9 @@
         text-overflow: ellipsis;
       }
     }
+    .action {
+      cursor: pointer;
+    }
     .icon {
       float: right;
       text-align: center;
@@ -75,10 +78,10 @@
   .cell {
     line-height: inherit;
   }
-  .wrapper p,
-  .wrapper span,
-  .cell p,
-  .cell span {
+  .wrapper > p,
+  .wrapper > span,
+  .cell > p,
+  .cell > span {
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
@@ -110,7 +113,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow: hidden;
   .cells {
     display: flex;
     cursor: pointer;

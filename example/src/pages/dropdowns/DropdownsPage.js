@@ -19,6 +19,13 @@ const DropdownsPage = () => {
           a dropdown will set the selected option on the initial render. The component will also try and find the
           corresponding key using the option_key prop to highlight the selected option when open.
         </p>
+        <p>
+          The uuid key is required on the option object when passing options into the dropdown. We recommend using the{' '}
+          <a href="https://www.npmjs.com/package/uuid" rel="noopener noreferrer" target="_blank">
+            uuid package from npm
+          </a>
+          .
+        </p>
       </div>
       <pre className="code code-javascript">
         <label>JSX</label>

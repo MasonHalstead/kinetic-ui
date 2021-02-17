@@ -56,6 +56,7 @@ Row.defaultProps = {
   row: {},
   theme: {},
   settings: {},
+  row_index: -1,
   children: () => {}
 }
 
@@ -64,15 +65,7 @@ Row.propTypes = {
   header: PropTypes.object,
   row: PropTypes.object,
   theme: PropTypes.object,
+  row_index: PropTypes.number,
   settings: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
-
-// Rows.propTypes = {
-//   background: PropTypes.string,
-//   hover: PropTypes.bool,
-//   padding: PropTypes.bool,
-//   flex: PropTypes.any,
-//   children: PropTypes.any,
-//   align: PropTypes.string
-// }

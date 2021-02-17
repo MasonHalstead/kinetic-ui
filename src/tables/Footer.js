@@ -4,13 +4,25 @@ import { Button } from '../buttons/Button'
 import cn from './Table.module.scss'
 
 export const Footer = ({ footer }) => {
-  const { pagination, submit_disabled, submit_text, onSubmit } = footer
+  const {
+    pagination,
+    submit_disabled,
+    submit_text,
+    button_variant,
+    button_size,
+    onSubmit
+  } = footer
   if (pagination || submit_text) {
     return (
       <div className={cn.footer}>
         <div className={cn.flex} />
         {submit_text && (
-          <Button onClick={onSubmit} disabled={submit_disabled}>
+          <Button
+            onClick={onSubmit}
+            variant={button_variant}
+            button_size={button_size}
+            disabled={submit_disabled}
+          >
             {submit_text}
           </Button>
         )}
@@ -25,6 +37,8 @@ Footer.defaultProps = {
     pagination: null, // todo
     submit_disabled: false,
     submit_text: null,
+    button_variant: null,
+    button_size: 'medium',
     onSubmit: () => {}
   }
 }

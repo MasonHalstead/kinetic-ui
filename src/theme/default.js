@@ -98,6 +98,7 @@ export const createTheme = (override) => {
     font_table_color: default_globals.font_primary_color,
     font_table_weight: 500,
     font_table_transform: 'none',
+    font_header_hover: default_colors.secondary,
     // font tabs settings
     font_tab_color: '#fff',
     ...fonts
@@ -207,6 +208,7 @@ export const createTheme = (override) => {
   const default_tables = {
     border_table_color: default_globals.border_color,
     background_header: default_backgrounds.background_header,
+    font_header_hover: default_fonts.font_header_hover,
     font_table_family: default_fonts.font_table_family,
     font_table_size: default_fonts.font_table_size,
     font_table_color: default_fonts.font_table_color,
