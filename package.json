@@ -10,6 +10,16 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "react",
+    "framework",
+    "ui",
+    "tables",
+    "inputs",
+    "dropdowns",
+    "components",
+    "utility"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
