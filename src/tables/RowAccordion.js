@@ -64,7 +64,6 @@ export const RowAccordion = ({
   }
   const setContentHeight = () => {
     const { current } = contentRef
-
     // sets the initial height which fires the height useEffect
     if (current) {
       setHeight(current.scrollHeight)

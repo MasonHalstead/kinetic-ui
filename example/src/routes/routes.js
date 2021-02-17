@@ -9,7 +9,9 @@ export const routes = {
   MODALS: '/modals',
   MODALS_WIZARD: '/modals-wizard',
   TABLE_BASICS: '/table-basics',
+  TABLE_FOOTER: '/table-footer',
+  TABLE_VARIATIONS: '/table-variations',
   TABLE_HEADERS: '/table-headers',
-  TABLES_ACCORDION: '/tables-accordion',
+  TABLE_ACCORDION: '/table-accordion',
   DATA: '/data',
 };

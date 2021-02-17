@@ -57,6 +57,57 @@ export const table_headers = [
   },
 ];
 
+export const headers_props = [
+  {
+    name: 'name',
+    type: 'string',
+    default: 'null',
+    options: '',
+    description: 'header name',
+    uuid: 1,
+  },
+  {
+    name: 'width',
+    type: 'string',
+    default: 'null',
+    options: '',
+    description: 'max-width of the header',
+    uuid: 2,
+  },
+  {
+    name: 'sort_key',
+    type: 'string',
+    default: 'null',
+    options: '',
+    description: 'sorts rows based on the provided give 0-1 a-z',
+    uuid: 3,
+  },
+  {
+    name: 'sort_direction',
+    type: 'function',
+    default: 'null',
+    options: 'default | asc | desc',
+    description: 'header sort icon',
+    uuid: 4,
+  },
+  {
+    name: 'flex_grow',
+    type: 'number',
+    default: '',
+    options: '',
+    description: 'allows the header to flex-grow across the table and is required in at least 1 header',
+    uuid: 5,
+  },
+  {
+    name: 'uuid',
+    type: 'string',
+    default: '',
+    options: '',
+    description: 'required key for a header',
+    uuid: 6,
+  },
+];
+
 export const table_props = [
   {
     name: 'headers',
@@ -249,12 +300,28 @@ export const footer_props = [
     uuid: 3,
   },
   {
+    name: 'button_variant',
+    type: 'string',
+    default: 'primary',
+    options: 'primary | secondary | blue | purple...',
+    description: 'sets the footer button color',
+    uuid: 4,
+  },
+  {
+    name: 'button_size',
+    type: 'string',
+    default: 'medium',
+    options: 'small | medium | large',
+    description: 'sets the footer button size',
+    uuid: 5,
+  },
+  {
     name: 'onSubmit',
     type: 'function',
     default: '() => {}',
     options: '',
     description: 'fires the footer button',
-    uuid: 4,
+    uuid: 6,
   },
 ];
 

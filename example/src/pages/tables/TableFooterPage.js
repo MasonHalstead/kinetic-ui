@@ -1,14 +1,14 @@
 import React from 'react';
 import { Table } from 'kinetic-ui';
-import { headers, table_props, table_headers, data } from './constants';
+import { headers, footer_props, table_headers, data } from './constants';
 import { CustomCell } from './Cells';
 import cn from './Tables.module.scss';
 
-const TableBasicsPage = () => {
+const TableFooterPage = () => {
   return (
     <div className={cn.page}>
       <div className={cn.header}>
-        <h2>Table Basic</h2>
+        <h2>Table Footer</h2>
       </div>
       <div className={cn.block}>
         <p>
@@ -31,28 +31,31 @@ const TableBasicsPage = () => {
         <code>{`import React from 'react'
 import { Table, Cell } from 'kinetic-ui'
 
+const footer = {
+    submit_text: 'Submit',
+    submit_disabled: false,
+    pagination: null, // not integrated yet
+    button_variant: 'secondary'
+    button_size: 'medium',
+    onSubmit: () => alert('submit clicked'),
+}
+
 // headers basic example
 const headers = [{
-  name: 'Company',
-  width: '200px',
-  flex_grow: 1,
-  uuid: 1, // required key
+    name: 'Company',
+    width: '200px',
+    flex_grow: 1,
+    uuid: 1, // required key
 }]
 
 // rows basic example
 const rows = [{
-  company: 'Magnis Dis Parturient Ltd',
-  currency: '$57.12',
-  country: 'Samoa',
-  location: '-70.60207, 98.41223',
-  uuid: 10, // required key
+    company: 'Magnis Dis Parturient Ltd',
+    currency: '$57.12',
+    country: 'Samoa',
+    location: '-70.60207, 98.41223',
+    uuid: 10, // required key
 }]
-
-const footer = {
-  submit_text: 'Submit',
-  submit_disabled: false,
-  button_variant: 'secondary'
-}
 
 // quick and dirty cell
 const CustomCell = ({ row, lazy, align }) => (
@@ -78,6 +81,7 @@ const CustomCell = ({ row, lazy, align }) => (
             submit_text: 'Submit',
             submit_disabled: false,
             button_variant: 'secondary',
+            onSubmit: () => alert('submit clicked'),
           }}
         >
           <CustomCell lazy="company" />
@@ -87,10 +91,10 @@ const CustomCell = ({ row, lazy, align }) => (
         </Table>
       </div>
       <div className={cn.header}>
-        <h2>Table Props</h2>
+        <h2>Footer Props</h2>
       </div>
       <div className={cn.wrapper}>
-        <Table headers={headers} rows={table_props} settings={{ rows_flex: true }}>
+        <Table headers={headers} rows={footer_props} settings={{ rows_flex: true }}>
           <CustomCell lazy="name" />
           <CustomCell lazy="type" />
           <CustomCell lazy="default" />
@@ -102,4 +106,4 @@ const CustomCell = ({ row, lazy, align }) => (
   );
 };
 
-export default TableBasicsPage;
+export default TableFooterPage;

@@ -21,7 +21,6 @@ const options = {
   tables: [
     { link: '/table-basics', name: 'Table Basics' },
     { link: '/table-headers', name: 'Table Headers' },
-    { link: '/table-settings', name: 'Table Settings' },
     { link: '/table-footer', name: 'Table Footer' },
     { link: '/table-variations', name: 'Table Variations' },
     { link: '/table-accordion', name: 'Table Accordion' },

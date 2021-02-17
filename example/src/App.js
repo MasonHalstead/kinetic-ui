@@ -21,7 +21,9 @@ export const App = () => {
 
         <PublicRouter exact path={routes.TABLE_BASICS} component={WaitingComponent(pages.TableBasicsPage)} />
         <PublicRouter exact path={routes.TABLE_HEADERS} component={WaitingComponent(pages.TableHeadersPage)} />
-        <PublicRouter exact path={routes.TABLES_ACCORDION} component={WaitingComponent(pages.TablesAccordionPage)} />
+        <PublicRouter exact path={routes.TABLE_FOOTER} component={WaitingComponent(pages.TableFooterPage)} />
+        <PublicRouter exact path={routes.TABLE_VARIATIONS} component={WaitingComponent(pages.TableVariationsPage)} />
+        <PublicRouter exact path={routes.TABLE_ACCORDION} component={WaitingComponent(pages.TableAccordionPage)} />
         <PublicRouter component={WaitingComponent(pages.ErrorPage)} />
       </Switch>
     </Router>
