@@ -7,63 +7,105 @@ import React, {
 } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
-import { Accordion } from './elements'
+import { AccordionElement, Accordion, ContentElement } from './elements'
 import cn from './Accordion.module.scss'
 
 export const AccordionBase = ({
   title,
   theme,
+  transition,
   expanded,
   expanded_icon,
   expand_icon,
   children
 }) => {
   const [expand, setExpand] = useState(false)
+  const [direction, setDirection] = useState(false)
+  const [content, setContent] = useState(false)
   const [height, setHeight] = useState(0)
   const contentRef = useRef()
 
   useEffect(() => {
-    const { current } = contentRef
-    setExpand(expanded)
-    if (current && expanded) {
-      setHeight(current.scrollHeight)
+    // initial expand & content show
+    if (expanded) {
+      setTimeout(() => setExpand(true), transition)
+      setContent(true)
+      setDirection(true)
     } else {
-      setHeight(0)
+      setExpand(false)
+      setContent(false)
+      setDirection(false)
     }
   }, [])
-  const setAccordion = () => {
-    if (expand) {
-      setExpand(false)
-      setHeight(0)
+
+  useEffect(() => {
+    if (content) {
+      // measure height on content trigger
+      setContentHeight()
+    }
+  }, [content])
+
+  useEffect(() => {
+    // height change needs to continue the measure of content
+    // checks content is true because height: 0 will trigger
+    if (content && expand) {
+      setContentHeight()
+    }
+  }, [height])
+
+  const setAccordion = async () => {
+    if (!expand) {
+      // opens content and fires content useEffect
+      setTimeout(() => setExpand(true), transition)
+      setContent(true)
+      setDirection(true)
     } else {
-      setExpand(true)
-      setHeight(contentRef.current.scrollHeight)
+      // closes everything and hides content after transition is done
+      setExpand(false)
+      setDirection(false)
+      setTimeout(() => setContent(false), transition)
+      setHeight(0)
+    }
+  }
+  const setContentHeight = () => {
+    const { current } = contentRef
+    // sets the initial height which fires the height useEffect
+    if (current) {
+      setHeight(current.scrollHeight)
+    }
+    // measure the current height and ref height
+    // make sure the accordion opens all the way
+    if (current && current.scrollHeight !== height) {
+      setHeight(current.scrollHeight)
     }
   }
   return (
-    <div
+    <AccordionElement
       className={cn.accordion}
+      theme={theme}
       style={{ background: theme.background_accordion }}
     >
       <Accordion className={cn.summary} onClick={setAccordion} theme={theme}>
         <p>{title}</p>
-        {expand && <FontAwesomeIcon icon={expanded_icon} />}
-        {!expand && <FontAwesomeIcon icon={expand_icon} />}
+        {direction && <FontAwesomeIcon icon={expanded_icon} />}
+        {!direction && <FontAwesomeIcon icon={expand_icon} />}
       </Accordion>
-      <div
-        className={cn.content}
+      <ContentElement
+        transition={transition}
+        expand={expand}
         ref={contentRef}
         style={{ maxHeight: height }}
       >
-        {Children.map(children, (child) => cloneElement(child, {}))}
-      </div>
-    </div>
+        {content && Children.map(children, (child) => cloneElement(child, {}))}
+      </ContentElement>
+    </AccordionElement>
   )
 }
 AccordionBase.defaultProps = {
   title: '',
   theme: {},
   expanded: false,
+  transition: 600,
   expanded_icon: ['fas', 'chevron-down'],
   expand_icon: ['fas', 'chevron-right'],
   children: () => {}
@@ -73,6 +115,7 @@ AccordionBase.propTypes = {
   expand_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   title: PropTypes.string,
   expanded: PropTypes.bool,
+  transition: PropTypes.number,
   theme: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

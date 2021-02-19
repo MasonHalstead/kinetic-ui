@@ -47,11 +47,18 @@ export const RowElement = styled.div(
     }
   }
 )
-export const AccordionElement = styled.div(({ theme }) => ({
+export const AccordionElement = styled.div(({ theme, transition, expand }) => ({
+  overflow: !expand ? 'auto' : 'visible',
+  transition: `max-height ${transition}ms ease`,
   borderRight: `1px solid ${theme.border_table_color}`
 }))
 export const CellElement = styled.div(({ theme, borders }) => ({
   // borderBottom: `1px solid ${theme.border_table_color}`,
   // borderLeft: `1px solid ${theme.border_table_color}`,
   borderRight: borders && `1px solid ${theme.border_table_color}`
+}))
+export const AccordionContentElement = styled.div(({ theme, expand }) => ({
+  overflow: 'auto',
+  borderLeft: theme.border_accordion,
+  borderRight: theme.border_accordion
 }))

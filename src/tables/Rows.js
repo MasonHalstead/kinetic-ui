@@ -78,8 +78,14 @@ export const Rows = ({
     return []
   }
 
-  if (!rows) {
-    return null
+  if (!rows || rows.length === 0) {
+    return cloneElement(children, {
+      key: -1,
+      theme,
+      row_index: -1,
+      settings,
+      headers
+    })
   }
 
   const { rows_fill, rows_sticky_fill } = settings
