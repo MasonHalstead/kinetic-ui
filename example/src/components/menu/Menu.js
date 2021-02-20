@@ -8,6 +8,7 @@ const options = {
     { link: '/install', name: 'Installation' },
     { link: '/theme', name: 'Theme' },
   ],
+  accordion: [{ link: '/accordion', name: 'Accordion' }],
   buttons: [{ link: '/buttons', name: 'Buttons' }],
   dropdowns: [{ link: '/dropdowns', name: 'Dropdowns' }],
   inputs: [
@@ -31,6 +32,7 @@ export const Menu = () => {
     <div className={cn.menu}>
       <Accordion>
         <AccordionItem title="Getting Started" options={options.installation} />
+        <AccordionItem title="Accordion" options={options.accordion} />
         <AccordionItem title="Buttons" options={options.buttons} />
         <AccordionItem title="Dropdowns" options={options.dropdowns} />
         <AccordionItem title="Inputs" options={options.inputs} />

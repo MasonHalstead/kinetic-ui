@@ -12,6 +12,7 @@ export const App = () => {
         <Redirect exact from={routes.ROOT} to={routes.INSTALLATION} />
         <PublicRouter exact path={routes.INSTALLATION} component={WaitingComponent(pages.InstallationPage)} />
         <PublicRouter exact path={routes.THEME} component={WaitingComponent(pages.ThemePage)} />
+        <PublicRouter exact path={routes.ACCORDION} component={WaitingComponent(pages.AccordionPage)} />
         <PublicRouter exact path={routes.BUTTONS} component={WaitingComponent(pages.ButtonsPage)} />
         <PublicRouter exact path={routes.DROPDOWNS} component={WaitingComponent(pages.DropdownsPage)} />
         <PublicRouter exact path={routes.INPUTS} component={WaitingComponent(pages.InputsPage)} />

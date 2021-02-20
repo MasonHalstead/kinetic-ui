@@ -12,7 +12,8 @@ export const Accordion = ({ margin, width, theme, children }) => {
       style={{
         margin,
         width,
-        border: accordions.border_accordion
+        borderLeft: accordions.border_accordion,
+        borderRight: accordions.border_accordion
       }}
     >
       {Children.map(children, (child) => (

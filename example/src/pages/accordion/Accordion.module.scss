@@ -1,0 +1,49 @@
+.page {
+  padding: 10px 5px;
+}
+.header {
+  margin: 5px 10px;
+  h2 {
+    margin: 0px;
+  }
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 20px;
+}
+.block {
+  margin: 10px;
+  margin-bottom: 0px;
+  p {
+    font-size: 14px;
+    margin: 10px 0px;
+    line-height: 1.5;
+  }
+}
+.menu {
+  display: flex;
+  max-width: 300px;
+  min-width: 300px;
+  flex-grow: 1;
+  margin-top: -1px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  a {
+    color: #212529;
+    font-weight: 500;
+    padding: 7px 10px;
+    font-size: 13px;
+    flex-grow: 1;
+  }
+  a:hover {
+    color: #91a7ff;
+  }
+}

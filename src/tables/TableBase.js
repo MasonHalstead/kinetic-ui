@@ -59,14 +59,6 @@ export const TableBase = ({
   const { height, ref } = useResizeDetector()
   const [headers_controlled, setHeaders] = useState([])
   const [rows_controlled, setRows] = useState([])
-  const [footer_controlled, setFooter] = useState({
-    submit_text: null,
-    submit_disabled: false,
-    pagination: null,
-    button_variant: 'primary',
-    button_size: 'medium',
-    onSubmit: () => {}
-  })
   const [sorting, setSorting] = useState({
     sort_column_key: null,
     sort_direction: 'desc',
@@ -102,10 +94,6 @@ export const TableBase = ({
   useEffect(() => {
     setHeaders(headers)
   }, [useEffectUpdate(headers)])
-
-  useEffect(() => {
-    setFooter((prev) => ({ ...prev, ...footer }))
-  }, [useEffectUpdate(footer)])
 
   useEffect(() => {
     rowFilters(settings_controlled)
@@ -250,7 +238,7 @@ export const TableBase = ({
           </RowsElement>
         </div>
       </div>
-      <Footer footer={footer_controlled} />
+      <Footer footer={footer} />
     </div>
   )
 }
@@ -258,10 +246,17 @@ TableBase.defaultProps = {
   headers: [],
   rows: [],
   settings: {},
+  footer: {
+    submit_text: null,
+    submit_disabled: false,
+    pagination: null,
+    button_variant: 'primary',
+    button_size: 'medium',
+    onSubmit: () => {}
+  },
   theme: {},
   filter: null,
   keywords: null,
-  footer: {},
   children: () => {}
 }
 TableBase.propTypes = {

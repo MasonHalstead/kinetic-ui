@@ -12,6 +12,7 @@ export const Footer = ({ footer }) => {
     button_size,
     onSubmit
   } = footer
+
   if (pagination || submit_text) {
     return (
       <div className={cn.footer}>
@@ -19,8 +20,8 @@ export const Footer = ({ footer }) => {
         {submit_text && (
           <Button
             onClick={onSubmit}
-            variant={button_variant}
-            button_size={button_size}
+            variant={button_variant || 'primary'}
+            button_size={button_size || 'medium'}
             disabled={submit_disabled}
           >
             {submit_text}
