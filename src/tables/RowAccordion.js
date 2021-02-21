@@ -9,12 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import { RowElement, AccordionElement } from './elements'
 import { CellWrapper, Cell } from './Cell'
+import Measure from 'react-measure'
 import cn from './Table.module.scss'
 
 export const RowAccordion = ({
   theme,
-  accordion,
   expanded,
+  accordion,
+  accordion_padding,
   expanded_icon,
   expand_icon,
   children,
@@ -25,54 +27,40 @@ export const RowAccordion = ({
   headers
 }) => {
   const [expand, setExpand] = useState(false)
+  const [direction, setDirection] = useState(false)
   const [content, setContent] = useState(false)
   const [height, setHeight] = useState(0)
   const contentRef = useRef()
 
   useEffect(() => {
     // initial expand & content show
-    setExpand(expanded)
-    setContent(expanded)
+    if (expanded) {
+      setTimeout(() => setExpand(true), transition)
+      setContent(true)
+      setDirection(true)
+    } else {
+      setExpand(false)
+      setContent(false)
+      setDirection(false)
+    }
   }, [])
-
-  useEffect(() => {
-    if (content) {
-      // measure height on content trigger
-      setContentHeight()
-    }
-  }, [content])
-
-  useEffect(() => {
-    // height change needs to continue the measure of content
-    // checks content is true because height: 0 will trigger
-    if (content && expand) {
-      setContentHeight()
-    }
-  }, [height])
 
   const setAccordion = async () => {
     if (!expand) {
       // opens content and fires content useEffect
-      setExpand(true)
+      setTimeout(() => setExpand(true), transition)
       setContent(true)
+      setDirection(true)
     } else {
       // closes everything and hides content after transition is done
       setExpand(false)
-      setHeight(0)
+      setDirection(false)
       setTimeout(() => setContent(false), transition)
+      setHeight(0)
     }
   }
-  const setContentHeight = () => {
-    const { current } = contentRef
-    // sets the initial height which fires the height useEffect
-    if (current) {
-      setHeight(current.scrollHeight)
-    }
-    // measure the current height and ref height
-    // make sure the accordion opens all the way
-    if (current && current.scrollHeight !== height) {
-      setHeight(current.scrollHeight)
-    }
+  const onResize = (ref) => {
+    setHeight(ref.scroll.height)
   }
 
   const { rows_striped, row_height, row_highlight } = settings
@@ -105,8 +93,8 @@ export const RowAccordion = ({
           theme={theme}
         >
           <Cell onClick={setAccordion} align='center'>
-            {expand && <FontAwesomeIcon icon={expanded_icon} />}
-            {!expand && <FontAwesomeIcon icon={expand_icon} />}
+            {direction && <FontAwesomeIcon icon={expanded_icon} />}
+            {!direction && <FontAwesomeIcon icon={expand_icon} />}
           </Cell>
         </CellWrapper>
       </div>
@@ -118,21 +106,28 @@ export const RowAccordion = ({
         expand={expand}
         style={{ maxHeight: height }}
       >
-        <div
-          className={cn.content}
-          style={{ borderTop: `1px solid ${theme.border_table_color}` }}
-        >
-          {content &&
-            accordion({
-              row,
-              settings,
-              theme,
-              transition,
-              row_index,
-              headers,
-              expanded: expand
-            })}
-        </div>
+        <Measure scroll onResize={onResize}>
+          {({ measureRef }) => (
+            <div
+              ref={measureRef}
+              style={{
+                borderTop: `1px solid ${theme.border_table_color}`,
+                padding: content && accordion_padding
+              }}
+            >
+              {content &&
+                accordion({
+                  row,
+                  settings,
+                  theme,
+                  transition,
+                  row_index,
+                  headers,
+                  expanded: expand
+                })}
+            </div>
+          )}
+        </Measure>
       </AccordionElement>
     </RowElement>
   )
@@ -146,6 +141,7 @@ RowAccordion.defaultProps = {
   headers: [],
   expanded: false,
   accordion: () => {},
+  accordion_padding: '20px',
   expanded_icon: ['fas', 'chevron-down'],
   expand_icon: ['fas', 'chevron-right'],
   children: () => {}
@@ -159,6 +155,7 @@ RowAccordion.propTypes = {
   settings: PropTypes.object,
   row_index: PropTypes.number,
   row: PropTypes.object,
+  accordion_padding: PropTypes.string,
   headers: PropTypes.array,
   header: PropTypes.object,
   accordion: PropTypes.any,

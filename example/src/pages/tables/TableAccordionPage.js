@@ -1,6 +1,6 @@
 import React from 'react';
 import { TableAccordion, Table } from 'kinetic-ui';
-import { table_headers, data } from './constants';
+import { table_headers, headers, table_accordion_props, data } from './constants';
 import { CustomCell } from './Cells';
 import cn from './Tables.module.scss';
 
@@ -115,6 +115,18 @@ const rows = [{
           <CustomCell lazy="country" />
           <CustomCell lazy="location" align="center" />
         </TableAccordion>
+      </div>
+      <div className={cn.header}>
+        <h2>Table Accordion Props</h2>
+      </div>
+      <div className={cn.wrapper}>
+        <Table headers={headers} rows={table_accordion_props} settings={{ rows_flex: true }}>
+          <CustomCell lazy="name" />
+          <CustomCell lazy="type" />
+          <CustomCell lazy="default" />
+          <CustomCell lazy="options" />
+          <CustomCell lazy="description" />
+        </Table>
       </div>
     </div>
   );

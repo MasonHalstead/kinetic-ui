@@ -11,7 +11,7 @@ export const Accordion = ({ margin, width, theme, children }) => {
       className={cn.wrapper}
       style={{
         margin,
-        width,
+        maxWidth: width,
         borderLeft: accordions.border_accordion,
         borderRight: accordions.border_accordion
       }}

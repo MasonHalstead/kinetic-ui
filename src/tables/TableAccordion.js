@@ -5,10 +5,13 @@ import { RowAccordion } from './RowAccordion'
 
 export const TableAccordion = ({
   accordion,
+  accordion_padding,
+  expanded_icon,
+  expand_icon,
+  transition,
   children,
   headers,
   settings,
-  transition,
   ...rest
 }) => {
   const header = {
@@ -32,6 +35,9 @@ TableAccordion.defaultProps = {
   headers: [],
   settings: {},
   transition: 600,
+  accordion_padding: '20px',
+  expanded_icon: ['fas', 'chevron-down'],
+  expand_icon: ['fas', 'chevron-right'],
   accordion: () => {},
   children: () => {}
 }
@@ -40,5 +46,8 @@ TableAccordion.propTypes = {
   settings: PropTypes.object,
   transition: PropTypes.number,
   accordion: PropTypes.any,
+  accordion_padding: PropTypes.string,
+  expanded_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  expand_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

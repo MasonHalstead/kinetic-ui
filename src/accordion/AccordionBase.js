@@ -8,11 +8,13 @@ import React, {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import { AccordionElement, Accordion, ContentElement } from './elements'
+import Measure from 'react-measure'
 import cn from './Accordion.module.scss'
 
 export const AccordionBase = ({
   title,
   theme,
+  overflow,
   transition,
   expanded,
   expanded_icon,
@@ -38,21 +40,6 @@ export const AccordionBase = ({
     }
   }, [])
 
-  useEffect(() => {
-    if (content) {
-      // measure height on content trigger
-      setContentHeight()
-    }
-  }, [content])
-
-  useEffect(() => {
-    // height change needs to continue the measure of content
-    // checks content is true because height: 0 will trigger
-    if (content && expand) {
-      setContentHeight()
-    }
-  }, [height])
-
   const setAccordion = async () => {
     if (!expand) {
       // opens content and fires content useEffect
@@ -67,17 +54,8 @@ export const AccordionBase = ({
       setHeight(0)
     }
   }
-  const setContentHeight = () => {
-    const { current } = contentRef
-    // sets the initial height which fires the height useEffect
-    if (current) {
-      setHeight(current.scrollHeight)
-    }
-    // measure the current height and ref height
-    // make sure the accordion opens all the way
-    if (current && current.scrollHeight !== height) {
-      setHeight(current.scrollHeight)
-    }
+  const onResize = (ref) => {
+    setHeight(ref.scroll.height)
   }
   return (
     <AccordionElement
@@ -92,11 +70,18 @@ export const AccordionBase = ({
       </Accordion>
       <ContentElement
         transition={transition}
-        expand={expand}
+        expand={overflow && expand}
         ref={contentRef}
         style={{ maxHeight: height }}
       >
-        {content && Children.map(children, (child) => cloneElement(child, {}))}
+        <Measure scroll onResize={onResize}>
+          {({ measureRef }) => (
+            <div ref={measureRef}>
+              {content &&
+                Children.map(children, (child) => cloneElement(child, {}))}
+            </div>
+          )}
+        </Measure>
       </ContentElement>
     </AccordionElement>
   )
@@ -104,6 +89,7 @@ export const AccordionBase = ({
 AccordionBase.defaultProps = {
   title: '',
   theme: {},
+  overflow: false,
   expanded: false,
   transition: 600,
   expanded_icon: ['fas', 'chevron-down'],
@@ -114,6 +100,7 @@ AccordionBase.propTypes = {
   expanded_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   expand_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   title: PropTypes.string,
+  overflow: PropTypes.bool,
   expanded: PropTypes.bool,
   transition: PropTypes.number,
   theme: PropTypes.object,

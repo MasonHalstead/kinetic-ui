@@ -1,6 +1,6 @@
 {
   "name": "kinetic-ui",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "react component library",
   "author": "",
   "license": "MIT",
@@ -73,6 +73,7 @@
     "node-sass": "^4.14.1",
     "polished": "^4.0.5",
     "react-countup": "^4.3.3",
+    "react-measure": "^2.5.2",
     "react-number-format": "^4.4.4",
     "react-resize-detector": "^6.1.0",
     "react-router-dom": "^5.2.0",

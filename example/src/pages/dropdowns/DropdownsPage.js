@@ -121,7 +121,7 @@ import { Dropdown } from 'kinetic-ui'
         <Dropdown label="Nullable" options={options} error_message="remove item" default_value="Option 1" nullable />
       </div>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Dropdown label="Background #ebeeff" options={options} background="#ebeeff" />
+        <Dropdown label="Background #ebeeff" background="#ebeeff" />
         <Dropdown label="Text Align" options={options} text_align="center" margin="0px 10px 0px 10px" />
         <Dropdown label="Scroll Height" options={options} scroll_height={50} />
       </div>
