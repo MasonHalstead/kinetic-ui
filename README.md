@@ -59,6 +59,26 @@ const render = (Component) =>
 render(App)
 ```
 
+## Basic Table
+
+![](https://aqueous-mountain-73542.herokuapp.com/table-basic.gif)
+
+## Table Scroll
+
+![](https://aqueous-mountain-73542.herokuapp.com/table-scroll.gif)
+
+## Dropdowns
+
+![](https://aqueous-mountain-73542.herokuapp.com/dropdowns.gif)
+
+## Buttons
+
+![](https://aqueous-mountain-73542.herokuapp.com/buttons.png)
+
+## Inputs
+
+![](https://aqueous-mountain-73542.herokuapp.com/inputs.png)
+
 ## License
 
 MIT © [](https://github.com/)

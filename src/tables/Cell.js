@@ -27,12 +27,14 @@ export const CellWrapper = ({ header, settings, theme, children }) => {
 CellWrapper.defaultProps = {
   header: {},
   settings: {},
+  theme: {},
   children: () => {}
 }
 
 CellWrapper.propTypes = {
-  footer: PropTypes.object,
+  header: PropTypes.object,
   settings: PropTypes.object,
+  theme: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
@@ -50,11 +52,13 @@ export const Cell = ({ children, align, background, onClick }) => {
 Cell.defaultProps = {
   align: 'left',
   background: null,
+  onClick: () => {},
   children: () => {}
 }
 
 Cell.propTypes = {
   align: PropTypes.string,
-  overflow: PropTypes.bool,
+  background: PropTypes.string,
+  onClick: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
