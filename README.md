@@ -72,6 +72,18 @@ render(App)
 
 ![](https://aqueous-mountain-73542.herokuapp.com/dropdowns.gif)
 
+## Basic Calendar
+
+![](https://aqueous-mountain-73542.herokuapp.com/basic-calendar.gif)
+
+## Calendar Presets
+
+![](https://aqueous-mountain-73542.herokuapp.com/calendar-presets.gif)
+
+## Calendar Range
+
+![](https://aqueous-mountain-73542.herokuapp.com/calendar-range.gif)
+
 ## Buttons
 
 ![](https://aqueous-mountain-73542.herokuapp.com/buttons.png)
