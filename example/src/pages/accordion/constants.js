@@ -81,12 +81,20 @@ export const accordion_child_props = [
     uuid: 2,
   },
   {
+    name: 'show',
+    type: 'boolean',
+    default: 'true',
+    options: '',
+    description: 'display or hide the accordion item',
+    uuid: 3,
+  },
+  {
     name: 'transition',
     type: 'number',
     default: '600',
     options: '',
     description: 'accordion transition time in milliseconds',
-    uuid: 3,
+    uuid: 4,
   },
   {
     name: 'expanded',
@@ -94,7 +102,7 @@ export const accordion_child_props = [
     default: `false`,
     options: '',
     description: 'default expanded accordion item',
-    uuid: 4,
+    uuid: 5,
   },
   {
     name: 'expanded_icon',
@@ -102,7 +110,7 @@ export const accordion_child_props = [
     default: `['fas', 'chevron-down']`,
     options: '',
     description: 'expanded fontawesome icon',
-    uuid: 5,
+    uuid: 6,
   },
   {
     name: 'expand_icon',
@@ -110,7 +118,7 @@ export const accordion_child_props = [
     default: `['fas', 'chevron-right']`,
     options: '',
     description: 'expand fontawesome icon',
-    uuid: 6,
+    uuid: 7,
   },
   {
     name: 'theme',
@@ -118,6 +126,6 @@ export const accordion_child_props = [
     default: '{}',
     options: 'refer to theme',
     description: 'theme override for table',
-    uuid: 7,
+    uuid: 8,
   },
 ];

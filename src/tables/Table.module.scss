@@ -47,7 +47,6 @@
   }
   .resizer {
     position: relative;
-    // max-height: max-content !important;
   }
   .autosizer {
     position: absolute;
@@ -60,7 +59,7 @@
   .rows {
     position: relative;
     box-sizing: border-box;
-    & > div:first-child {
+    & > div:first-of-type {
       border-top: none;
     }
     & > div:last-child {

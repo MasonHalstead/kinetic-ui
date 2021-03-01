@@ -16,7 +16,8 @@ export const createTheme = (override) => {
     tabs,
     modal,
     wizard,
-    progress
+    progress,
+    calendar
   } = override
 
   const default_colors = {
@@ -115,6 +116,7 @@ export const createTheme = (override) => {
     background_tab: 'rgba(25, 118, 210, 0.8)',
     background_progress: '#f8f9fe',
     background_progress_bar: default_colors.primary,
+    background_calendar: '#fff',
     ...backgrounds
   }
   const default_borders = {
@@ -126,6 +128,7 @@ export const createTheme = (override) => {
     border_accordion: `1px solid ${default_globals.border_color}`,
     border_tab: '#4a84d1',
     border_modal: `1px solid ${default_globals.border_color}`,
+    border_calendar: `1px solid ${default_globals.border_color}`,
     ...borders
   }
   const default_labels = {
@@ -243,6 +246,12 @@ export const createTheme = (override) => {
     ...default_progress,
     ...wizard
   }
+
+  const default_calendar = {
+    calendar_primary: default_colors.secondary,
+    calendar_secondary: default_colors.primary,
+    ...calendar
+  }
   return {
     colors: default_colors,
     fonts: default_fonts,
@@ -257,6 +266,7 @@ export const createTheme = (override) => {
     tabs: default_tabs,
     modal: default_modal,
     wizard: default_wizard,
-    progress: default_progress
+    progress: default_progress,
+    calendar: default_calendar
   }
 }

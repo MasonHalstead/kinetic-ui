@@ -14,6 +14,7 @@ import cn from './Accordion.module.scss'
 export const AccordionBase = ({
   title,
   theme,
+  show,
   overflow,
   transition,
   expanded,
@@ -57,6 +58,9 @@ export const AccordionBase = ({
   const onResize = (ref) => {
     setHeight(ref.scroll.height)
   }
+  if (!show) {
+    return null
+  }
   return (
     <AccordionElement
       className={cn.accordion}
@@ -89,6 +93,7 @@ export const AccordionBase = ({
 AccordionBase.defaultProps = {
   title: '',
   theme: {},
+  show: true,
   overflow: false,
   expanded: false,
   transition: 600,
@@ -100,6 +105,7 @@ AccordionBase.propTypes = {
   expanded_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   expand_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   title: PropTypes.string,
+  show: PropTypes.bool,
   overflow: PropTypes.bool,
   expanded: PropTypes.bool,
   transition: PropTypes.number,

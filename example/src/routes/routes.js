@@ -3,6 +3,7 @@ export const routes = {
   INSTALLATION: '/install',
   THEME: '/theme',
   ACCORDION: '/accordion',
+  CALENDAR: '/calendar',
   BUTTONS: '/buttons',
   DROPDOWNS: '/dropdowns',
   INPUTS: '/inputs',

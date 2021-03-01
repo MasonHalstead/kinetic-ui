@@ -139,6 +139,7 @@ const AccordionPage = () => {
           <p key={item}>{item}</p>
         ))}
       </AccordionChild>
+      <AccordionAdd title="Accordion 3" show={false} />
     </Accordion>
   </>
 }
@@ -162,6 +163,7 @@ const AccordionPage = () => {
               <p key={item}>{item}</p>
             ))}
           </AccordionAdd>
+          <AccordionAdd title="Accordion 3" show={false} />
         </Accordion>
       </div>
       <div className={cn.header}>

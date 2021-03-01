@@ -1,0 +1,156 @@
+$width: 36px;
+$height: 31px;
+
+.wrapper {
+  display: flex;
+  width: max-content;
+  box-sizing: border-box;
+}
+.calendar {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  padding: 0px 0px 0px 0px;
+}
+.selection {
+  display: flex;
+  flex-direction: column;
+}
+.selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: $height;
+  max-height: $height;
+  color: #fff;
+  box-sizing: border-box;
+}
+.current {
+  display: flex;
+  flex-direction: column;
+  min-width: 175px;
+  max-width: 175px;
+  color: #fff;
+  box-sizing: border-box;
+  p {
+    margin: 0px;
+  }
+  .weekday {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $height;
+    max-height: $height;
+    padding: 0px 10px;
+    box-sizing: border-box;
+  }
+  .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 20px;
+  }
+  .day {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 38px;
+    font-weight: 500;
+  }
+  .month {
+    margin: 0px;
+    font-size: 15px;
+  }
+  .year {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+}
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  border: 1px solid transparent;
+  height: 22px;
+  width: 22px;
+  border-radius: 22px;
+  margin: 0px 3px;
+}
+.select:hover {
+  color: #fff;
+}
+.display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  p {
+    font-size: 13px;
+    margin: 0px 5px;
+  }
+}
+.range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $height;
+  max-height: $height;
+  color: #fff;
+  box-sizing: border-box;
+  p {
+    font-size: 12px;
+    margin: 0 10px;
+  }
+}
+.presets {
+  min-width: 150px;
+  width: max-content;
+  box-sizing: border-box;
+  .default {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $height;
+    max-height: $height;
+    padding: 0px 10px;
+    color: #fff;
+    font-size: 12px;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  .preset {
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-align: center;
+      font-size: 12px;
+      min-height: $height;
+      max-height: $height;
+      padding: 0px 30px;
+      margin: 0px;
+      color: #fff;
+      box-sizing: border-box;
+    }
+  }
+}
+.weekdays {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $height;
+    margin: 0px;
+    width: $width;
+  }
+  .day {
+    cursor: pointer;
+  }
+}

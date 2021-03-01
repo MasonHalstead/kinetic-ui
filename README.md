@@ -3,6 +3,7 @@
 > react opionionated component library for developers
 
 [![NPM](https://img.shields.io/npm/v/kinetic-ui.svg)](https://www.npmjs.com/package/kinetic-ui)
+![Downloads](https://img.shields.io/npm/dt/kinetic-ui)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen)](https://aqueous-mountain-73542.herokuapp.com/)
 ![Size](https://img.shields.io/bundlephobia/min/kinetic-ui/1.2.3)

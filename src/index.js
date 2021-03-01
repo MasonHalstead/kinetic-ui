@@ -10,6 +10,7 @@ import { Label } from './labels/index'
 import { Option } from './options/index'
 import { Dropdown, DropdownIcon, DropdownBase } from './dropdowns/index'
 import { Wizard } from './wizard/index'
+import { Calendar } from './calendar/index'
 import {
   Input,
   InputBase,
@@ -34,6 +35,7 @@ export {
   Modal,
   Progress,
   ThemeProvider,
+  Calendar,
   useTheme,
   createDefaultTheme,
   createMarketstreamTheme,
