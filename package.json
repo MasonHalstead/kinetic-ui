@@ -1,6 +1,6 @@
 {
   "name": "kinetic-ui",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "react component library",
   "author": "",
   "license": "MIT",
@@ -18,7 +18,8 @@
     "inputs",
     "dropdowns",
     "components",
-    "utility"
+    "utility",
+    "calendar"
   ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",

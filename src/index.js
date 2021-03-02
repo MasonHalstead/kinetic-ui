@@ -14,6 +14,7 @@ import { Calendar } from './calendar/index'
 import {
   Input,
   InputBase,
+  InputPDF,
   InputCurrency,
   InputNumber,
   InputPercent,
@@ -47,6 +48,7 @@ export {
   DropdownIcon,
   Input,
   InputBase,
+  InputPDF,
   InputCurrency,
   InputNumber,
   InputPercent,
