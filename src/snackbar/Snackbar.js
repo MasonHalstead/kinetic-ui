@@ -33,6 +33,7 @@ export const Snackbar = ({
       className={cn.snackbar}
       width={width}
       background={background}
+      theme={snackbar}
       style={{
         ...position,
         background,

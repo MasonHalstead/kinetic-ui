@@ -102,6 +102,8 @@ export const createTheme = (override) => {
     // font tabs settings
     font_tab_color: '#fff',
     font_snackbar_color: '#fff',
+    font_snackbar_family: default_globals.primary_font,
+    font_snackbar_size: default_globals.font_size,
     ...fonts
   }
   const default_backgrounds = {
@@ -119,7 +121,7 @@ export const createTheme = (override) => {
     border_modal: `1px solid ${default_globals.border_color}`,
     background_progress: '#f8f9fe',
     background_progress_bar: '#0a91ed',
-    background_snackbar: default_colors.primary,
+    background_snackbar: default_colors.secondary,
     ...backgrounds
   }
   const default_borders = {
@@ -248,7 +250,9 @@ export const createTheme = (override) => {
   const default_snackbar = {
     background_snackbar: default_backgrounds.background_snackbar,
     font_snackbar_color: default_fonts.font_snackbar_color,
-    snackbar_action_color: default_colors.secondary,
+    font_snackbar_family: default_fonts.font_snackbar_family,
+    font_snackbar_size: default_fonts.font_snackbar_size,
+    snackbar_action_color: default_colors.primary,
     ...snackbar
   }
 
