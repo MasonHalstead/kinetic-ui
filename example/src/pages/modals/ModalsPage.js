@@ -7,7 +7,7 @@ import cn from './Modals.module.scss';
 const ModalsPage = () => {
   const [modal, setModal] = useState(false);
   return (
-    <div>
+    <div className={cn.page}>
       <div className={cn.header}>
         <h2>Modals</h2>
       </div>
@@ -19,12 +19,12 @@ import { Button, Modal } from 'kinetic-ui'
 const ModalsPage = () => {
   const [modal, setModal] = useState(false)
   return (
-<div className={cn.wrapper}>
-  <Button onClick={() => setModal(true)}>Open Modal</Button>
-  <Modal show={modal} onClose={() => setModal(false)} width={500}>
-    <div className={cn.page}>welcome to modal</div>
-  </Modal>
-</div>
+    <div className={cn.wrapper}>
+      <Button onClick={() => setModal(true)}>Open Modal</Button>
+      <Modal show={modal} onClose={() => setModal(false)} width={500}>
+        <div className={cn.page}>welcome to modal</div>
+      </Modal>
+    </div>
   )
 }`}</code>
       </pre>

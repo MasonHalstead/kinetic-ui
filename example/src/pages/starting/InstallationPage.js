@@ -38,7 +38,7 @@ yarn add @fortawesome/free-brands-svg-icons`}
         <p>
           kinetic-ui uses google fonts to set font families within the components and can be passed down into the
           ThemeProvider. For instructions check out{' '}
-          <a href="https://fonts.google.com/" rel="noreferrer" target="_blank">
+          <a href="https://fonts.google.com/" rel="noopener noreferrer" target="_blank">
             google fonts
           </a>
           .

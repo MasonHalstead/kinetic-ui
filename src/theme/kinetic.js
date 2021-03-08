@@ -17,7 +17,8 @@ export const createTheme = (override) => {
     modal,
     wizard,
     progress,
-    calendar
+    calendar,
+    snackbar
   } = override
 
   const default_colors = {
@@ -100,6 +101,7 @@ export const createTheme = (override) => {
     font_table_transform: 'none',
     // font tabs settings
     font_tab_color: '#fff',
+    font_snackbar_color: '#fff',
     ...fonts
   }
   const default_backgrounds = {
@@ -117,6 +119,7 @@ export const createTheme = (override) => {
     background_progress: '#f8f9fe',
     background_progress_bar: default_colors.primary,
     background_calendar: '#fff',
+    background_snackbar: default_colors.primary,
     ...backgrounds
   }
   const default_borders = {
@@ -241,6 +244,13 @@ export const createTheme = (override) => {
     ...progress
   }
 
+  const default_snackbar = {
+    background_snackbar: default_backgrounds.background_snackbar,
+    font_snackbar_color: default_fonts.font_snackbar_color,
+    snackbar_action_color: default_colors.secondary,
+    ...snackbar
+  }
+
   const default_wizard = {
     ...default_buttons,
     ...default_progress,
@@ -267,6 +277,7 @@ export const createTheme = (override) => {
     modal: default_modal,
     wizard: default_wizard,
     progress: default_progress,
-    calendar: default_calendar
+    calendar: default_calendar,
+    snackbar: default_snackbar
   }
 }

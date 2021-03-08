@@ -25,6 +25,7 @@ import { Table, TableBase, TableAccordion, Cell } from './tables/index'
 import { Textarea, TextareaBase } from './textarea/index'
 import { Tooltip } from './tooltips/index'
 import { Select } from './selects/index'
+import { Snackbar } from './snackbar/index'
 import { Switch } from './switch/index'
 import { Tabs } from './tabs/index'
 import { Modal } from './modal/Modal'
@@ -37,6 +38,7 @@ export {
   Progress,
   ThemeProvider,
   Calendar,
+  Snackbar,
   useTheme,
   createDefaultTheme,
   createMarketstreamTheme,

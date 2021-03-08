@@ -5,6 +5,7 @@ export const routes = {
   ACCORDION: '/accordion',
   CALENDAR: '/calendar',
   BUTTONS: '/buttons',
+  SNACKBAR: '/snackbar',
   DROPDOWNS: '/dropdowns',
   INPUTS: '/inputs',
   INPUTS_SPECIAL: '/inputs-special',
