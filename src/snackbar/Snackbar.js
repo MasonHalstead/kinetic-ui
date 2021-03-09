@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import cn from './Snackbar.module.scss'
 import { SnackbarElement, ActionElement } from './elements'
 import { useTheme } from '../theme/ThemeProvider'
