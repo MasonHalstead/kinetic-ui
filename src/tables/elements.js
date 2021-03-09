@@ -25,14 +25,14 @@ export const RowsElement = styled.div(({ theme, borders }) => ({
   borderRight: !borders && `1px solid ${theme.border_table_color}`
 }))
 export const RowElement = styled.div(
-  ({ striped, sticky, fill, highlight, accordion, theme }) => {
-    let background = '#fff'
+  ({ striped, sticky, fill, highlight, theme }) => {
+    let background = theme.background_row || '#fff'
 
     if (striped) {
       background = theme.background_row_striped
     }
     if (sticky && fill) {
-      background = '#fff'
+      background = theme.background_row || '#fff'
     }
 
     return {

@@ -117,6 +117,7 @@ export const createTheme = (override) => {
     background_option_active: 'rgba(0, 0, 0, 0.05)',
     background_accordion: '#fff',
     background_header: '#f7f8f9',
+    background_row: '#fff',
     background_row_striped: '#f7f8f9',
     background_row_hover: '#e4edf9',
     background_modal: '#fff',
