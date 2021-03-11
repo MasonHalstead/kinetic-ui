@@ -9908,10 +9908,10 @@ react-number-format@^4.4.4:
   dependencies:
     prop-types "^15.7.2"
 
-react-resize-detector@^6.1.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-6.5.0.tgz#13654438de5c871374657c7e09268fef17a4e5e8"
-  integrity sha512-hkBFm1sTJ/+I/A1+yHPJ444kc4zb37FqjMmsQuRloS+mzLP8Bb4tslMUf7+14SrDgBkKtdwJX13TwAxeEkyl5w==
+react-resize-detector@^6.6.1:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-6.6.1.tgz#2520f81e7121ad26b9ced604f5c7f787a7231a45"
+  integrity sha512-Fu/UzzQa2yu+psxqwjIOi6r/tWrcSo3WhuYhcEjPml7GgdwQiPGDmjBbr/k/GhBggrChQkuzXbonNLJj6cfeXA==
   dependencies:
     "@types/resize-observer-browser" "^0.1.5"
     lodash.debounce "^4.0.8"

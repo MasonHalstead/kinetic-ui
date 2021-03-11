@@ -80,6 +80,7 @@
     "react-custom-scrollbars-2": "^4.2.4",
     "react-measure": "^2.5.2",
     "react-number-format": "^4.4.4",
+    "react-resize-detector": "^6.6.1",
     "react-router-dom": "^5.2.0",
     "react-switch": "^6.0.0",
     "react-virtualized": "^9.22.3",
