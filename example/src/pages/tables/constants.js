@@ -316,14 +316,6 @@ export const settings_props = [
     uuid: 4,
   },
   {
-    name: 'rows_scroll',
-    type: 'boolean',
-    default: 'false',
-    options: '',
-    description: 'rows will scroll if the parent is { display: flex }',
-    uuid: 5,
-  },
-  {
     name: 'rows_sticky',
     type: 'number',
     default: 'null',
@@ -746,19 +738,17 @@ export const data = [
 ];
 
 export const settings_flex = {
-  rows_scroll: true,
   rows_striped: true,
 };
 
 export const settings_sticky = {
   rows_sticky: 2,
-  rows_scroll: true,
+
   row_borders: false,
 };
 
 export const settings_fill = {
   rows_fill: true,
-  rows_scroll: true,
   header_row_height: 30,
   row_height: 32,
 };

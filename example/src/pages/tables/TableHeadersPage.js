@@ -88,7 +88,7 @@ const CustomCell = ({ row, lazy, align }) => (
         <Table
           headers={table_headers}
           rows={data}
-          footer={{
+          settings={{
             submit_text: 'Submit',
             submit_disabled: false,
             button_variant: 'secondary',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'kinetic-ui';
+import { Table, TableFlex } from 'kinetic-ui';
 import {
   headers,
   settings_props,
@@ -52,12 +52,11 @@ const CustomCell = ({ row, lazy, align }) => (
 )
 
 const settings = {
-  rows_scroll: true,
   rows_striped: true,
 };
 
 <div className={cn.wrapper} style={{ display: 'flex', minHeight: 200 }}>
-  <Table headers={headers} rows={data} settings={settings} footer={footer}>
+  <Table headers={headers} rows={data} settings={settings}>
     <CustomCell lazy="company" />
     <CustomCell lazy="currency" align="center" />
     <CustomCell lazy="country" />
@@ -66,21 +65,16 @@ const settings = {
 </div>`}</code>
       </pre>
       <div className={cn.wrapper} style={{ display: 'flex', minHeight: 200 }}>
-        <Table
+        <TableFlex
           headers={table_headers}
           rows={data}
-          settings={settings_flex}
-          footer={{
-            submit_text: 'Submit',
-            submit_disabled: false,
-            button_variant: 'secondary',
-          }}
+          settings={{ ...settings_flex, submit_text: 'Submit', submit_disabled: false, button_variant: 'secondary' }}
         >
           <CustomCell lazy="company" />
           <CustomCell lazy="currency" align="center" />
           <CustomCell lazy="country" />
           <CustomCell lazy="location" align="center" />
-        </Table>
+        </TableFlex>
       </div>
       <div className={cn.header}>
         <h2>Table Sticky Rows &amp; Remove Borders</h2>
@@ -99,12 +93,11 @@ const CustomCell = ({ row, lazy, align }) => (
 
 const settings = {
   rows_sticky: 2,
-  rows_scroll: true,
   row_borders: false,
 };
 
 <div className={cn.wrapper} style={{ display: 'flex', minHeight: 200 }}>
-  <Table headers={headers} rows={data} settings={settings} footer={footer}>
+  <Table headers={headers} rows={data} settings={settings}>
     <CustomCell lazy="company" />
     <CustomCell lazy="currency" align="center" />
     <CustomCell lazy="country" />
@@ -116,12 +109,7 @@ const settings = {
         <Table
           headers={table_headers}
           rows={data}
-          settings={settings_sticky}
-          footer={{
-            submit_text: 'Submit',
-            submit_disabled: false,
-            button_variant: 'secondary',
-          }}
+          settings={{ ...settings_sticky, submit_text: 'Submit', submit_disabled: false, button_variant: 'secondary' }}
         >
           <CustomCell lazy="company" />
           <CustomCell lazy="currency" align="center" />
@@ -146,13 +134,12 @@ const CustomCell = ({ row, lazy, align }) => (
 
 const settings = {
   rows_fill: true,
-  rows_scroll: true,
   header_row_height: 30,
   row_height: 32,
 };
 
 <div className={cn.wrapper} style={{ display: 'flex', minHeight: 200 }}>
-  <Table headers={headers} rows={data} settings={settings} footer={footer}>
+  <Table headers={headers} rows={data} settings={settings}>
     <CustomCell lazy="company" />
     <CustomCell lazy="currency" align="center" />
     <CustomCell lazy="country" />
@@ -161,21 +148,16 @@ const settings = {
 </div>`}</code>
       </pre>
       <div className={cn.wrapper} style={{ display: 'flex', minHeight: 200 }}>
-        <Table
+        <TableFlex
           headers={table_headers}
           rows={data_sliced}
-          settings={settings_fill}
-          footer={{
-            submit_text: 'Submit',
-            submit_disabled: false,
-            button_variant: 'secondary',
-          }}
+          settings={{ ...settings_fill, submit_text: 'Submit', submit_disabled: false, button_variant: 'secondary' }}
         >
           <CustomCell lazy="company" />
           <CustomCell lazy="currency" align="center" />
           <CustomCell lazy="country" />
           <CustomCell lazy="location" align="center" />
-        </Table>
+        </TableFlex>
       </div>
       <div className={cn.header}>
         <h2>Table Remove Row Hover &amp; Remove Headers</h2>
@@ -198,7 +180,7 @@ const settings = {
 };
 
 <div className={cn.wrapper} style={{ display: 'flex' }}>
-  <Table headers={headers} rows={data} settings={settings} footer={footer}>
+  <Table headers={headers} rows={data} settings={settings}>
     <CustomCell lazy="company" />
     <CustomCell lazy="currency" align="center" />
     <CustomCell lazy="country" />
@@ -210,8 +192,8 @@ const settings = {
         <Table
           headers={table_headers}
           rows={data_sliced}
-          settings={settings_highlights}
-          footer={{
+          settings={{
+            ...settings_highlights,
             submit_text: 'Submit',
             submit_disabled: true,
             button_variant: 'secondary',

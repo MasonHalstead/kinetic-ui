@@ -3,16 +3,14 @@ import PropTypes from 'prop-types'
 import { Button } from '../buttons/Button'
 import cn from './Table.module.scss'
 
-export const Footer = ({ footer }) => {
-  const {
-    pagination,
-    submit_disabled,
-    submit_text,
-    button_variant,
-    button_size,
-    onSubmit
-  } = footer
-
+export const Footer = ({
+  pagination,
+  submit_disabled,
+  submit_text,
+  button_variant,
+  button_size,
+  onSubmit
+}) => {
   if (pagination || submit_text) {
     return (
       <div className={cn.footer}>
@@ -34,16 +32,20 @@ export const Footer = ({ footer }) => {
 }
 
 Footer.defaultProps = {
-  footer: {
-    pagination: null, // todo
-    submit_disabled: false,
-    submit_text: null,
-    button_variant: null,
-    button_size: 'medium',
-    onSubmit: () => {}
-  }
+  pagination: null, // todo
+  submit_disabled: false,
+  submit_text: null,
+  button_variant: null,
+  button_size: 'medium',
+  onSubmit: () => {}
 }
 
 Footer.propTypes = {
-  footer: PropTypes.object
+  pagination: PropTypes.bool,
+  submit_disabled: PropTypes.bool,
+  submit_text: PropTypes.string,
+  button_variant: PropTypes.string,
+  button_size: PropTypes.string,
+  onSubmit: PropTypes.func,
+  footer: PropTypes.func
 }

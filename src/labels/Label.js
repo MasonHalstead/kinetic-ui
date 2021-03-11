@@ -31,6 +31,7 @@ Label.defaultProps = {
 }
 Label.propTypes = {
   label: PropTypes.string,
+  theme: PropTypes.object,
   style: PropTypes.object,
   onClick: PropTypes.func
 }

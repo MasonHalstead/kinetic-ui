@@ -62,7 +62,7 @@ const CustomCell = ({ row, lazy, align }) => (
 )
 
 <div className={cn.wrapper}>
-  <Table headers={headers} rows={rows} footer={footer}>
+  <Table headers={headers} rows={rows}>
     <CustomCell lazy="company" />
     <CustomCell lazy="currency" align="center" />
     <CustomCell lazy="country" />
@@ -74,7 +74,7 @@ const CustomCell = ({ row, lazy, align }) => (
         <Table
           headers={table_headers}
           rows={data}
-          footer={{
+          settings={{
             submit_text: 'Submit',
             submit_disabled: false,
             button_variant: 'secondary',

@@ -21,7 +21,13 @@ import {
   InputPhone
 } from './inputs/index'
 import { Progress } from './progress/index'
-import { Table, TableBase, TableAccordion, Cell } from './tables/index'
+import {
+  Table,
+  TableFlex,
+  TableBase,
+  TableAccordion,
+  Cell
+} from './tables/index'
 import { Textarea, TextareaBase } from './textarea/index'
 import { Tooltip } from './tooltips/index'
 import { Select } from './selects/index'
@@ -56,6 +62,7 @@ export {
   InputPercent,
   InputPhone,
   Table,
+  TableFlex,
   TableBase,
   TableAccordion,
   Cell,

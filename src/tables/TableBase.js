@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useResizeDetector } from 'react-resize-detector'
+import React, { useState, useEffect, cloneElement } from 'react'
 import { useTheme } from '../theme/ThemeProvider'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { Headers } from './Headers'
-import { RowsElement } from './elements'
-import { Rows } from './Rows'
 import { Footer } from './Footer'
 import cn from './Table.module.scss'
 
@@ -54,9 +50,9 @@ export const TableBase = ({
   filter,
   keywords,
   footer,
+  onSubmit,
   children
 }) => {
-  const { height, ref } = useResizeDetector()
   const [headers_controlled, setHeaders] = useState([])
   const [rows_controlled, setRows] = useState([])
   const [sorting, setSorting] = useState({
@@ -71,7 +67,6 @@ export const TableBase = ({
     header_row_height: 28,
     filter_key: null,
     keyword_key: 'name',
-    rows_scroll: false,
     rows_sticky: null,
     rows_fill: false,
     rows_flex: false,
@@ -79,7 +74,12 @@ export const TableBase = ({
     rows_striped: false,
     row_borders: true,
     row_height: 30,
-    row_highlight: true
+    row_highlight: true,
+    submit_text: null,
+    submit_disabled: false,
+    pagination: null,
+    button_variant: 'primary',
+    button_size: 'medium'
   })
   useEffect(() => {
     const new_settings = {
@@ -173,20 +173,7 @@ export const TableBase = ({
     }
     return r
   }
-
-  const {
-    headers_show,
-    rows_scroll,
-    rows_fill,
-    rows_sticky,
-    row_height,
-    row_borders,
-    accordion,
-    rows_flex
-  } = settings_controlled
   const tables = useTheme('tables', theme)
-  const table_flex = rows_fill || rows_flex || rows_scroll
-
   return (
     <div className={cn.table}>
       <Headers
@@ -195,50 +182,14 @@ export const TableBase = ({
         settings={settings_controlled}
         onSortHeaders={onSortHeaders}
       />
-      <div
-        className={cn.resizer}
-        style={{
-          flexGrow: table_flex && 1,
-          minHeight: (rows_sticky || 1) * (row_height + 1),
-          maxHeight: rows_fill
-            ? 'initial'
-            : accordion || rows_flex
-            ? 'max-content'
-            : rows_controlled.length * (row_height + 1)
-        }}
-      >
-        <div
-          ref={ref}
-          className={classNames({
-            [cn.autosizer]: rows_scroll || rows_fill
-          })}
-          style={{
-            borderTop:
-              !headers_show && `1px solid ${tables.border_table_color}`,
-            borderBottom: `1px solid ${tables.border_table_color}`
-          }}
-        >
-          <RowsElement
-            className={classNames(cn.rows, {
-              [cn.scroll]: rows_scroll || rows_fill
-            })}
-            borders={row_borders}
-            theme={tables}
-          >
-            <Rows
-              headers={headers_controlled}
-              height={height}
-              sorting={sorting}
-              theme={tables}
-              rows={[...rows_controlled]}
-              settings={settings_controlled}
-            >
-              {children}
-            </Rows>
-          </RowsElement>
-        </div>
-      </div>
-      <Footer footer={footer} />
+      {cloneElement(children, {
+        theme: tables,
+        rows: rows_controlled,
+        headers: headers_controlled,
+        settings: settings_controlled,
+        sorting
+      })}
+      {footer && footer({ onSubmit, ...settings_controlled })}
     </div>
   )
 }
@@ -246,17 +197,11 @@ TableBase.defaultProps = {
   headers: [],
   rows: [],
   settings: {},
-  footer: {
-    submit_text: null,
-    submit_disabled: false,
-    pagination: null,
-    button_variant: 'primary',
-    button_size: 'medium',
-    onSubmit: () => {}
-  },
   theme: {},
   filter: null,
   keywords: null,
+  footer: (props) => <Footer {...props} />,
+  onSubmit: () => {},
   children: () => {}
 }
 TableBase.propTypes = {
@@ -266,6 +211,7 @@ TableBase.propTypes = {
   settings: PropTypes.object,
   filter: PropTypes.string,
   keywords: PropTypes.string,
-  footer: PropTypes.object,
+  footer: PropTypes.func,
+  onSubmit: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

@@ -22,7 +22,10 @@ export const ContentElement = styled.div(({ theme, sort_direction }) => ({
 }))
 export const RowsElement = styled.div(({ theme, borders }) => ({
   borderLeft: `1px solid ${theme.border_table_color}`,
-  borderRight: !borders && `1px solid ${theme.border_table_color}`
+  borderRight: !borders && `1px solid ${theme.border_table_color}`,
+  '& > div:last-child': {
+    borderBottom: `1px solid ${theme.border_table_color}`
+  }
 }))
 export const RowElement = styled.div(
   ({ striped, sticky, fill, highlight, theme }) => {

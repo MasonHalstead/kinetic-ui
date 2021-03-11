@@ -72,7 +72,6 @@ const rows = [{
   <TableAccordion
     headers={headers}
     rows={data}
-    footer={footer}
     accordion={({ row }) => {
       return (
         <Table headers={row.headers} rows={row.rows}>
@@ -95,7 +94,7 @@ const rows = [{
         <TableAccordion
           headers={table_headers}
           rows={data}
-          footer={{
+          settings={{
             submit_text: 'Submit',
             submit_disabled: false,
           }}
