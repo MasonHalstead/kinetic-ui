@@ -225,6 +225,8 @@ export const createTheme = (override) => {
     font_table_color: default_fonts.font_table_color,
     font_table_weight: default_fonts.font_table_weight,
     font_table_transform: default_fonts.font_table_transform,
+    icon_table_color: default_fonts.font_table_color,
+    font_input_hover: default_colors.secondary,
     background_row_striped: default_backgrounds.background_row_striped,
     background_row_hover: default_backgrounds.background_row_hover,
     ...default_buttons,

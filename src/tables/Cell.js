@@ -12,6 +12,7 @@ export const CellWrapper = ({ header, settings, theme, children }) => {
       borders={row_borders}
       theme={theme}
       style={{
+        color: theme.font_table_color,
         minWidth: header.width || 10,
         width: header.width || 10,
         flexGrow: header.flex_grow,

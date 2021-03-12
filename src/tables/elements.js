@@ -56,9 +56,13 @@ export const AccordionElement = styled.div(({ theme, transition, expand }) => ({
   borderRight: `1px solid ${theme.border_table_color}`
 }))
 export const CellElement = styled.div(({ theme, borders }) => ({
-  // borderBottom: `1px solid ${theme.border_table_color}`,
-  // borderLeft: `1px solid ${theme.border_table_color}`,
   borderRight: borders && `1px solid ${theme.border_table_color}`
+}))
+export const AccordionCellElement = styled.div(({ theme }) => ({
+  color: theme.icon_table_color,
+  '&:hover': {
+    color: theme.icon_table_hover
+  }
 }))
 export const AccordionContentElement = styled.div(({ theme, expand }) => ({
   overflow: 'auto',

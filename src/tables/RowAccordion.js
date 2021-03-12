@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
-import { RowElement, AccordionElement } from './elements'
+import { RowElement, AccordionElement, AccordionCellElement } from './elements'
 import { CellWrapper, Cell } from './Cell'
 import Measure from 'react-measure'
 import cn from './Table.module.scss'
@@ -93,8 +93,10 @@ export const RowAccordion = ({
           theme={theme}
         >
           <Cell onClick={setAccordion} align='center'>
-            {direction && <FontAwesomeIcon icon={expanded_icon} />}
-            {!direction && <FontAwesomeIcon icon={expand_icon} />}
+            <AccordionCellElement theme={theme}>
+              {direction && <FontAwesomeIcon icon={expanded_icon} />}
+              {!direction && <FontAwesomeIcon icon={expand_icon} />}
+            </AccordionCellElement>
           </Cell>
         </CellWrapper>
       </div>

@@ -72,7 +72,7 @@ export const createTheme = (override) => {
     font_input_weight: 400,
     font_input_color: default_globals.font_primary_color,
     font_input_focus: default_globals.active_color,
-    font_input_hover: default_colors.primary,
+    font_input_hover: default_colors.secondary,
     font_input_placeholder: default_globals.placeholder_color,
     // font tooltips settings
     font_tooltip_color: default_globals.font_secondary_color,
@@ -222,6 +222,8 @@ export const createTheme = (override) => {
     font_table_color: default_fonts.font_table_color,
     font_table_weight: default_fonts.font_table_weight,
     font_table_transform: default_fonts.font_table_transform,
+    icon_table_color: default_fonts.font_table_color,
+    icon_table_hover: default_fonts.font_input_hover,
     background_row: default_backgrounds.background_row,
     background_row_striped: default_backgrounds.background_row_striped,
     background_row_hover: default_backgrounds.background_row_hover,
