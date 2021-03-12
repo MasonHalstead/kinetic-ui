@@ -94,7 +94,7 @@ import { Input } from 'kinetic-ui'
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
         <Input label="Background #ebeeff" background="#ebeeff" />
         <Input label="Disabled" placeholder="disabled" margin="0px 10px 0px 10px" disabled />
-        <Input label="Text Align" text_align="right" />
+        <Input label="Text Align" text_align="right" placeholder="ex. Text Align" />
       </div>
       <div className={cn.header}>
         <h2>Input Props</h2>

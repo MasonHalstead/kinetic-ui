@@ -1,10 +1,8 @@
 import styled from '@emotion/styled'
 
-export const Wrapper = styled.div(({ color }) => {
-  return {
-    '&::placeholder': { color }
-  }
-})
+export const Wrapper = styled.div(({ color }) => ({
+  '& input::placeholder': { color: `${color}!important` }
+}))
 
 export const Input = styled.div(
   ({ focus, disabled, transparent, background, theme }) => {
@@ -25,26 +23,30 @@ export const Input = styled.div(
     }
     if (focus) {
       return {
-        background: background || '#fff',
+        background: background || theme.background_input,
         color: theme.font_input_focus,
-        border: theme.border_input_focus
+        border: theme.border_input_focus,
+        '& input': {
+          color: theme.font_input_color
+        }
       }
     }
     return {
       color: theme.font_input_color,
-      background: background || '#fff',
+      background: background || theme.background_input,
       border: theme.border_input,
       '&:hover': {
         color: theme.font_input_hover
+      },
+      '& input': {
+        color: theme.font_input_color
       }
     }
   }
 )
 
-export const BaseElement = styled.div(({ theme, placeholder }) => {
-  return {
-    cursor: 'pointer',
-    color: placeholder ? theme.font_input_placeholder : theme.font_input_color,
-    border: theme.border_input_disabled
-  }
-})
+export const BaseElement = styled.div(({ theme, placeholder }) => ({
+  cursor: 'pointer',
+  color: placeholder ? theme.font_input_placeholder : theme.font_input_color,
+  border: theme.border_input_disabled
+}))

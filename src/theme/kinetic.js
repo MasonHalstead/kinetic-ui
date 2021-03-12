@@ -108,6 +108,7 @@ export const createTheme = (override) => {
   }
   const default_backgrounds = {
     background_tooltip: '#2e3440',
+    background_input: '#fff',
     background_input_disabled: '#f5f5f5',
     background_option_hover: 'rgba(0, 0, 0, 0.05)',
     background_option_selected: 'rgba(0, 0, 0, 0.03)',
@@ -171,6 +172,7 @@ export const createTheme = (override) => {
     border_input_focus: default_borders.border_input_focus,
     border_input_disabled: default_borders.border_input_disabled,
     background_input_disabled: default_backgrounds.background_input_disabled,
+    background_input: default_backgrounds.background_input,
     ...default_tooltips,
     ...default_labels,
     ...inputs
