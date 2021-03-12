@@ -29,6 +29,7 @@ export const Select = ({
           style={{
             maxHeight: scroll_height,
             border: theme.border_select,
+            background: theme.background_select,
             width,
             left,
             right
