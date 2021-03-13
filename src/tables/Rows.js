@@ -1,5 +1,7 @@
 import React, { Fragment, cloneElement } from 'react'
 import PropTypes from 'prop-types'
+import { Row } from './Row'
+import { Cell } from './Cell'
 import { v4 as uuidv4 } from 'uuid'
 
 export const Rows = ({
@@ -79,13 +81,13 @@ export const Rows = ({
   }
 
   if (!rows || rows.length === 0) {
-    return cloneElement(children, {
-      key: -1,
-      theme,
-      row_index: -1,
-      settings,
-      headers
-    })
+    return (
+      <Row theme={theme} headers={headers} settings={settings}>
+        {headers.map((h) => (
+          <Cell key={h.uuid} />
+        ))}
+      </Row>
+    )
   }
 
   const { rows_fill, rows_sticky_fill } = settings
