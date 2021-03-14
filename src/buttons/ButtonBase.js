@@ -20,6 +20,7 @@ export const ButtonBase = ({
   margin,
   width,
   disabled,
+  outline,
   children,
   ...rest
 }) => {
@@ -30,7 +31,7 @@ export const ButtonBase = ({
       e.stopPropagation()
       e.preventDefault()
     }
-    rest.onClick()
+    rest.onClick(e)
   }
   return (
     <Button
@@ -41,11 +42,13 @@ export const ButtonBase = ({
       style={{
         width,
         margin,
+        color: outline ? buttons.font_button_color : '#fff',
         fontFamily: buttons.font_button_family,
         textTransform: buttons.font_button_transform,
         fontWeight: buttons.font_button_weight,
         fontSize: buttons.font_button_size
       }}
+      outline={outline}
       disabled={disabled}
     >
       {left_icon && (
@@ -82,6 +85,7 @@ ButtonBase.defaultProps = {
   margin: 0,
   width: 'max-content',
   disabled: false,
+  outline: false,
   onClick: () => {},
   children: ''
 }
@@ -99,5 +103,6 @@ ButtonBase.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  outline: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 }

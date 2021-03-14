@@ -1,0 +1,30 @@
+.wrapper {
+  .dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  .custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+  .buttons {
+    display: flex;
+  }
+  .input {
+    display: none;
+  }
+}

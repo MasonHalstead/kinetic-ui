@@ -133,4 +133,12 @@ export const theme_rows = [
     description: 'button value',
     uuid: 13,
   },
+  {
+    name: 'outline',
+    type: 'boolean',
+    default: 'false',
+    options: '',
+    description: 'button background is set to #fff',
+    uuid: 13,
+  },
 ];

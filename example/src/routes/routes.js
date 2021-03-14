@@ -7,6 +7,7 @@ export const routes = {
   BUTTONS: '/buttons',
   SNACKBAR: '/snackbar',
   DROPDOWNS: '/dropdowns',
+  DROPZONE: '/dropzone',
   INPUTS: '/inputs',
   INPUTS_SPECIAL: '/inputs-special',
   MODALS: '/modals',

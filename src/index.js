@@ -6,6 +6,7 @@ import {
   createDefaultTheme,
   createMarketstreamTheme
 } from './theme/index'
+import { Dropzone } from './dropzone/index'
 import { Label } from './labels/index'
 import { Option } from './options/index'
 import { Dropdown, DropdownIcon, DropdownBase } from './dropdowns/index'
@@ -14,7 +15,6 @@ import { Calendar } from './calendar/index'
 import {
   Input,
   InputBase,
-  InputPDF,
   InputCurrency,
   InputNumber,
   InputPercent,
@@ -48,6 +48,7 @@ export {
   useTheme,
   createDefaultTheme,
   createMarketstreamTheme,
+  Dropzone,
   Wizard,
   Label,
   Option,
@@ -56,7 +57,6 @@ export {
   DropdownIcon,
   Input,
   InputBase,
-  InputPDF,
   InputCurrency,
   InputNumber,
   InputPercent,

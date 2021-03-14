@@ -6,6 +6,7 @@ export const ButtonsPage = lazy(() => import('pages/buttons/ButtonsPage'));
 export const CalendarPage = lazy(() => import('pages/calendar/CalendarPage'));
 export const AccordionPage = lazy(() => import('pages/accordion/AccordionPage'));
 export const DropdownsPage = lazy(() => import('pages/dropdowns/DropdownsPage'));
+export const DropzonePage = lazy(() => import('pages/dropzone/DropzonePage'));
 export const SnackbarPage = lazy(() => import('pages/snackbar/SnackbarPage'));
 export const ModalsPage = lazy(() => import('pages/modals/ModalsPage'));
 export const ModalsWizardPage = lazy(() => import('pages/modals/ModalsWizardPage'));

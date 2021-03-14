@@ -12,6 +12,7 @@ const options = {
   calendar: [{ link: '/calendar', name: 'Calendar' }],
   buttons: [{ link: '/buttons', name: 'Buttons' }],
   dropdowns: [{ link: '/dropdowns', name: 'Dropdowns' }],
+  dropzone: [{ link: '/dropzone', name: 'Dropzone' }],
   inputs: [
     { link: '/inputs', name: 'Inputs' },
     { link: '/inputs-special', name: 'Inputs Special' },
@@ -38,6 +39,7 @@ export const Menu = () => {
         <AccordionItem title="Calendar" options={options.calendar} />
         <AccordionItem title="Buttons" options={options.buttons} />
         <AccordionItem title="Dropdowns" options={options.dropdowns} />
+        <AccordionItem title="Dropzone" options={options.dropzone} />
         <AccordionItem title="Inputs" options={options.inputs} />
         <AccordionItem title="Snackbar" options={options.snackbar} />
         <AccordionItem title="Modals" options={options.modals} />

@@ -269,6 +269,19 @@ render(App)`}</code>
     "font_label_weight": 500,
     "font_label_color": "#212529"
   },
+  "dropzone": {
+    font_dropzone_family: "'Roboto', sans-serif",
+    font_dropzone_size: "13px",
+    font_dropzone_transform: "none",
+    font_dropzone_weight: 400,
+    font_dropzone_color: "#212529",
+    font_dropzone_hover: "#91a7ff",
+    border_dropzone: "2px dashed #91a7ff",
+    border_dropzone_hover: "2px dashed #91a7ff",
+    border_dropzone_disabled: "2px dashed #91a7ff",
+    background_dropzone_disabled: "#f5f5f5",
+    background_dropzone: "#fff",
+  },
   "inputs": {
     "font_input_family": "'Roboto', sans-serif",
     "font_input_size": "13px",
@@ -294,6 +307,8 @@ render(App)`}</code>
   "tooltips": {
     "background_tooltip": "#2e3440",
     "font_tooltip_color": "#fff",
+    "font_tooltip_size": 13px,
+    "font_tooltip_weight": 400,
     "border_tooltip": "1px solid #383838"
   },
   "switches": {

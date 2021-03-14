@@ -49,6 +49,8 @@ export const Tooltip = ({
       style={{
         background: tooltips.background_tooltip,
         color: tooltips.font_tooltip_color,
+        fontSize: tooltips.font_tooltip_size,
+        fontWeight: tooltips.font_tooltip_weight,
         border: tooltips.border_tooltip,
         maxWidth: width,
         ...position

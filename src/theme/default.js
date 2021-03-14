@@ -20,7 +20,8 @@ export const createTheme = (override) => {
     wizard,
     progress,
     calendar,
-    snackbar
+    snackbar,
+    dropzone
   } = override
 
   const default_colors = {
@@ -63,6 +64,7 @@ export const createTheme = (override) => {
     font_label_weight: 500,
     font_label_color: default_globals.font_primary_color,
     // font button settings
+    font_button_color: default_globals.font_primary_color,
     font_button_family: default_globals.secondary_font,
     font_button_size: default_globals.font_size,
     font_button_transform: 'none',
@@ -78,6 +80,8 @@ export const createTheme = (override) => {
     font_input_placeholder: default_globals.placeholder_color,
     // font tooltips settings
     font_tooltip_color: default_globals.font_secondary_color,
+    font_tooltip_size: default_globals.font_size,
+    font_tooltip_weight: 400,
     // font dropdown settings
     font_option_color: default_globals.font_primary_color,
     font_option_active: default_colors.primary,
@@ -153,10 +157,13 @@ export const createTheme = (override) => {
   const default_tooltips = {
     background_tooltip: default_backgrounds.background_tooltip,
     font_tooltip_color: default_fonts.font_tooltip_color,
+    font_tooltip_size: default_fonts.font_tooltip_size,
+    font_tooltip_weight: default_fonts.font_tooltip_weight,
     border_tooltip: default_borders.border_tooltip,
     ...tooltips
   }
   const default_buttons = {
+    font_button_color: default_fonts.font_button_color,
     font_button_family: default_fonts.font_button_family,
     font_button_size: default_fonts.font_button_size,
     font_button_transform: default_fonts.font_button_transform,
@@ -196,6 +203,27 @@ export const createTheme = (override) => {
     ...default_inputs,
     ...dropdowns
   }
+
+  const default_dropzone = {
+    font_dropzone_family: default_fonts.font_input_family,
+    font_dropzone_size: default_fonts.font_input_size,
+    font_dropzone_transform: default_fonts.font_input_transform,
+    font_dropzone_weight: default_fonts.font_input_weight,
+    font_dropzone_color: default_fonts.font_input_color,
+    font_dropzone_placeholder: default_fonts.font_input_placeholder,
+    font_dropzone_focus: default_fonts.font_input_focus,
+    font_dropzone_hover: default_fonts.font_input_hover,
+    border_dropzone: default_borders.border_dropzone,
+    border_dropzone_hover: default_borders.border_dropzone_hover,
+    border_dropzone_disabled: default_borders.border_dropzone_disabled,
+    background_dropzone_disabled: default_backgrounds.background_input_disabled,
+    background_dropzone: default_backgrounds.background_input,
+    ...default_tooltips,
+    ...default_labels,
+    ...default_buttons,
+    ...dropzone
+  }
+
   const default_switches = {
     switch_on: default_globals.switch_on,
     switch_handle: default_globals.switch_handle,
@@ -292,6 +320,7 @@ export const createTheme = (override) => {
     wizard: default_wizard,
     progress: default_progress,
     calendar: default_calendar,
-    snackbar: default_snackbar
+    snackbar: default_snackbar,
+    dropzone: default_dropzone
   }
 }
