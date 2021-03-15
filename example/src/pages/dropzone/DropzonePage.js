@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropzone, Button, Table } from 'kinetic-ui';
+import { Dropzone, Table } from 'kinetic-ui';
 import { CustomCell } from './Cells';
 import { headers, theme_rows } from './constants';
 import cn from './Dropzone.module.scss';

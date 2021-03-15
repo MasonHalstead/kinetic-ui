@@ -1,4 +1,5 @@
 import React, { useState, Children, cloneElement, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Label } from '../labels/Label'
 import { useTheme } from '../theme/ThemeProvider'
@@ -113,4 +114,17 @@ TextareaBase.defaultProps = {
   disabled: false,
   transparent: false,
   children: () => {}
+}
+TextareaBase.propTypes = {
+  label: PropTypes.string,
+  margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  background: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  min_height: PropTypes.number,
+  disabled: PropTypes.bool,
+  error_level: PropTypes.number,
+  error_message: PropTypes.string,
+  transparent: PropTypes.bool,
+  theme: PropTypes.object,
+  children: PropTypes.any
 }

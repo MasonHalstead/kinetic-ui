@@ -1,4 +1,5 @@
 import React, { useState, Children, cloneElement } from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wrapper, Input } from './elements'
 import { Label } from '../labels/Label'
@@ -173,4 +174,27 @@ InputBase.defaultProps = {
   onFocus: () => {},
   onRemove: () => {},
   onBlur: () => {}
+}
+InputBase.propTypes = {
+  left_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  right_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  label: PropTypes.string,
+  margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  background: PropTypes.string,
+  default_value: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.number,
+  disabled: PropTypes.bool,
+  error_level: PropTypes.number,
+  error_message: PropTypes.string,
+  transparent: PropTypes.bool,
+  theme: PropTypes.object,
+  placeholder: PropTypes.string,
+  inputRef: PropTypes.any,
+  open: PropTypes.bool,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onRemove: PropTypes.func,
+  onBlur: PropTypes.func,
+  children: PropTypes.any
 }
