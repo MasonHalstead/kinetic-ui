@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputCurrency, InputPercent, InputNumber } from 'kinetic-ui';
+import { InputCurrency, InputPercent, InputNumber, Textarea } from 'kinetic-ui';
 import cn from './Inputs.module.scss';
 
 const InputsSpecialPage = () => {
@@ -82,6 +82,28 @@ const Form = () => {
           margin="0px 10px 0px 10px"
         />
         <InputNumber label="Controlled Number" placeholder="ex. 100" onChange={setValue} value={value.value} />
+      </div>
+      <div className={cn.header}>
+        <h2>Textarea</h2>
+      </div>
+      <pre className="code code-javascript">
+        <label>JSX</label>
+        <code>{`import React, { useState } from 'react'
+import { InputCurrency, InputPercent, InputNumber } from 'kinetic-ui'
+
+const Form = () => {
+  const [value, setValue] = useState({
+    value: 0,
+  });
+  return <>
+    <InputCurrency label="Controlled Currency" placeholder="ex. $100" onChange={setValue} value={value.value} />
+    <InputPercent label="Controlled Percent" placeholder="ex. 100%" onChange={setValue} value={value.value} margin="0px 10px 0px 10px" />
+    <InputNumber label="Controlled Number" placeholder="ex. 100" onChange={setValue} value={value.value} />
+  </>
+}`}</code>
+      </pre>
+      <div className={cn.wrapperFlex}>
+        <Textarea label="Textarea" />
       </div>
     </div>
   );

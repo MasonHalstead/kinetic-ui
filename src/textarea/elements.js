@@ -28,7 +28,7 @@ export const Textarea = styled.div(
         background: background || theme.background_input,
         color: theme.font_input_focus,
         border: theme.border_input_focus,
-        '& input': {
+        '& textarea': {
           color: theme.font_input_color
         }
       }
@@ -40,7 +40,7 @@ export const Textarea = styled.div(
       '&:hover': {
         color: theme.font_input_hover
       },
-      '& input': {
+      '& textarea': {
         color: theme.font_input_color
       }
     }
