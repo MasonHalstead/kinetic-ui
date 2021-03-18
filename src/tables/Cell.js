@@ -39,12 +39,12 @@ CellWrapper.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
-export const Cell = ({ children, align, background, onClick }) => {
+export const Cell = ({ children, align, height, background, onClick }) => {
   return (
     <div
       className={classNames(cn.cell)}
       onClick={onClick}
-      style={{ textAlign: align, background: background }}
+      style={{ textAlign: align, background: background, minHeight: height }}
     >
       {children}
     </div>
@@ -52,6 +52,7 @@ export const Cell = ({ children, align, background, onClick }) => {
 }
 Cell.defaultProps = {
   align: 'left',
+  height: null,
   background: null,
   onClick: () => {},
   children: () => {}
@@ -59,6 +60,7 @@ Cell.defaultProps = {
 
 Cell.propTypes = {
   align: PropTypes.string,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   background: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
