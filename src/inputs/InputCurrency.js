@@ -93,7 +93,8 @@ InputCurrency.defaultProps = {
   text_align: 'right',
   thousand_separator: true,
   decimal_scale: 2,
-  prefix: '$'
+  prefix: '$',
+  onChange: () => {}
 }
 InputCurrency.propTypes = {
   value: PropTypes.string,

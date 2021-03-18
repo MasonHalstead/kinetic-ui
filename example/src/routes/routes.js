@@ -6,6 +6,7 @@ export const routes = {
   CALENDAR: '/calendar',
   BUTTONS: '/buttons',
   SNACKBAR: '/snackbar',
+  SWITCH: '/switch',
   DROPDOWNS: '/dropdowns',
   DROPZONE: '/dropzone',
   INPUTS: '/inputs',

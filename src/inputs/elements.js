@@ -11,14 +11,20 @@ export const Input = styled.div(
         color: theme.font_input_color,
         border: 'none',
         background: disabled ? theme.background_input_disabled : 'transparent',
-        borderRadius: '0px'
+        borderRadius: '0px',
+        '& input': {
+          color: theme.font_input_color
+        }
       }
     }
     if (disabled) {
       return {
         color: theme.font_input_color,
         border: theme.border_input_disabled,
-        background: theme.background_input_disabled
+        background: theme.background_input_disabled,
+        '& input': {
+          color: theme.font_input_color
+        }
       }
     }
     if (focus) {

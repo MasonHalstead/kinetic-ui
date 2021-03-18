@@ -93,7 +93,8 @@ InputPercent.defaultProps = {
   text_align: 'right',
   thousand_separator: true,
   decimal_scale: 0,
-  suffix: '%'
+  suffix: '%',
+  onChange: () => {}
 }
 InputPercent.propTypes = {
   value: PropTypes.string,

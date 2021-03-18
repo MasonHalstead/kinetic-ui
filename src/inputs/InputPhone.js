@@ -90,7 +90,8 @@ InputPhone.defaultProps = {
   placeholder: '',
   text_align: 'right',
   format: '(###) ###-####',
-  mask: ''
+  mask: '',
+  onChange: () => {}
 }
 InputPhone.propTypes = {
   value: PropTypes.string,

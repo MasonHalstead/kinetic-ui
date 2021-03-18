@@ -19,9 +19,13 @@ export const Wizard = ({
   useEffect(() => {
     // pushing children adds an array index
     // it doesnt not add a child object
-    const flatten_children = children.flat(1)
-    setProgressEnd(flatten_children.length - 1)
-    setChildren(flatten_children)
+    if (children) {
+      const flatten_children = children.flat(1)
+      if (flatten_children && flatten_children.length > 0) {
+        setProgressEnd(flatten_children.length - 1)
+        setChildren(flatten_children)
+      }
+    }
   }, [children])
 
   const onBack = () => {

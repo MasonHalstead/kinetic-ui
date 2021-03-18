@@ -90,7 +90,7 @@ export const DropdownBase = ({
   })
 
   const onClickOutside = (e) => {
-    if (dropdownRef.current.contains(e.target)) {
+    if (dropdownRef.current && dropdownRef.current.contains(e.target)) {
       return
     }
     setOpen(false)

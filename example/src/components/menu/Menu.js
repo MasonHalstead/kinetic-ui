@@ -17,6 +17,7 @@ const options = {
     { link: '/inputs', name: 'Inputs' },
     { link: '/inputs-special', name: 'Inputs Special' },
   ],
+  switch: [{ link: '/switch', name: 'Switch' }],
   snackbar: [{ link: '/snackbar', name: 'Snackbar' }],
   modals: [
     { link: '/modals', name: 'Modals' },
@@ -40,6 +41,7 @@ export const Menu = () => {
         <AccordionItem title="Buttons" options={options.buttons} />
         <AccordionItem title="Dropdowns" options={options.dropdowns} />
         <AccordionItem title="Dropzone" options={options.dropzone} />
+        <AccordionItem title="Switch" options={options.switch} />
         <AccordionItem title="Inputs" options={options.inputs} />
         <AccordionItem title="Snackbar" options={options.snackbar} />
         <AccordionItem title="Modals" options={options.modals} />

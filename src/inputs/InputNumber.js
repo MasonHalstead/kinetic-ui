@@ -90,7 +90,8 @@ InputNumber.defaultProps = {
   placeholder: '',
   text_align: 'right',
   thousand_separator: true,
-  decimal_scale: 0
+  decimal_scale: 0,
+  onChange: () => {}
 }
 InputNumber.propTypes = {
   value: PropTypes.string,

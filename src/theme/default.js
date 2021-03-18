@@ -63,6 +63,7 @@ export const createTheme = (override) => {
     font_label_transform: 'none',
     font_label_weight: 500,
     font_label_color: default_globals.font_primary_color,
+    font_label_highlight: default_globals.active_color,
     // font button settings
     font_button_color: default_globals.font_primary_color,
     font_button_family: default_globals.secondary_font,
@@ -80,7 +81,7 @@ export const createTheme = (override) => {
     font_input_placeholder: default_globals.placeholder_color,
     // font tooltips settings
     font_tooltip_color: default_globals.font_secondary_color,
-    font_tooltip_size: default_globals.font_size,
+    font_tooltip_size: '12px',
     font_tooltip_weight: 400,
     // font dropdown settings
     font_option_color: default_globals.font_primary_color,
@@ -88,9 +89,6 @@ export const createTheme = (override) => {
     font_option_family: default_globals.primary_font,
     font_option_size: default_globals.font_size,
     font_option_hover: default_colors.secondary,
-    // font variants settings
-    font_light_color: default_globals.font_secondary_color,
-    font_dark_color: default_globals.font_primary_color,
     // font accordion settings
     font_accordion_family: default_globals.primary_font,
     font_accordion_size: default_globals.font_size,
@@ -155,6 +153,7 @@ export const createTheme = (override) => {
     font_label_transform: default_fonts.font_label_transform,
     font_label_weight: default_fonts.font_label_weight,
     font_label_color: default_fonts.font_label_color,
+    font_label_highlight: default_fonts.font_label_highlight,
     ...labels
   }
   const default_tooltips = {
@@ -232,8 +231,6 @@ export const createTheme = (override) => {
     switch_handle: default_globals.switch_handle,
     switch_off: default_globals.switch_off,
     switch_off_handle: default_globals.switch_off_handle,
-    font_light_color: default_fonts.font_light_color,
-    font_dark_color: default_fonts.font_dark_color,
     ...default_labels,
     ...switches
   }

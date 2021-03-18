@@ -64,6 +64,7 @@ export const RowAccordion = ({
   }
 
   const { rows_striped, row_height, row_highlight } = settings
+  const expanded_height = height + (expand ? +1 : 0)
   return (
     <RowElement
       className={cn.accordion}
@@ -106,13 +107,14 @@ export const RowAccordion = ({
         ref={contentRef}
         theme={theme}
         expand={expand}
-        style={{ maxHeight: height }}
+        style={{ maxHeight: expanded_height }}
       >
         <Measure scroll onResize={onResize}>
           {({ measureRef }) => (
             <div
               ref={measureRef}
               style={{
+                boxSizing: 'border-box',
                 borderTop: `1px solid ${theme.border_table_color}`,
                 padding: content && accordion_padding
               }}

@@ -8,13 +8,11 @@ import cn from './Table.module.scss'
 import { TableBase } from './TableBase'
 import { Row } from './Row'
 
-export const TableFlex = ({ children, ...rest }) => {
-  return (
-    <TableBase {...rest}>
-      <TableWrapper>{children}</TableWrapper>
-    </TableBase>
-  )
-}
+export const TableFlex = ({ children, ...rest }) => (
+  <TableBase {...rest}>
+    <TableWrapper>{children}</TableWrapper>
+  </TableBase>
+)
 TableFlex.defaultProps = {
   children: () => {}
 }

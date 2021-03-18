@@ -8,11 +8,12 @@ import cn from './Switch.module.scss'
 export const Switch = ({
   prepend_label,
   append_label,
+  highlight,
   checked,
+  height,
   width,
   margin,
   theme,
-  variant,
   onClick
 }) => {
   const handleClick = () => onClick(!checked)
@@ -20,20 +21,22 @@ export const Switch = ({
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'stretch',
+    fontWeight: 400,
     margin: '0px 10px'
   }
   const switches = useTheme('switches', theme)
-  const font_color =
-    variant === 'dark' ? switches.font_dark_color : switches.font_light_color
   return (
-    <div className={cn.switch} style={{ width, margin }}>
+    <div className={cn.switch} style={{ width, margin, height }}>
       {prepend_label && (
         <Label
           label={prepend_label}
           style={{ ...style, marginLeft: 0 }}
           theme={{
             ...switches,
-            font_label_color: font_color
+            font_label_color:
+              highlight && !checked
+                ? switches.font_label_highlight
+                : switches.font_label_color
           }}
           onClick={handleClick}
         />
@@ -58,7 +61,10 @@ export const Switch = ({
           onClick={handleClick}
           theme={{
             ...switches,
-            font_label_color: font_color
+            font_label_color:
+              highlight && checked
+                ? switches.font_label_highlight
+                : switches.font_label_color
           }}
           style={{ ...style, marginRight: 0 }}
         />
@@ -68,19 +74,24 @@ export const Switch = ({
 }
 
 Switch.defaultProps = {
-  variant: 'dark',
+  highlight: true,
   prepend_label: null,
   append_label: null,
   checked: false,
   theme: {},
   width: '100%',
   margin: '0px',
+  height: 30,
   onClick: () => {}
 }
 Switch.propTypes = {
-  variant: PropTypes.string,
+  highlight: PropTypes.bool,
   prepend_label: PropTypes.string,
   append_label: PropTypes.string,
-  width: PropTypes.string,
-  margin: PropTypes.string
+  checked: PropTypes.bool,
+  theme: PropTypes.object,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.number,
+  onClick: PropTypes.func
 }
