@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  input {
+    cursor: pointer;
+    margin: 0px;
+  }
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    line-height: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    margin: 0px;
+    margin-left: 10px;
+  }
+}
+.wrapper.disabled {
+  cursor: default;
+  input {
+    cursor: default;
+  }
+}

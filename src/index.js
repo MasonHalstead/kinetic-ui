@@ -20,6 +20,7 @@ import {
   InputPercent,
   InputPhone
 } from './inputs/index'
+import { Checkbox } from './checkbox/Checkbox'
 import { Progress } from './progress/index'
 import {
   Table,
@@ -49,6 +50,7 @@ export {
   createDefaultTheme,
   createMarketstreamTheme,
   Dropzone,
+  Checkbox,
   Wizard,
   Label,
   Option,

@@ -19,7 +19,8 @@ export const createTheme = (override) => {
     progress,
     calendar,
     snackbar,
-    dropzone
+    dropzone,
+    checkbox
   } = override
 
   const default_colors = {
@@ -62,6 +63,13 @@ export const createTheme = (override) => {
     font_label_weight: 500,
     font_label_color: default_globals.font_primary_color,
     font_label_highlight: default_globals.active_color,
+    // font checkbox settings
+    font_checkbox_family: default_globals.primary_font,
+    font_checkbox_size: default_globals.font_size,
+    font_checkbox_transform: 'none',
+    font_checkbox_weight: 400,
+    font_checkbox_color: default_globals.font_primary_color,
+    font_checkbox_highlight: default_globals.active_color,
     // font button settings
     font_button_color: default_globals.font_primary_color,
     font_button_family: default_globals.secondary_font,
@@ -160,6 +168,15 @@ export const createTheme = (override) => {
     font_tooltip_weight: default_fonts.font_tooltip_weight,
     border_tooltip: default_borders.border_tooltip,
     ...tooltips
+  }
+  const default_checkbox = {
+    font_checkbox_family: default_fonts.font_checkbox_family,
+    font_checkbox_size: default_fonts.font_checkbox_size,
+    font_checkbox_transform: default_fonts.font_checkbox_transform,
+    font_checkbox_weight: default_fonts.font_checkbox_weight,
+    font_checkbox_color: default_fonts.font_checkbox_color,
+    font_checkbox_highlight: default_fonts.font_checkbox_highlight,
+    ...checkbox
   }
   const default_buttons = {
     font_button_color: default_fonts.font_button_color,
@@ -316,6 +333,7 @@ export const createTheme = (override) => {
     tabs: default_tabs,
     modal: default_modal,
     wizard: default_wizard,
+    checkbox: default_checkbox,
     progress: default_progress,
     calendar: default_calendar,
     snackbar: default_snackbar,

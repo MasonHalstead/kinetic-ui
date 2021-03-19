@@ -11,6 +11,7 @@ const options = {
   accordion: [{ link: '/accordion', name: 'Accordion' }],
   calendar: [{ link: '/calendar', name: 'Calendar' }],
   buttons: [{ link: '/buttons', name: 'Buttons' }],
+  checkbox: [{ link: '/checkbox', name: 'Checkbox' }],
   dropdowns: [{ link: '/dropdowns', name: 'Dropdowns' }],
   dropzone: [{ link: '/dropzone', name: 'Dropzone' }],
   inputs: [
@@ -38,6 +39,7 @@ export const Menu = () => {
         <AccordionItem title="Getting Started" options={options.installation} />
         <AccordionItem title="Accordion" options={options.accordion} />
         <AccordionItem title="Calendar" options={options.calendar} />
+        <AccordionItem title="Checkbox" options={options.checkbox} />
         <AccordionItem title="Buttons" options={options.buttons} />
         <AccordionItem title="Dropdowns" options={options.dropdowns} />
         <AccordionItem title="Dropzone" options={options.dropzone} />

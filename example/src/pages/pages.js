@@ -8,6 +8,7 @@ export const AccordionPage = lazy(() => import('pages/accordion/AccordionPage'))
 export const DropdownsPage = lazy(() => import('pages/dropdowns/DropdownsPage'));
 export const DropzonePage = lazy(() => import('pages/dropzone/DropzonePage'));
 export const SwitchPage = lazy(() => import('pages/switch/SwitchPage'));
+export const CheckboxPage = lazy(() => import('pages/checkbox/CheckboxPage'));
 export const SnackbarPage = lazy(() => import('pages/snackbar/SnackbarPage'));
 export const ModalsPage = lazy(() => import('pages/modals/ModalsPage'));
 export const ModalsWizardPage = lazy(() => import('pages/modals/ModalsWizardPage'));
