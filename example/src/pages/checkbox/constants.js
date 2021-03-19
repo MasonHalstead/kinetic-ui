@@ -101,4 +101,12 @@ export const checkbox_rows = [
     description: 'disabled checkbox',
     uuid: 10,
   },
+  {
+    name: 'native',
+    type: 'boolean',
+    default: 'true',
+    options: 'true | false',
+    description: 'uses native input checkbox or fontawesome checkbox',
+    uuid: 10,
+  },
 ];

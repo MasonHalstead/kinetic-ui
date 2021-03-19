@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTheme } from '../theme/ThemeProvider'
 import classNames from 'classnames'
 import cn from './Checkbox.module.scss'
@@ -11,6 +12,7 @@ export const Checkbox = ({
   checked,
   width,
   height,
+  native,
   disabled,
   theme,
   onClick
@@ -38,13 +40,21 @@ export const Checkbox = ({
             : checkbox.font_checkbox_color
       }}
     >
-      <input type='checkbox' checked={checked} disabled={disabled} />
+      {native && (
+        <input type='checkbox' checked={checked} disabled={disabled} />
+      )}
+      {!native && (
+        <FontAwesomeIcon
+          icon={checked ? ['fas', 'check-square'] : ['far', 'square']}
+        />
+      )}
       {children && <p className={cn.checkbox}>{children}</p>}
     </div>
   )
 }
 Checkbox.defaultProps = {
   highlight: true,
+  native: true,
   children: null,
   margin: 0,
   width: '100%',
@@ -57,6 +67,7 @@ Checkbox.defaultProps = {
 Checkbox.propTypes = {
   highlight: PropTypes.bool,
   children: PropTypes.string,
+  native: PropTypes.bool,
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
