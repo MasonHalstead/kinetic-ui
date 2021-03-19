@@ -24,19 +24,16 @@ export const AccordionBase = ({
 }) => {
   const [expand, setExpand] = useState(false)
   const [direction, setDirection] = useState(false)
-  const [content, setContent] = useState(false)
   const [height, setHeight] = useState(0)
-  const contentRef = useRef()
+  const [content_height, setContentHeight] = useState(0)
 
   useEffect(() => {
     // initial expand & content show
     if (expanded) {
-      setTimeout(() => setExpand(true), transition)
-      setContent(true)
+      setExpand(true)
       setDirection(true)
     } else {
       setExpand(false)
-      setContent(false)
       setDirection(false)
     }
   }, [])
@@ -44,19 +41,18 @@ export const AccordionBase = ({
   const setAccordion = async () => {
     if (!expand) {
       // opens content and fires content useEffect
-      setTimeout(() => setExpand(true), transition)
-      setContent(true)
+      setExpand(true)
       setDirection(true)
+      setHeight(content_height)
     } else {
       // closes everything and hides content after transition is done
       setExpand(false)
       setDirection(false)
-      setTimeout(() => setContent(false), transition)
       setHeight(0)
     }
   }
   const onResize = (ref) => {
-    setHeight(ref.scroll.height)
+    setContentHeight(ref.scroll.height)
   }
   if (!show) {
     return null
@@ -75,14 +71,12 @@ export const AccordionBase = ({
       <ContentElement
         transition={transition}
         expand={overflow && expand}
-        ref={contentRef}
         style={{ maxHeight: height }}
       >
         <Measure scroll onResize={onResize}>
           {({ measureRef }) => (
             <div ref={measureRef}>
-              {content &&
-                Children.map(children, (child) => cloneElement(child, {}))}
+              {Children.map(children, (child) => cloneElement(child, {}))}
             </div>
           )}
         </Measure>

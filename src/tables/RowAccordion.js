@@ -28,19 +28,15 @@ export const RowAccordion = ({
 }) => {
   const [expand, setExpand] = useState(false)
   const [direction, setDirection] = useState(false)
-  const [content, setContent] = useState(false)
   const [height, setHeight] = useState(0)
-  const contentRef = useRef()
-
+  const [content_height, setContentHeight] = useState(0)
   useEffect(() => {
     // initial expand & content show
     if (expanded) {
-      setTimeout(() => setExpand(true), transition)
-      setContent(true)
+      setExpand(true)
       setDirection(true)
     } else {
       setExpand(false)
-      setContent(false)
       setDirection(false)
     }
   }, [])
@@ -48,19 +44,18 @@ export const RowAccordion = ({
   const setAccordion = async () => {
     if (!expand) {
       // opens content and fires content useEffect
-      setTimeout(() => setExpand(true), transition)
-      setContent(true)
+      setExpand(true)
       setDirection(true)
+      setHeight(content_height)
     } else {
       // closes everything and hides content after transition is done
       setExpand(false)
       setDirection(false)
-      setTimeout(() => setContent(false), transition)
       setHeight(0)
     }
   }
   const onResize = (ref) => {
-    setHeight(ref.scroll.height)
+    setContentHeight(ref.scroll.height)
   }
 
   const { rows_striped, row_height, row_highlight } = settings
@@ -104,7 +99,6 @@ export const RowAccordion = ({
       <AccordionElement
         className={cn.contentWrapper}
         transition={transition}
-        ref={contentRef}
         theme={theme}
         expand={expand}
         style={{ maxHeight: expanded_height }}
@@ -116,19 +110,18 @@ export const RowAccordion = ({
               style={{
                 boxSizing: 'border-box',
                 borderTop: `1px solid ${theme.border_table_color}`,
-                padding: content && accordion_padding
+                padding: accordion_padding
               }}
             >
-              {content &&
-                accordion({
-                  row,
-                  settings,
-                  theme,
-                  transition,
-                  row_index,
-                  headers,
-                  expanded: expand
-                })}
+              {accordion({
+                row,
+                settings,
+                theme,
+                transition,
+                row_index,
+                headers,
+                expanded: expand
+              })}
             </div>
           )}
         </Measure>
