@@ -101,4 +101,12 @@ export const switch_rows = [
     description: 'sets height',
     uuid: 9,
   },
+  {
+    name: 'disabled',
+    type: 'boolean',
+    default: 'false',
+    options: 'true | false',
+    description: 'disables the switch',
+    uuid: 10,
+  },
 ];

@@ -9,6 +9,7 @@ export const Switch = ({
   prepend_label,
   append_label,
   highlight,
+  disabled,
   checked,
   height,
   width,
@@ -16,7 +17,11 @@ export const Switch = ({
   theme,
   onClick
 }) => {
-  const handleClick = () => onClick(!checked)
+  const handleClick = () => {
+    if (!disabled) {
+      onClick(!checked)
+    }
+  }
   const style = {
     display: 'flex',
     alignItems: 'center',
@@ -53,6 +58,7 @@ export const Switch = ({
         width={32}
         uncheckedIcon={false}
         checkedIcon={false}
+        disabled={disabled}
         boxShadow='0 2px 4px 0 rgba(0, 0, 0, 0.12)'
       />
       {append_label && (
@@ -78,6 +84,7 @@ Switch.defaultProps = {
   prepend_label: null,
   append_label: null,
   checked: false,
+  disabled: false,
   theme: {},
   width: '100%',
   margin: '0px',
@@ -89,6 +96,7 @@ Switch.propTypes = {
   prepend_label: PropTypes.string,
   append_label: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   theme: PropTypes.object,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
