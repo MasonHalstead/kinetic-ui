@@ -84,6 +84,7 @@ export const InputNumber = ({
 }
 InputNumber.defaultProps = {
   value: undefined,
+  default_value: undefined,
   debounce: null,
   name: '',
   label: null,
@@ -95,6 +96,7 @@ InputNumber.defaultProps = {
 }
 InputNumber.propTypes = {
   value: PropTypes.string,
+  default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
   thousand_separator: PropTypes.bool,

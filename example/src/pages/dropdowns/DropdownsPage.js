@@ -85,15 +85,16 @@ const Form = () => {
 }`}</code>
       </pre>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Dropdown label="Controlled" onSelect={setOption} options={options} value={option.name} />
+        <Dropdown label="Controlled" onSelect={setOption} options={options} value={option.name} controlled />
         <Dropdown
           label="Controlled"
-          onSelect={setOption}
+          onSelect={() => setOption({ name: null, id: null })}
           options={options}
           margin="0px 10px 0px 10px"
+          controlled
           value={option.name}
         />
-        <Dropdown label="Controlled" onSelect={setOption} options={options} value={option.name} />
+        <Dropdown label="Controlled" onSelect={setOption} options={options} value={option.name} controlled />
       </div>
       <div className={cn.header}>
         <h2>Dropdowns More</h2>

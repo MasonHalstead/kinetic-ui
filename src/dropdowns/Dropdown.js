@@ -24,6 +24,7 @@ export const Dropdown = ({
   options,
   option_key,
   error_level,
+  controlled,
   error_message,
   scroll_height,
   nullable,
@@ -40,6 +41,7 @@ export const Dropdown = ({
       margin={margin}
       width={width}
       nullable={nullable}
+      controlled={controlled}
       onChange={onChange}
       onSelect={onSelect}
     >
@@ -75,6 +77,7 @@ Dropdown.defaultProps = {
   margin: 0,
   background: null,
   default_value: null,
+  value: null,
   width: '100%',
   height: 30,
   disabled: false,
@@ -87,6 +90,7 @@ Dropdown.defaultProps = {
   theme: {},
   scroll_height: 200,
   nullable: false,
+  controlled: false,
   onChange: () => {},
   onSelect: () => {}
 }
@@ -97,9 +101,11 @@ Dropdown.propTypes = {
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   background: PropTypes.string,
   default_value: PropTypes.string,
+  value: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
   disabled: PropTypes.bool,
+  controlled: PropTypes.bool,
   options: PropTypes.array,
   option_key: PropTypes.string,
   error_message: PropTypes.string,

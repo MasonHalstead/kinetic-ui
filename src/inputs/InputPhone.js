@@ -84,6 +84,7 @@ export const InputPhone = ({
 }
 InputPhone.defaultProps = {
   value: undefined,
+  default_value: undefined,
   debounce: null,
   name: '',
   label: null,
@@ -95,6 +96,7 @@ InputPhone.defaultProps = {
 }
 InputPhone.propTypes = {
   value: PropTypes.string,
+  default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
   format: PropTypes.string,

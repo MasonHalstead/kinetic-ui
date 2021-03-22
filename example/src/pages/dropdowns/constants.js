@@ -190,12 +190,20 @@ export const dropdown_rows = [
     uuid: 20,
   },
   {
+    name: 'controlled',
+    type: 'boolean',
+    default: 'false',
+    options: '',
+    description: 'allows the dropdown to be controlled by the value prop',
+    uuid: 21,
+  },
+  {
     name: 'error_message',
     type: 'string',
     default: 'required',
     options: '',
     description: 'tooltip message when nullable is true',
-    uuid: 21,
+    uuid: 22,
   },
 ];
 

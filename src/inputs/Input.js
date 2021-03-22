@@ -64,6 +64,7 @@ export const Input = ({
 }
 Input.defaultProps = {
   value: undefined,
+  default_value: undefined,
   placeholder: '',
   text_align: 'left',
   type: 'text',
@@ -74,6 +75,7 @@ Input.defaultProps = {
 }
 Input.propTypes = {
   value: PropTypes.string,
+  default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
   type: PropTypes.string,

@@ -86,6 +86,7 @@ export const InputPercent = ({
 }
 InputPercent.defaultProps = {
   value: undefined,
+  default_value: undefined,
   debounce: null,
   name: '',
   label: null,
@@ -98,6 +99,7 @@ InputPercent.defaultProps = {
 }
 InputPercent.propTypes = {
   value: PropTypes.string,
+  default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
   thousand_separator: PropTypes.bool,

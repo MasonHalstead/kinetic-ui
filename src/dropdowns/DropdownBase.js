@@ -42,6 +42,7 @@ export const DropdownBase = ({
   value,
   options,
   option_key,
+  controlled,
   nullable,
   ...rest
 }) => {
@@ -56,6 +57,7 @@ export const DropdownBase = ({
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
+    // setting a default value for uncontrolled dropdown
     if (default_value) {
       const index = findOptionIndex(options, option_key, default_value)
       setSettings((prev) => ({
@@ -66,7 +68,11 @@ export const DropdownBase = ({
         remove: true
       }))
     }
-    if (value) {
+  }, [options])
+
+  useEffect(() => {
+    // controlled needs to be explicitly set for value
+    if (controlled) {
       const index = findOptionIndex(options, option_key, value)
       setSettings((prev) => ({
         ...prev,
@@ -103,7 +109,7 @@ export const DropdownBase = ({
   const onRemove = () => {
     rest.onSelect(null)
 
-    if (!value) {
+    if (!controlled) {
       setSettings((prev) => ({
         ...prev,
         selected: -1,
@@ -120,7 +126,7 @@ export const DropdownBase = ({
     } else {
       rest.onSelect(option)
       setOpen(false)
-      if (!value) {
+      if (!controlled) {
         setSettings((prev) => ({
           ...prev,
           selected: i,
@@ -210,6 +216,7 @@ DropdownBase.defaultProps = {
   value: null,
   options: [],
   option_key: 'name',
+  controlled: false,
   nullable: false,
   onChange: () => {},
   onSelect: () => {},
@@ -223,6 +230,7 @@ DropdownBase.propTypes = {
   value: PropTypes.string,
   options: PropTypes.array,
   option_key: PropTypes.string,
+  controlled: PropTypes.bool,
   nullable: PropTypes.bool,
   onChange: PropTypes.func,
   onSelect: PropTypes.func,

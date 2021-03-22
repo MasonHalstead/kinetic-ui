@@ -10,18 +10,16 @@ export const InputDropdown = ({
   text_align,
   theme,
   ...rest
-}) => {
-  return (
-    <InputBase theme={theme} {...rest}>
-      <Base
-        theme={theme}
-        value={value}
-        placeholder={placeholder}
-        text_align={text_align}
-      />
-    </InputBase>
-  )
-}
+}) => (
+  <InputBase theme={theme} {...rest}>
+    <Base
+      theme={theme}
+      value={value}
+      placeholder={placeholder}
+      text_align={text_align}
+    />
+  </InputBase>
+)
 InputDropdown.defaultProps = {
   theme: {},
   value: undefined,
@@ -49,11 +47,15 @@ const Base = ({ placeholder, height, value, text_align, theme, disabled }) => (
 Base.defaultProps = {
   value: undefined,
   placeholder: undefined,
+  height: 30,
+  theme: {},
   text_align: 'left',
   disabled: null
 }
 Base.propTypes = {
   value: PropTypes.string,
+  height: PropTypes.number,
+  theme: PropTypes.object,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool
