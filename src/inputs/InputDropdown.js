@@ -39,7 +39,7 @@ const Base = ({ placeholder, height, value, text_align, theme, disabled }) => (
     theme={theme}
     placeholder={!value}
     disabled={disabled}
-    style={{ textAlign: text_align, lineHeight: `${height - 2}px` }}
+    style={{ textAlign: text_align, lineHeight: `${height}px` }}
   >
     {value || placeholder}
   </BaseElement>

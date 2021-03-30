@@ -1,10 +1,8 @@
 import styled from '@emotion/styled'
 
-export const Wrapper = styled.div(({ color }) => {
-  return {
-    '&::placeholder': { color }
-  }
-})
+export const Wrapper = styled.div(({ color }) => ({
+  '& textarea::placeholder': { color: `${color}!important` }
+}))
 
 export const Textarea = styled.div(
   ({ focus, disabled, background, transparent, theme }) => {

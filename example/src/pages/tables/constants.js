@@ -424,6 +424,14 @@ export const footer_props = [
   },
 ];
 
+export const countries = [
+  { country: 'Iceland', country_id: 1, uuid: 1 },
+  { country: 'Egypt', country_id: 2, uuid: 2 },
+  { country: 'Italy', country_id: 3, uuid: 3 },
+  { country: 'Tajikistan', country_id: 4, uuid: 4 },
+  { country: 'Liberia', country_id: 5, uuid: 5 },
+  { country: 'Samoa', country_id: 6, uuid: 6 },
+];
 export const data = [
   {
     company: 'Et Lacinia Vitae Industries',

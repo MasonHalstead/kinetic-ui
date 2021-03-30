@@ -17,6 +17,7 @@ export const Select = ({
   options,
   theme,
   width,
+  transparent,
   left,
   right,
   ...rest
@@ -31,8 +32,9 @@ export const Select = ({
             border: theme.border_select,
             background: theme.background_select,
             width,
-            left,
-            right
+            marginTop: transparent ? 0 : -1,
+            left: transparent ? left - 1 : left,
+            right: transparent ? right - 1 : right
           }}
         >
           {options.map((option, index) =>
@@ -53,6 +55,7 @@ Select.defaultProps = {
   width: null,
   left: 0,
   right: 0,
+  transparent: false,
   open: false,
   disabled: false,
   scroll_height: 200,
@@ -68,6 +71,7 @@ Select.propTypes = {
   theme: PropTypes.object,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   left: PropTypes.number,
+  transparent: PropTypes.bool,
   right: PropTypes.number,
   open: PropTypes.bool,
   disabled: PropTypes.bool,

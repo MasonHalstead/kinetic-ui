@@ -29,6 +29,7 @@ const options = {
     { link: '/table-headers', name: 'Table Headers' },
     { link: '/table-footer', name: 'Table Footer' },
     { link: '/table-variations', name: 'Table Variations' },
+    { link: '/table-bulk-edit', name: 'Table Bulk Edit' },
     { link: '/table-accordion', name: 'Table Accordion' },
   ],
 };

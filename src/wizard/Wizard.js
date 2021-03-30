@@ -5,12 +5,71 @@ import { Button } from '../buttons/Button'
 import { Progress } from '../progress/Progress'
 import cn from './Wizard.module.scss'
 
+const Buttons = ({
+  current,
+  back,
+  next,
+  end,
+  submit,
+  onBack,
+  onNext,
+  onSubmit,
+  theme
+}) => {
+  return (
+    <div className={cn.buttons}>
+      {current === 0 && <div className={cn.flex} />}
+      {current !== 0 && (
+        <Button onClick={onBack} theme={theme} width={125} slim>
+          {back}
+        </Button>
+      )}
+      {current !== end && (
+        <Button onClick={onNext} theme={theme} width={125} slim>
+          {next}
+        </Button>
+      )}
+      {current === end && (
+        <Button type='submit' theme={theme} onClick={onSubmit} width={125} slim>
+          {submit}
+        </Button>
+      )}
+    </div>
+  )
+}
+
+Buttons.defaultProps = {
+  theme: {},
+  onBack: () => {},
+  onNext: () => {},
+  onSubmit: () => {},
+  current: 0,
+  end: null,
+  back: 'Back',
+  next: 'Next',
+  submit: 'Submit'
+}
+Buttons.propTypes = {
+  theme: PropTypes.object,
+  back: PropTypes.string,
+  next: PropTypes.string,
+  submit: PropTypes.string,
+  current: PropTypes.number,
+  end: PropTypes.number,
+  onBack: PropTypes.func,
+  onNext: PropTypes.func,
+  onSubmit: PropTypes.func
+}
+
 export const Wizard = ({
   theme,
   onSubmit,
   width,
   onStep,
+  back,
+  next,
   submit,
+  buttons,
   children
 }) => {
   const [current, setProgressCurrent] = useState(0)
@@ -49,30 +108,17 @@ export const Wizard = ({
           return null
         })}
       </div>
-      <div className={cn.buttons}>
-        {current === 0 && <div className={cn.flex} />}
-        {current !== 0 && (
-          <Button onClick={onBack} theme={wizard_theme} width={125} slim>
-            Back
-          </Button>
-        )}
-        {current !== end && (
-          <Button onClick={onNext} theme={wizard_theme} width={125} slim>
-            Next
-          </Button>
-        )}
-        {current === end && (
-          <Button
-            type='submit'
-            theme={wizard_theme}
-            onClick={onSubmit}
-            width={125}
-            slim
-          >
-            {submit}
-          </Button>
-        )}
-      </div>
+      {buttons({
+        current,
+        back,
+        next,
+        end,
+        submit,
+        onBack,
+        onNext,
+        onSubmit,
+        theme: wizard_theme
+      })}
       <Progress current={current} end={end} theme={wizard_theme} />
     </div>
   )
@@ -81,14 +127,20 @@ export const Wizard = ({
 Wizard.defaultProps = {
   theme: {},
   width: 500,
+  buttons: (props) => <Buttons {...props} />,
   onStep: () => {},
   onSubmit: () => {},
+  back: 'Back',
+  next: 'Next',
   submit: 'Submit',
   children: null
 }
 Wizard.propTypes = {
   width: PropTypes.number,
+  buttons: PropTypes.func,
   theme: PropTypes.object,
+  back: PropTypes.string,
+  next: PropTypes.string,
   submit: PropTypes.string,
   onStep: PropTypes.func,
   onSubmit: PropTypes.func,

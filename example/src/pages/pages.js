@@ -17,6 +17,7 @@ export const InputsSpecialPage = lazy(() => import('pages/inputs/InputsSpecialPa
 export const TableBasicsPage = lazy(() => import('pages/tables/TableBasicsPage'));
 export const TableHeadersPage = lazy(() => import('pages/tables/TableHeadersPage'));
 export const TableVariationsPage = lazy(() => import('pages/tables/TableVariationsPage'));
+export const TableBulkEditPage = lazy(() => import('pages/tables/TableBulkEditPage'));
 export const TableFooterPage = lazy(() => import('pages/tables/TableFooterPage'));
 export const TableAccordionPage = lazy(() => import('pages/tables/TableAccordionPage'));
 export const ErrorPage = lazy(() => import('pages/error/ErrorPage'));

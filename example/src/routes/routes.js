@@ -19,5 +19,6 @@ export const routes = {
   TABLE_VARIATIONS: '/table-variations',
   TABLE_HEADERS: '/table-headers',
   TABLE_ACCORDION: '/table-accordion',
+  TABLE_BULK_EDIT: '/table-bulk-edit',
   DATA: '/data',
 };

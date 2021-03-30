@@ -92,18 +92,36 @@ const Form = () => {
 import { InputCurrency, InputPercent, InputNumber } from 'kinetic-ui'
 
 const Form = () => {
-  const [value, setValue] = useState({
-    value: 0,
-  });
+  const [value, setValue] = useState("This is a value");
   return <>
-    <InputCurrency label="Controlled Currency" placeholder="ex. $100" onChange={setValue} value={value.value} />
-    <InputPercent label="Controlled Percent" placeholder="ex. 100%" onChange={setValue} value={value.value} margin="0px 10px 0px 10px" />
-    <InputNumber label="Controlled Number" placeholder="ex. 100" onChange={setValue} value={value.value} />
+    <Textarea
+      label="Textarea"
+      default_value="This is a default value"
+      debounce={2000}
+      onChange={(value) => alert(value)}
+      width="50%"
+      margin="0px 5px 0px 0px"
+    />
+    <Textarea 
+      label="Textarea" 
+      value="This is a value" 
+      width="50%" 
+      onChange={setValue}
+      margin="0px 0px 0px 5px" />
   </>
 }`}</code>
       </pre>
       <div className={cn.wrapperFlex}>
-        <Textarea label="Textarea" />
+        <Textarea
+          label="Textarea"
+          placeholder="ex. 123"
+          default_value="This is a default value"
+          debounce={2000}
+          onChange={(value) => alert(value)}
+          width="50%"
+          margin="0px 5px 0px 0px"
+        />
+        <Textarea label="Textarea" value="This is a value" width="50%" margin="0px 0px 0px 5px" />
       </div>
     </div>
   );

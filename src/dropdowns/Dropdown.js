@@ -61,6 +61,7 @@ export const Dropdown = ({
       />
       <Select
         theme={dropdowns}
+        transparent={transparent}
         options={options}
         disabled={disabled}
         scroll_height={scroll_height}
