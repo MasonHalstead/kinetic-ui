@@ -10,6 +10,8 @@ export const routes = {
   SWITCH: '/switch',
   DROPDOWNS: '/dropdowns',
   DROPZONE: '/dropzone',
+  TABS: '/tabs',
+  PROGRESS: '/progress',
   INPUTS: '/inputs',
   INPUTS_SPECIAL: '/inputs-special',
   MODALS: '/modals',

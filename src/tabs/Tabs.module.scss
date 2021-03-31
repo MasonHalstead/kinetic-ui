@@ -3,7 +3,7 @@
   flex-direction: column;
   flex-grow: 1;
 }
-.header {
+.tab {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,14 +18,11 @@
     width: 100%;
     margin: 0px;
     padding: 10px 0px;
-    font-size: 13px;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-transform: uppercase;
+  }
+  p:hover {
+    opacity: 1;
   }
   .active {
     opacity: 1;

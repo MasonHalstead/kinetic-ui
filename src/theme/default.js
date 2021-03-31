@@ -113,6 +113,10 @@ export const createTheme = (override) => {
     font_header_hover: default_colors.secondary,
     // font tabs settings
     font_tab_color: '#fff',
+    font_tab_transform: 'none',
+    font_tab_family: default_globals.primary_font,
+    font_tab_size: default_globals.font_size,
+    // font snackbar settings
     font_snackbar_color: '#fff',
     font_snackbar_family: default_globals.primary_font,
     font_snackbar_size: default_globals.font_size,
@@ -150,9 +154,8 @@ export const createTheme = (override) => {
     border_tooltip: '1px solid #383838',
     border_select: `1px solid ${default_globals.active_color}`,
     border_accordion: `1px solid ${default_globals.border_color}`,
-    border_tab: '#4a84d1',
+    border_tab: `1px solid ${default_colors.primary}`,
     border_modal: `1px solid ${default_globals.border_color}`,
-    border_calendar: `1px solid ${default_globals.border_color}`,
     ...borders
   }
   const default_labels = {
@@ -285,6 +288,9 @@ export const createTheme = (override) => {
     background_tab: default_backgrounds.background_tab,
     border_tab: default_borders.border_tab,
     font_tab_color: default_fonts.font_tab_color,
+    font_tab_transform: default_fonts.font_tab_transform,
+    font_tab_family: default_fonts.font_tab_family,
+    font_tab_size: default_fonts.font_tab_size,
     ...tabs
   }
 

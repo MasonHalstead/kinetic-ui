@@ -1,0 +1,29 @@
+.page {
+  padding: 10px 5px;
+}
+.header {
+  margin: 5px 10px;
+  h2 {
+    margin: 0px;
+  }
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 20px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  flex-grow: 1;
+  font-weight: 500;
+  background: #fff;
+  border: 1px solid #273546;
+  border-top: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+}
