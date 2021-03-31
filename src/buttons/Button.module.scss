@@ -9,6 +9,7 @@
   box-sizing: border-box;
   margin: 0px;
   cursor: pointer;
+  max-height: max-content;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   &:hover [data-role='tooltip'] {

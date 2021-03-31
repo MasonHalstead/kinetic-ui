@@ -20,17 +20,23 @@ const Buttons = ({
     <div className={cn.buttons}>
       {current === 0 && <div className={cn.flex} />}
       {current !== 0 && (
-        <Button onClick={onBack} theme={theme} width={125} slim>
+        <Button onClick={onBack} theme={theme} width={125} button_size='small'>
           {back}
         </Button>
       )}
       {current !== end && (
-        <Button onClick={onNext} theme={theme} width={125} slim>
+        <Button onClick={onNext} theme={theme} width={125} button_size='small'>
           {next}
         </Button>
       )}
       {current === end && (
-        <Button type='submit' theme={theme} onClick={onSubmit} width={125} slim>
+        <Button
+          type='submit'
+          theme={theme}
+          onClick={onSubmit}
+          width={125}
+          button_size='small'
+        >
           {submit}
         </Button>
       )}

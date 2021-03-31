@@ -18,7 +18,8 @@ import {
   InputCurrency,
   InputNumber,
   InputPercent,
-  InputPhone
+  InputPhone,
+  InputFormat
 } from './inputs/index'
 import { Checkbox } from './checkbox/Checkbox'
 import { Progress } from './progress/index'
@@ -63,6 +64,7 @@ export {
   InputNumber,
   InputPercent,
   InputPhone,
+  InputFormat,
   Table,
   TableFlex,
   TableBase,

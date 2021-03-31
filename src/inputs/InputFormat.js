@@ -5,15 +5,24 @@ import { InputBase } from './InputBase'
 import NumberFormat from 'react-number-format'
 import cn from './Input.module.scss'
 
-export const InputPercent = ({
+export const InputFormat = ({
   placeholder,
   value,
   default_value,
   name,
   debounce,
   thousand_separator,
+  decimal_separator,
   decimal_scale,
+  fixed_decimal_scale,
+  allow_negative,
+  allow_empty_formatting,
+  allow_leading_zeros,
+  prefix,
   suffix,
+  is_numeric_string,
+  format,
+  mask,
   text_align,
   ...rest
 }) => {
@@ -25,14 +34,14 @@ export const InputPercent = ({
   const onChange = (target) => {
     if (debounce) {
       setValue({
-        float_value: (target.floatValue || 0) / 100,
+        float_value: target.floatValue,
         formatted_value: target.formattedValue,
         value: target.value
       })
       return
     }
     rest.onChange({
-      float_value: (target.floatValue || 0) / 100,
+      float_value: target.floatValue,
       formatted_value: target.formattedValue,
       value: target.value
     })
@@ -80,11 +89,20 @@ export const InputPercent = ({
         thousand_separator={thousand_separator}
         decimal_scale={decimal_scale}
         suffix={suffix}
+        decimal_separator={decimal_separator}
+        fixed_decimal_scale={fixed_decimal_scale}
+        allow_negative={allow_negative}
+        allow_empty_formatting={allow_empty_formatting}
+        allow_leading_zeros={allow_leading_zeros}
+        prefix={prefix}
+        is_numeric_string={is_numeric_string}
+        format={format}
+        mask={mask}
       />
     </InputBase>
   )
 }
-InputPercent.defaultProps = {
+InputFormat.defaultProps = {
   value: undefined,
   default_value: undefined,
   debounce: null,
@@ -93,11 +111,20 @@ InputPercent.defaultProps = {
   placeholder: '',
   text_align: 'right',
   thousand_separator: true,
-  decimal_scale: 0,
-  suffix: '%',
+  decimal_scale: null,
+  suffix: '',
+  decimal_separator: '.',
+  fixed_decimal_scale: false,
+  allow_negative: true,
+  allow_empty_formatting: false,
+  allow_leading_zeros: false,
+  prefix: null,
+  is_numeric_string: false,
+  format: null,
+  mask: '',
   onChange: () => {}
 }
-InputPercent.propTypes = {
+InputFormat.propTypes = {
   value: PropTypes.string,
   default_value: PropTypes.string,
   placeholder: PropTypes.string,
@@ -105,6 +132,15 @@ InputPercent.propTypes = {
   thousand_separator: PropTypes.bool,
   decimal_scale: PropTypes.number,
   suffix: PropTypes.string,
+  decimal_separator: PropTypes.string,
+  fixed_decimal_scale: PropTypes.bool,
+  allow_negative: PropTypes.bool,
+  allow_empty_formatting: PropTypes.bool,
+  allow_leading_zeros: PropTypes.bool,
+  prefix: PropTypes.string,
+  is_numeric_string: PropTypes.bool,
+  format: PropTypes.string,
+  mask: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
   debounce: PropTypes.number,
@@ -118,6 +154,15 @@ const Base = ({
   placeholder,
   text_align,
   default_value,
+  decimal_separator,
+  fixed_decimal_scale,
+  allow_negative,
+  allow_empty_formatting,
+  allow_leading_zeros,
+  prefix,
+  is_numeric_string,
+  format,
+  mask,
   value,
   name,
   onChange,
@@ -133,6 +178,15 @@ const Base = ({
     suffix={suffix}
     placeholder={placeholder}
     defaultValue={default_value}
+    decimal_separator={decimal_separator}
+    fixed_decimal_scale={fixed_decimal_scale}
+    allow_negative={allow_negative}
+    allow_empty_formatting={allow_empty_formatting}
+    allow_leading_zeros={allow_leading_zeros}
+    prefix={prefix}
+    is_numeric_string={is_numeric_string}
+    format={format}
+    mask={mask}
     value={value}
     name={name}
     onValueChange={onChange}
@@ -151,8 +205,17 @@ Base.defaultProps = {
   text_align: 'right',
   disabled: null,
   thousand_separator: true,
-  decimal_scale: 0,
-  suffix: '%',
+  decimal_scale: null,
+  suffix: '',
+  decimal_separator: '.',
+  fixed_decimal_scale: false,
+  allow_negative: true,
+  allow_empty_formatting: false,
+  allow_leading_zeros: false,
+  prefix: null,
+  is_numeric_string: false,
+  format: null,
+  mask: '',
   onChange: () => {},
   onBlur: () => {},
   onFocus: () => {},
@@ -167,6 +230,15 @@ Base.propTypes = {
   disabled: PropTypes.bool,
   thousand_separator: PropTypes.bool,
   decimal_scale: PropTypes.number,
+  decimal_separator: PropTypes.string,
+  fixed_decimal_scale: PropTypes.bool,
+  allow_negative: PropTypes.bool,
+  allow_empty_formatting: PropTypes.bool,
+  allow_leading_zeros: PropTypes.bool,
+  prefix: PropTypes.string,
+  is_numeric_string: PropTypes.bool,
+  format: PropTypes.string,
+  mask: PropTypes.string,
   suffix: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
