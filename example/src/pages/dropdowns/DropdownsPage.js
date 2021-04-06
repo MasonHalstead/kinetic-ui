@@ -119,7 +119,14 @@ import { Dropdown } from 'kinetic-ui'
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
         <Dropdown label="Disabled" options={options} disabled />
         <Dropdown label="Placeholder" placeholder="select options..." options={options} margin="0px 10px 0px 10px" />
-        <Dropdown label="Nullable" options={options} error_message="remove item" default_value="Option 1" nullable />
+        <Dropdown
+          label="Nullable"
+          options={options}
+          error_message="remove item"
+          value={option.name}
+          controlled
+          nullable
+        />
       </div>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
         <Dropdown label="Background #ebeeff" background="#ebeeff" />

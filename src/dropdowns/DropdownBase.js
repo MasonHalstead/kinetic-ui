@@ -79,7 +79,7 @@ export const DropdownBase = ({
         selected: index,
         active: index,
         value: value,
-        remove: true
+        remove: !!value
       }))
     }
   }, [options, value])
@@ -108,16 +108,13 @@ export const DropdownBase = ({
 
   const onRemove = () => {
     rest.onSelect(null)
-
-    if (!controlled) {
-      setSettings((prev) => ({
-        ...prev,
-        selected: -1,
-        active: -1,
-        value: null,
-        remove: false
-      }))
-    }
+    setSettings((prev) => ({
+      ...prev,
+      selected: -1,
+      active: -1,
+      value: null,
+      remove: false
+    }))
   }
 
   const onSelect = (option, i) => {
