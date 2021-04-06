@@ -14,6 +14,7 @@ export const InputPercent = ({
   thousand_separator,
   decimal_scale,
   suffix,
+  controlled,
   text_align,
   ...rest
 }) => {
@@ -60,12 +61,12 @@ export const InputPercent = ({
     value: debounce_value.formatted_value
   }
 
-  if (default_value) {
+  if (!controlled) {
     props.value = undefined
-    props.default_value = default_value
+    props.default_value = default_value || ''
   }
-  if (value) {
-    props.value = value
+  if (controlled) {
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -95,10 +96,12 @@ InputPercent.defaultProps = {
   thousand_separator: true,
   decimal_scale: 0,
   suffix: '%',
+  controlled: false,
   onChange: () => {}
 }
 InputPercent.propTypes = {
   value: PropTypes.string,
+  controlled: PropTypes.bool,
   default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,

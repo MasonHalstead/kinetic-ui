@@ -13,6 +13,7 @@ export const InputPhone = ({
   debounce,
   format,
   mask,
+  controlled,
   text_align,
   ...rest
 }) => {
@@ -59,12 +60,12 @@ export const InputPhone = ({
     value: debounce_value.formatted_value
   }
 
-  if (default_value) {
+  if (!controlled) {
     props.value = undefined
-    props.default_value = default_value
+    props.default_value = default_value || ''
   }
-  if (value) {
-    props.value = value
+  if (controlled) {
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -92,6 +93,7 @@ InputPhone.defaultProps = {
   text_align: 'right',
   format: '(###) ###-####',
   mask: '',
+  controlled: false,
   onChange: () => {}
 }
 InputPhone.propTypes = {
@@ -104,6 +106,7 @@ InputPhone.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   debounce: PropTypes.number,
+  controlled: PropTypes.bool,
   onChange: PropTypes.func
 }
 

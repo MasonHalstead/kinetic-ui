@@ -14,6 +14,7 @@ export const InputNumber = ({
   thousand_separator,
   decimal_scale,
   text_align,
+  controlled,
   ...rest
 }) => {
   const [debounce_value, setValue] = useState({
@@ -59,12 +60,12 @@ export const InputNumber = ({
     value: debounce_value.formatted_value
   }
 
-  if (default_value) {
+  if (!controlled) {
     props.value = undefined
-    props.default_value = default_value
+    props.default_value = default_value || ''
   }
-  if (value) {
-    props.value = value
+  if (controlled) {
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -87,6 +88,7 @@ InputNumber.defaultProps = {
   default_value: undefined,
   debounce: null,
   name: '',
+  controlled: false,
   label: null,
   placeholder: '',
   text_align: 'right',
@@ -96,6 +98,7 @@ InputNumber.defaultProps = {
 }
 InputNumber.propTypes = {
   value: PropTypes.string,
+  controlled: PropTypes.bool,
   default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,

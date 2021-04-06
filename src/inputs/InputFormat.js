@@ -9,6 +9,7 @@ export const InputFormat = ({
   placeholder,
   value,
   default_value,
+  controlled,
   name,
   debounce,
   thousand_separator,
@@ -69,12 +70,12 @@ export const InputFormat = ({
     value: debounce_value.formatted_value
   }
 
-  if (default_value) {
+  if (!controlled) {
     props.value = undefined
-    props.default_value = default_value
+    props.default_value = default_value || ''
   }
-  if (value) {
-    props.value = value
+  if (controlled) {
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -113,6 +114,7 @@ InputFormat.defaultProps = {
   thousand_separator: true,
   decimal_scale: null,
   suffix: '',
+  controlled: false,
   decimal_separator: '.',
   fixed_decimal_scale: false,
   allow_negative: true,
@@ -126,6 +128,7 @@ InputFormat.defaultProps = {
 }
 InputFormat.propTypes = {
   value: PropTypes.string,
+  controlled: PropTypes.bool,
   default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,

@@ -73,15 +73,28 @@ const Form = () => {
 }`}</code>
       </pre>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <InputCurrency label="Controlled Currency" placeholder="ex. $100" onChange={setValue} value={value.value} />
+        <InputCurrency
+          label="Controlled Currency"
+          placeholder="ex. $100"
+          onChange={setValue}
+          value={value.value}
+          controlled
+        />
         <InputPercent
           label="Controlled Percent"
           placeholder="ex. 100%"
           onChange={setValue}
           value={value.value}
           margin="0px 10px 0px 10px"
+          controlled
         />
-        <InputNumber label="Controlled Number" placeholder="ex. 100" onChange={setValue} value={value.value} />
+        <InputNumber
+          label="Controlled Number"
+          placeholder="ex. 100"
+          onChange={setValue}
+          value={value.value}
+          controlled
+        />
       </div>
       <div className={cn.header}>
         <h2>Textarea</h2>

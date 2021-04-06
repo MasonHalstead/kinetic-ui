@@ -14,6 +14,7 @@ export const InputCurrency = ({
   thousand_separator,
   decimal_scale,
   prefix,
+  controlled,
   text_align,
   ...rest
 }) => {
@@ -60,12 +61,12 @@ export const InputCurrency = ({
     value: debounce_value.formatted_value
   }
 
-  if (default_value) {
+  if (!controlled) {
     props.value = undefined
-    props.default_value = default_value
+    props.default_value = default_value || ''
   }
-  if (value) {
-    props.value = value
+  if (controlled) {
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -88,6 +89,7 @@ InputCurrency.defaultProps = {
   value: undefined,
   default_value: undefined,
   debounce: null,
+  controlled: false,
   name: '',
   label: null,
   placeholder: '',
@@ -99,6 +101,7 @@ InputCurrency.defaultProps = {
 }
 InputCurrency.propTypes = {
   value: PropTypes.string,
+  controlled: PropTypes.bool,
   default_value: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,

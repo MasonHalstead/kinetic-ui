@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  cloneElement,
-  Children,
-  useRef
-} from 'react'
+import React, { useState, useEffect, cloneElement, Children } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import { AccordionElement, Accordion, ContentElement } from './elements'
@@ -32,11 +26,18 @@ export const AccordionBase = ({
     if (expanded) {
       setExpand(true)
       setDirection(true)
+      setHeight(content_height)
     } else {
       setExpand(false)
       setDirection(false)
     }
-  }, [])
+  }, [expanded])
+
+  useEffect(() => {
+    if (expanded) {
+      setHeight(content_height)
+    }
+  }, [content_height])
 
   const setAccordion = async () => {
     if (!expand) {

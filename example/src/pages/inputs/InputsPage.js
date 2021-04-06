@@ -54,9 +54,9 @@ const Form = () => {
 }`}</code>
       </pre>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Input label="Controlled" onChange={setValue} value={value} />
-        <Input label="Controlled" onChange={setValue} value={value} margin="0px 10px 0px 10px" />
-        <Input label="Controlled" onChange={setValue} value={value} />
+        <Input label="Controlled" onChange={setValue} value={value} controlled />
+        <Input label="Controlled" onChange={setValue} value={value} margin="0px 10px 0px 10px" controlled />
+        <Input label="Controlled" onChange={setValue} value={value} controlled />
       </div>
       <div className={cn.header}>
         <h2>Input Error Levels</h2>

@@ -91,7 +91,7 @@ const options = {
       </pre>
       <div className={cn.wrapper}>
         <Accordion width="500px" margin="0px auto">
-          <AccordionItem title="Getting Started" options={links.installation} />
+          <AccordionItem title="Getting Started" expanded options={links.installation} />
           <AccordionItem title="Accordion" options={links.accordion} />
           <AccordionItem title="Buttons" options={links.buttons} />
           <AccordionItem title="Dropdowns" options={links.dropdowns} />

@@ -54,6 +54,13 @@ export const RowAccordion = ({
       setHeight(0)
     }
   }
+
+  useEffect(() => {
+    if (expanded) {
+      setHeight(content_height)
+    }
+  }, [content_height])
+
   const onResize = (ref) => {
     setContentHeight(ref.scroll.height)
   }
