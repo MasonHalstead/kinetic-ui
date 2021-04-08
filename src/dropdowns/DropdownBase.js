@@ -108,13 +108,15 @@ export const DropdownBase = ({
 
   const onRemove = () => {
     rest.onSelect(null)
-    setSettings((prev) => ({
-      ...prev,
-      selected: -1,
-      active: -1,
-      value: null,
-      remove: false
-    }))
+    if (!controlled) {
+      setSettings((prev) => ({
+        ...prev,
+        selected: -1,
+        active: -1,
+        value: null,
+        remove: false
+      }))
+    }
   }
 
   const onSelect = (option, i) => {

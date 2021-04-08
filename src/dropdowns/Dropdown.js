@@ -87,7 +87,7 @@ Dropdown.defaultProps = {
   error_message: null,
   error_level: null,
   transparent: false,
-  placeholder: 'select item...',
+  placeholder: '',
   text_align: 'left',
   theme: {},
   scroll_height: 200,

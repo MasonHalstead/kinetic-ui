@@ -8,6 +8,21 @@ const DropdownsPage = () => {
   const [option, setOption] = useState({
     name: 'Option 1',
   });
+  const [null_option, setNullable] = useState({
+    name: 'Option 1',
+  });
+  const selectControlNullable = (o) => {
+    if (o) {
+      return setOption(o);
+    }
+    setOption({});
+  };
+  const selectNullable = (o) => {
+    if (o) {
+      return setNullable(o);
+    }
+    setNullable({});
+  };
   return (
     <div className={cn.page}>
       <div className={cn.header}>
@@ -57,8 +72,35 @@ const options_custom = [
       </pre>
       <div className={cn.wrapperFlex}>
         <Dropdown label="Uncontrolled" options={options} default_value="Option 1" />
-        <Dropdown label="Left Icon" left_icon={['fas', 'coins']} options={options} margin="0px 10px 0px 10px" />
-        <Dropdown label="Right Icon" options={options} right_icon={['fas', 'coins']} />
+        <Dropdown
+          label="Uncontrolled Left Icon"
+          left_icon={['fas', 'coins']}
+          default_value="Option 2"
+          options={options}
+          margin="0px 10px 0px 10px"
+        />
+        <Dropdown
+          label="Uncontrolled Right Icon"
+          options={options}
+          default_value="Option 3"
+          right_icon={['fas', 'coins']}
+        />
+      </div>
+      <div className={cn.wrapperFlex}>
+        <Dropdown label="Uncontrolled Nullable" options={options} default_value="Option 1" nullable />
+        <Dropdown
+          label="Uncontrolled Left Icon"
+          left_icon={['fas', 'coins']}
+          default_value="Option 2"
+          options={options}
+          margin="0px 10px 0px 10px"
+        />
+        <Dropdown
+          label="Uncontrolled Right Icon"
+          options={options}
+          default_value="Option 3"
+          right_icon={['fas', 'coins']}
+        />
       </div>
       <div className={cn.header}>
         <h2>Dropdowns Controlled</h2>
@@ -87,14 +129,21 @@ const Form = () => {
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
         <Dropdown label="Controlled" onSelect={setOption} options={options} value={option.name} controlled />
         <Dropdown
-          label="Controlled"
+          label="Controlled Null"
           onSelect={() => setOption({ name: null, id: null })}
-          options={options}
+          options={[{ name: 'Null', id: 100, uuid: 100 }]}
           margin="0px 10px 0px 10px"
           controlled
           value={option.name}
         />
-        <Dropdown label="Controlled" onSelect={setOption} options={options} value={option.name} controlled />
+        <Dropdown
+          label="Controlled Nullable"
+          onSelect={selectControlNullable}
+          options={options}
+          value={option.name}
+          controlled
+          nullable
+        />
       </div>
       <div className={cn.header}>
         <h2>Dropdowns More</h2>
@@ -120,10 +169,11 @@ import { Dropdown } from 'kinetic-ui'
         <Dropdown label="Disabled" options={options} disabled />
         <Dropdown label="Placeholder" placeholder="select options..." options={options} margin="0px 10px 0px 10px" />
         <Dropdown
-          label="Nullable"
+          label="Controlled Nullable"
           options={options}
+          onSelect={selectNullable}
           error_message="remove item"
-          value={option.name}
+          value={null_option.name}
           controlled
           nullable
         />
