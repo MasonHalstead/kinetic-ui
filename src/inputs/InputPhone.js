@@ -62,10 +62,10 @@ export const InputPhone = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || undefined
+    props.default_value = default_value || ''
   }
   if (controlled) {
-    props.value = value || undefined
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -76,6 +76,7 @@ export const InputPhone = ({
         onChange={onChange}
         placeholder={placeholder}
         name={name}
+        controlled={controlled}
         text_align={text_align}
         format={format}
         mask={mask}
@@ -116,6 +117,7 @@ const Base = ({
   placeholder,
   text_align,
   default_value,
+  controlled,
   value,
   name,
   onChange,
@@ -132,7 +134,12 @@ const Base = ({
     defaultValue={default_value}
     value={value}
     name={name}
-    onValueChange={onChange}
+    onValueChange={(input) => {
+      if (controlled && input.value === value) {
+        return
+      }
+      onChange(input)
+    }}
     onBlur={onBlur}
     onFocus={onFocus}
     onKeyDown={onKeyDown}
@@ -143,6 +150,7 @@ const Base = ({
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
+  controlled: false,
   name: '',
   placeholder: '',
   text_align: 'right',
@@ -158,6 +166,7 @@ Base.propTypes = {
   default_value: PropTypes.string,
   value: PropTypes.string,
   name: PropTypes.string,
+  controlled: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,

@@ -72,10 +72,10 @@ export const InputFormat = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || undefined
+    props.default_value = default_value || ''
   }
   if (controlled) {
-    props.value = value || undefined
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -86,6 +86,7 @@ export const InputFormat = ({
         onChange={onChange}
         placeholder={placeholder}
         name={name}
+        controlled={controlled}
         text_align={text_align}
         thousand_separator={thousand_separator}
         decimal_scale={decimal_scale}
@@ -154,6 +155,7 @@ const Base = ({
   thousand_separator,
   decimal_scale,
   suffix,
+  controlled,
   placeholder,
   text_align,
   default_value,
@@ -192,7 +194,12 @@ const Base = ({
     mask={mask}
     value={value}
     name={name}
-    onValueChange={onChange}
+    onValueChange={(input) => {
+      if (controlled && input.value === value) {
+        return
+      }
+      onChange(input)
+    }}
     onBlur={onBlur}
     onFocus={onFocus}
     onKeyDown={onKeyDown}
@@ -209,6 +216,7 @@ Base.defaultProps = {
   disabled: null,
   thousand_separator: true,
   decimal_scale: null,
+  controlled: false,
   suffix: '',
   decimal_separator: '.',
   fixed_decimal_scale: false,
@@ -231,6 +239,7 @@ Base.propTypes = {
   text_align: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  controlled: PropTypes.bool,
   thousand_separator: PropTypes.bool,
   decimal_scale: PropTypes.number,
   decimal_separator: PropTypes.string,

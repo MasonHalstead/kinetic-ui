@@ -62,10 +62,10 @@ export const InputNumber = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || undefined
+    props.default_value = default_value || ''
   }
   if (controlled) {
-    props.value = value || undefined
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -76,6 +76,7 @@ export const InputNumber = ({
         onChange={onChange}
         placeholder={placeholder}
         name={name}
+        controlled={controlled}
         text_align={text_align}
         thousand_separator={thousand_separator}
         decimal_scale={decimal_scale}
@@ -117,6 +118,7 @@ const Base = ({
   text_align,
   default_value,
   value,
+  controlled,
   name,
   onChange,
   onBlur,
@@ -132,7 +134,12 @@ const Base = ({
     defaultValue={default_value}
     value={value}
     name={name}
-    onValueChange={onChange}
+    onValueChange={(input) => {
+      if (controlled && input.value === value) {
+        return
+      }
+      onChange(input)
+    }}
     onBlur={onBlur}
     onFocus={onFocus}
     onKeyDown={onKeyDown}
@@ -146,6 +153,7 @@ Base.defaultProps = {
   name: '',
   placeholder: '',
   text_align: 'right',
+  controlled: false,
   disabled: null,
   thousand_separator: true,
   decimal_scale: 0,
@@ -160,6 +168,7 @@ Base.propTypes = {
   name: PropTypes.string,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,
+  controlled: PropTypes.bool,
   disabled: PropTypes.bool,
   thousand_separator: PropTypes.bool,
   decimal_scale: PropTypes.number,

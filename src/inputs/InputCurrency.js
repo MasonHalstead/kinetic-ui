@@ -63,10 +63,10 @@ export const InputCurrency = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || undefined
+    props.default_value = default_value || ''
   }
   if (controlled) {
-    props.value = value || undefined
+    props.value = value || ''
     props.default_value = undefined
   }
 
@@ -77,6 +77,7 @@ export const InputCurrency = ({
         onChange={onChange}
         placeholder={placeholder}
         name={name}
+        controlled={controlled}
         text_align={text_align}
         thousand_separator={thousand_separator}
         decimal_scale={decimal_scale}
@@ -117,6 +118,7 @@ InputCurrency.propTypes = {
 const Base = ({
   thousand_separator,
   decimal_scale,
+  controlled,
   prefix,
   placeholder,
   text_align,
@@ -138,7 +140,12 @@ const Base = ({
     defaultValue={default_value}
     value={value}
     name={name}
-    onValueChange={onChange}
+    onValueChange={(input) => {
+      if (controlled && input.value === value) {
+        return
+      }
+      onChange(input)
+    }}
     onBlur={onBlur}
     onFocus={onFocus}
     onKeyDown={onKeyDown}
@@ -149,6 +156,7 @@ const Base = ({
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
+  controlled: false,
   name: '',
   placeholder: '',
   text_align: 'right',
@@ -165,6 +173,7 @@ Base.propTypes = {
   default_value: PropTypes.string,
   value: PropTypes.string,
   name: PropTypes.string,
+  controlled: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
