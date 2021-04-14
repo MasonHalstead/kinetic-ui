@@ -29,14 +29,12 @@ export const Input = ({
 
   useEffect(() => {
     if (controlled) {
-      console.log('yes')
       setValue(value)
     }
   }, [value])
 
   useEffect(() => {
     if (debounce && !controlled) {
-      console.log('not in here')
       setValue(default_value)
     }
   }, [default_value])

@@ -62,10 +62,10 @@ export const InputPhone = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || ''
+    props.default_value = default_value || undefined
   }
   if (controlled) {
-    props.value = value || ''
+    props.value = value || undefined
     props.default_value = undefined
   }
 

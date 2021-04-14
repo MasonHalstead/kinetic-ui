@@ -10,6 +10,7 @@ export const Textarea = ({
   default_value,
   debounce,
   text_align,
+  controlled,
   type,
   name,
   ...rest
@@ -18,15 +19,22 @@ export const Textarea = ({
   const onChange = (e) => {
     e.preventDefault()
 
-    if (debounce) {
+    if (debounce && !controlled) {
       setValue(e.target.value)
       return
     }
+
     rest.onChange(e.target.value)
   }
 
   useEffect(() => {
-    if (debounce) {
+    if (controlled) {
+      setValue(value)
+    }
+  }, [value])
+
+  useEffect(() => {
+    if (debounce && !controlled) {
       setValue(default_value)
     }
   }, [default_value])
@@ -41,12 +49,12 @@ export const Textarea = ({
 
   const props = { value, default_value }
 
-  if (default_value) {
+  if (!controlled) {
     props.value = undefined
-    props.default_value = default_value
+    props.default_value = default_value || ''
   }
-  if (value) {
-    props.value = value
+  if (controlled) {
+    props.value = value || ''
     props.default_value = undefined
   }
   return (
@@ -65,6 +73,7 @@ export const Textarea = ({
 Textarea.defaultProps = {
   value: undefined,
   default_value: undefined,
+  controlled: false,
   placeholder: '',
   text_align: 'left',
   type: 'text',
@@ -76,6 +85,7 @@ Textarea.defaultProps = {
 Textarea.propTypes = {
   value: PropTypes.string,
   default_value: PropTypes.string,
+  controlled: PropTypes.bool,
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
   type: PropTypes.string,
