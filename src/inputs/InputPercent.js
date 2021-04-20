@@ -115,43 +115,51 @@ InputPercent.propTypes = {
   onChange: PropTypes.func
 }
 
-const Base = ({
-  thousand_separator,
-  decimal_scale,
-  suffix,
-  placeholder,
-  text_align,
-  default_value,
-  value,
-  controlled,
-  name,
-  onChange,
-  onBlur,
-  onFocus,
-  onKeyDown,
-  disabled
-}) => (
-  <NumberFormat
-    className={cn.base}
-    thousandSeparator={thousand_separator}
-    decimalScale={decimal_scale}
-    suffix={suffix}
-    placeholder={placeholder}
-    defaultValue={default_value}
-    value={value}
-    name={name}
-    onValueChange={(input) => {
-      if (controlled && input.value === value) {
-        return
-      }
-      onChange(input)
-    }}
-    onBlur={onBlur}
-    onFocus={onFocus}
-    onKeyDown={onKeyDown}
-    disabled={disabled}
-    style={{ textAlign: text_align }}
-  />
+const Base = React.memo(
+  ({
+    thousand_separator,
+    decimal_scale,
+    suffix,
+    placeholder,
+    text_align,
+    default_value,
+    value,
+    controlled,
+    name,
+    onChange,
+    onBlur,
+    onFocus,
+    onKeyDown,
+    disabled
+  }) => (
+    <NumberFormat
+      className={cn.base}
+      thousandSeparator={thousand_separator}
+      decimalScale={decimal_scale}
+      suffix={suffix}
+      placeholder={placeholder}
+      defaultValue={default_value}
+      value={value}
+      name={name}
+      onValueChange={(input) => {
+        if (controlled && input.value === value) {
+          return
+        }
+        onChange(input)
+      }}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      disabled={disabled}
+      style={{ textAlign: text_align }}
+    />
+  ),
+  (prev, next) => {
+    if (prev.controlled && prev.value !== next.value) {
+      return false
+    }
+    return true
+  }
 )
 Base.defaultProps = {
   default_value: undefined,

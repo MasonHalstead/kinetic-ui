@@ -24,7 +24,7 @@ export const InputCurrency = ({
     value: null
   })
   const onChange = (target) => {
-    if (debounce) {
+    if (debounce && !controlled) {
       setValue({
         float_value: target.floatValue,
         formatted_value: target.formattedValue,
@@ -57,9 +57,7 @@ export const InputCurrency = ({
     [debounce_value]
   )
 
-  const props = {
-    value: debounce_value.formatted_value
-  }
+  const props = { value, default_value }
 
   if (!controlled) {
     props.value = undefined
@@ -69,7 +67,6 @@ export const InputCurrency = ({
     props.value = value || ''
     props.default_value = undefined
   }
-
   return (
     <InputBase {...rest}>
       <Base
@@ -115,43 +112,45 @@ InputCurrency.propTypes = {
   onChange: PropTypes.func
 }
 
-const Base = ({
-  thousand_separator,
-  decimal_scale,
-  controlled,
-  prefix,
-  placeholder,
-  text_align,
-  default_value,
-  value,
-  name,
-  onChange,
-  onBlur,
-  onFocus,
-  onKeyDown,
-  disabled
-}) => (
-  <NumberFormat
-    className={cn.base}
-    thousandSeparator={thousand_separator}
-    decimalScale={decimal_scale}
-    prefix={prefix}
-    placeholder={placeholder}
-    defaultValue={default_value}
-    value={value}
-    name={name}
-    onValueChange={(input) => {
-      if (controlled && input.value === value) {
-        return
-      }
-      onChange(input)
-    }}
-    onBlur={onBlur}
-    onFocus={onFocus}
-    onKeyDown={onKeyDown}
-    disabled={disabled}
-    style={{ textAlign: text_align }}
-  />
+const Base = React.memo(
+  ({
+    thousand_separator,
+    decimal_scale,
+    prefix,
+    placeholder,
+    text_align,
+    default_value,
+    value,
+    name,
+    onChange,
+    onBlur,
+    onFocus,
+    onKeyDown,
+    disabled
+  }) => (
+    <NumberFormat
+      className={cn.base}
+      thousandSeparator={thousand_separator}
+      decimalScale={decimal_scale}
+      prefix={prefix}
+      placeholder={placeholder}
+      defaultValue={default_value}
+      value={value}
+      name={name}
+      onValueChange={onChange}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      disabled={disabled}
+      style={{ textAlign: text_align }}
+    />
+  ),
+  (prev, next) => {
+    if (prev.controlled && prev.value !== next.value) {
+      return false
+    }
+    return true
+  }
 )
 Base.defaultProps = {
   default_value: undefined,

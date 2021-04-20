@@ -107,7 +107,8 @@ export const DropdownBase = ({
   }
 
   const onRemove = () => {
-    rest.onSelect(null)
+    rest.onSelect(null, -1)
+
     if (!controlled) {
       setSettings((prev) => ({
         ...prev,
@@ -123,8 +124,9 @@ export const DropdownBase = ({
     if (multi_select) {
       // dont know what to do yet
     } else {
-      rest.onSelect(option)
+      rest.onSelect(option, i)
       setOpen(false)
+
       if (!controlled) {
         setSettings((prev) => ({
           ...prev,

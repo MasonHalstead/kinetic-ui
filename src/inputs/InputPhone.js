@@ -111,41 +111,49 @@ InputPhone.propTypes = {
   onChange: PropTypes.func
 }
 
-const Base = ({
-  format,
-  mask,
-  placeholder,
-  text_align,
-  default_value,
-  controlled,
-  value,
-  name,
-  onChange,
-  onBlur,
-  onFocus,
-  onKeyDown,
-  disabled
-}) => (
-  <NumberFormat
-    className={cn.base}
-    format={format}
-    mask={mask}
-    placeholder={placeholder}
-    defaultValue={default_value}
-    value={value}
-    name={name}
-    onValueChange={(input) => {
-      if (controlled && input.value === value) {
-        return
-      }
-      onChange(input)
-    }}
-    onBlur={onBlur}
-    onFocus={onFocus}
-    onKeyDown={onKeyDown}
-    disabled={disabled}
-    style={{ textAlign: text_align }}
-  />
+const Base = React.memo(
+  ({
+    format,
+    mask,
+    placeholder,
+    text_align,
+    default_value,
+    controlled,
+    value,
+    name,
+    onChange,
+    onBlur,
+    onFocus,
+    onKeyDown,
+    disabled
+  }) => (
+    <NumberFormat
+      className={cn.base}
+      format={format}
+      mask={mask}
+      placeholder={placeholder}
+      defaultValue={default_value}
+      value={value}
+      name={name}
+      onValueChange={(input) => {
+        if (controlled && input.value === value) {
+          return
+        }
+        onChange(input)
+      }}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      disabled={disabled}
+      style={{ textAlign: text_align }}
+    />
+  ),
+  (prev, next) => {
+    if (prev.controlled && prev.value !== next.value) {
+      return false
+    }
+    return true
+  }
 )
 Base.defaultProps = {
   default_value: undefined,

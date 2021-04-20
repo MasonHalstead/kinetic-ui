@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Label } from '../labels/Label'
 import { Button } from '../buttons/Button'
@@ -13,6 +13,8 @@ export const Dropzone = ({
   icon,
   accept,
   button_variant,
+  button_external,
+  button_upload,
   message,
   label,
   disabled,
@@ -24,6 +26,9 @@ export const Dropzone = ({
   width
 }) => {
   const inputRef = useRef()
+
+  const [file_names, setFileNames] = useState(null)
+
   const uploadFiles = () => {
     inputRef.current.click()
   }
@@ -65,10 +70,13 @@ export const Dropzone = ({
     if (list.length === 0) {
       return
     }
+    const names = list.map((l) => l.name).join(', ')
+    setFileNames(names)
     onDrop(list)
   }
 
   const dropzone = useTheme('dropzone', theme)
+
   return (
     <div
       className={cn.wrapper}
@@ -105,7 +113,7 @@ export const Dropzone = ({
             <FontAwesomeIcon icon={icon} />
           </div>
         )}
-        <p>{message}</p>
+        <p>{file_names || message}</p>
         <div className={cn.buttons}>
           {onClick && (
             <Button
@@ -119,7 +127,7 @@ export const Dropzone = ({
               disabled={disabled}
               outline
             >
-              Import documents
+              {button_external}
             </Button>
           )}
           <Button
@@ -128,7 +136,7 @@ export const Dropzone = ({
             disabled={disabled}
             margin='5px 8px 0px 5px'
           >
-            Upload documents
+            {button_upload}
           </Button>
         </div>
         <input
@@ -149,6 +157,8 @@ Dropzone.defaultProps = {
   icon: ['far', 'file-alt'],
   label: null,
   message: 'Drag & drop documents here',
+  button_external: 'Import documents',
+  button_upload: 'Upload documents',
   button_variant: 'secondary',
   transparent: false,
   margin: 0,
@@ -172,6 +182,8 @@ Dropzone.propTypes = {
   height: PropTypes.number,
   accept: PropTypes.string,
   disabled: PropTypes.bool,
+  button_external: PropTypes.string,
+  button_upload: PropTypes.string,
   theme: PropTypes.object,
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'kinetic-ui';
 import { table_headers, data } from './constants';
-import { CustomCell, InputCompanyCell, DropdownCountryCell } from './Cells';
+import { CustomCell, InputCompanyCell, InputCurrencyCell, DropdownCountryCell } from './Cells';
 import cn from './Tables.module.scss';
 
 const TableBulkEditPage = () => {
@@ -24,6 +24,15 @@ const TableBulkEditPage = () => {
       country_id: item.country_id,
       uuid: row.uuid,
     };
+    rowManagement(new_row);
+  };
+
+  const setCurrency = (item, row) => {
+    const new_row = {
+      currency: item.value,
+      uuid: row.uuid,
+    };
+    console.log(new_row);
     rowManagement(new_row);
   };
 
@@ -144,7 +153,7 @@ const TablePage = () => {
       <div className={cn.wrapper} style={{ display: 'flex' }}>
         <Table headers={table_headers} rows={rows}>
           <InputCompanyCell onChange={setCompany} />
-          <CustomCell lazy="currency" align="center" />
+          <InputCurrencyCell onChange={setCurrency} />
           <DropdownCountryCell onSelect={setCountry} />
           <CustomCell lazy="location" align="center" />
         </Table>

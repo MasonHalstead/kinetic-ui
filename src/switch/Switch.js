@@ -26,7 +26,6 @@ export const Switch = ({
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'stretch',
-    fontWeight: 400,
     margin: '0px 10px'
   }
   const switches = useTheme('switches', theme)

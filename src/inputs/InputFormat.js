@@ -151,61 +151,69 @@ InputFormat.propTypes = {
   onChange: PropTypes.func
 }
 
-const Base = ({
-  thousand_separator,
-  decimal_scale,
-  suffix,
-  controlled,
-  placeholder,
-  text_align,
-  default_value,
-  decimal_separator,
-  fixed_decimal_scale,
-  allow_negative,
-  allow_empty_formatting,
-  allow_leading_zeros,
-  prefix,
-  is_numeric_string,
-  format,
-  mask,
-  value,
-  name,
-  onChange,
-  onBlur,
-  onFocus,
-  onKeyDown,
-  disabled
-}) => (
-  <NumberFormat
-    className={cn.base}
-    thousandSeparator={thousand_separator}
-    decimalScale={decimal_scale}
-    suffix={suffix}
-    placeholder={placeholder}
-    defaultValue={default_value}
-    decimal_separator={decimal_separator}
-    fixed_decimal_scale={fixed_decimal_scale}
-    allow_negative={allow_negative}
-    allow_empty_formatting={allow_empty_formatting}
-    allow_leading_zeros={allow_leading_zeros}
-    prefix={prefix}
-    is_numeric_string={is_numeric_string}
-    format={format}
-    mask={mask}
-    value={value}
-    name={name}
-    onValueChange={(input) => {
-      if (controlled && input.value === value) {
-        return
-      }
-      onChange(input)
-    }}
-    onBlur={onBlur}
-    onFocus={onFocus}
-    onKeyDown={onKeyDown}
-    disabled={disabled}
-    style={{ textAlign: text_align }}
-  />
+const Base = React.memo(
+  ({
+    thousand_separator,
+    decimal_scale,
+    suffix,
+    controlled,
+    placeholder,
+    text_align,
+    default_value,
+    decimal_separator,
+    fixed_decimal_scale,
+    allow_negative,
+    allow_empty_formatting,
+    allow_leading_zeros,
+    prefix,
+    is_numeric_string,
+    format,
+    mask,
+    value,
+    name,
+    onChange,
+    onBlur,
+    onFocus,
+    onKeyDown,
+    disabled
+  }) => (
+    <NumberFormat
+      className={cn.base}
+      thousandSeparator={thousand_separator}
+      decimalScale={decimal_scale}
+      suffix={suffix}
+      placeholder={placeholder}
+      defaultValue={default_value}
+      decimal_separator={decimal_separator}
+      fixed_decimal_scale={fixed_decimal_scale}
+      allow_negative={allow_negative}
+      allow_empty_formatting={allow_empty_formatting}
+      allow_leading_zeros={allow_leading_zeros}
+      prefix={prefix}
+      is_numeric_string={is_numeric_string}
+      format={format}
+      mask={mask}
+      value={value}
+      name={name}
+      onValueChange={(input) => {
+        if (controlled && input.value === value) {
+          return
+        }
+        onChange(input)
+      }}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      disabled={disabled}
+      style={{ textAlign: text_align }}
+    />
+  ),
+  (prev, next) => {
+    if (prev.controlled && prev.value !== next.value) {
+      return false
+    }
+    return true
+  }
 )
 Base.defaultProps = {
   default_value: undefined,
