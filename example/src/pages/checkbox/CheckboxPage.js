@@ -20,16 +20,34 @@ const Page = () => {
   const [checked, setChecked] = useState(false);
   return (
     <div className={cn.wrapper}>
-      <Checkbox onClick={setChecked} checked={checked}>
-        Click on the input checkbox or the label
-      </Checkbox>
+    <Checkbox onClick={setChecked} checked={checked}>
+      Default Checkbox
+    </Checkbox>
+    <Checkbox onClick={setChecked} checked={checked} native={false}>
+      FontAwesome Checkbox
+    </Checkbox>
+    <Checkbox onClick={setChecked} checked={checked} highlight={false} native={false}>
+      Highlight Checkbox
+    </Checkbox>
+    <Checkbox onClick={setChecked} checked={checked} highlight={false} native={false} disabled>
+      Disabled Checkbox
+    </Checkbox>
     </div>
   )
 }`}</code>
       </pre>
       <div className={cn.wrapper}>
         <Checkbox onClick={setChecked} checked={checked}>
-          Click on the input checkbox or the label
+          Default Checkbox
+        </Checkbox>
+        <Checkbox onClick={setChecked} checked={checked} native={false}>
+          FontAwesome Checkbox
+        </Checkbox>
+        <Checkbox onClick={setChecked} checked={checked} highlight={false} native={false}>
+          Highlight Checkbox
+        </Checkbox>
+        <Checkbox onClick={setChecked} checked={checked} highlight={false} native={false} disabled>
+          Disabled Checkbox
         </Checkbox>
       </div>
       <div className={cn.header}>

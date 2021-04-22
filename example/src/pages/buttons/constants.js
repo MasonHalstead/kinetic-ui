@@ -42,7 +42,7 @@ export const theme_rows = [
     type: 'fontawesome',
     default: 'null',
     options: '',
-    description: 'optional fontawesome left icon',
+    description: 'fontawesome left icon',
     uuid: 2,
   },
   {
@@ -50,7 +50,7 @@ export const theme_rows = [
     type: 'fontawesome',
     default: 'null',
     options: '',
-    description: 'optional fontawesome right icon',
+    description: 'fontawesome right icon',
     uuid: 3,
   },
   {
@@ -58,7 +58,7 @@ export const theme_rows = [
     type: 'string',
     default: 'primary',
     options: 'primary | secondary | blue ...',
-    description: 'color variants',
+    description: 'sets the color variant',
     uuid: 4,
   },
   {
@@ -66,7 +66,7 @@ export const theme_rows = [
     type: 'string',
     default: 'medium',
     options: 'small | medium | large',
-    description: 'button size',
+    description: 'sets the button size',
     uuid: 5,
   },
   {
@@ -74,7 +74,7 @@ export const theme_rows = [
     type: 'string',
     default: 'button',
     options: 'button | submit',
-    description: 'html tag attribute',
+    description: 'sets the html type attribute',
     uuid: 6,
   },
   {
@@ -82,15 +82,15 @@ export const theme_rows = [
     type: 'string',
     default: 'right',
     options: 'top | right | bottom | left',
-    description: 'caret placement for a tooltip',
+    description: 'sets the button caret placement',
     uuid: 7,
   },
   {
     name: 'theme',
     type: 'object',
     default: '{}',
-    options: '',
-    description: 'theme override',
+    options: 'refer to theme',
+    description: 'theme override for button',
     uuid: 8,
   },
   {
@@ -98,7 +98,7 @@ export const theme_rows = [
     type: 'object',
     default: `{ right: 'calc(100% + 10px)' }`,
     options: '',
-    description: 'tooltip placement on hover',
+    description: 'sets the button tooltip position',
     uuid: 9,
   },
   {
@@ -106,7 +106,7 @@ export const theme_rows = [
     type: 'string',
     default: 'null',
     options: '',
-    description: 'tooltip message',
+    description: 'sets button tooltip on hover',
     uuid: 10,
   },
   {
@@ -114,7 +114,7 @@ export const theme_rows = [
     type: 'string | number',
     default: '0px',
     options: '',
-    description: 'adds margin',
+    description: 'sets button margin',
     uuid: 11,
   },
   {
@@ -122,7 +122,7 @@ export const theme_rows = [
     type: 'boolean',
     default: 'false',
     options: '',
-    description: 'disables the button',
+    description: 'sets button disabled',
     uuid: 12,
   },
   {
@@ -130,7 +130,7 @@ export const theme_rows = [
     type: 'string',
     default: 'null',
     options: '',
-    description: 'button value',
+    description: 'sets button string',
     uuid: 13,
   },
   {
@@ -138,7 +138,15 @@ export const theme_rows = [
     type: 'boolean',
     default: 'false',
     options: '',
-    description: 'button background is set to #fff',
-    uuid: 13,
+    description: 'sets button background to #fff',
+    uuid: 14,
+  },
+  {
+    name: 'width',
+    type: 'string | number',
+    default: 'max-content',
+    options: '',
+    description: 'sets button width',
+    uuid: 14,
   },
 ];

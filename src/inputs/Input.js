@@ -74,7 +74,7 @@ export const Input = ({
 Input.defaultProps = {
   value: undefined,
   default_value: undefined,
-  controlled: false,
+  controlled: true,
   placeholder: '',
   text_align: 'left',
   type: 'text',

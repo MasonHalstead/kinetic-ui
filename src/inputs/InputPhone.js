@@ -94,7 +94,7 @@ InputPhone.defaultProps = {
   text_align: 'right',
   format: '(###) ###-####',
   mask: '',
-  controlled: false,
+  controlled: true,
   onChange: () => {}
 }
 InputPhone.propTypes = {
@@ -158,7 +158,7 @@ const Base = React.memo(
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
-  controlled: false,
+  controlled: true,
   name: '',
   placeholder: '',
   text_align: 'right',

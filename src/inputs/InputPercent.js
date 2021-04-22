@@ -97,7 +97,7 @@ InputPercent.defaultProps = {
   thousand_separator: true,
   decimal_scale: 0,
   suffix: '%',
-  controlled: false,
+  controlled: true,
   onChange: () => {}
 }
 InputPercent.propTypes = {
@@ -165,7 +165,7 @@ Base.defaultProps = {
   default_value: undefined,
   value: undefined,
   name: '',
-  controlled: false,
+  controlled: true,
   placeholder: '',
   text_align: 'right',
   disabled: null,

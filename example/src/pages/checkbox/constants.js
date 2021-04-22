@@ -42,7 +42,7 @@ export const checkbox_rows = [
     type: 'boolean',
     default: 'true',
     options: 'true | false',
-    description: 'highlights label depending on checked prop',
+    description: 'highlights checkbox label depending on checked prop',
     uuid: 2,
   },
   {
@@ -58,7 +58,7 @@ export const checkbox_rows = [
     type: 'object',
     default: '{}',
     options: 'refer to theme',
-    description: 'theme override for switch',
+    description: 'theme override for checkbox',
     uuid: 5,
   },
   {
@@ -66,7 +66,7 @@ export const checkbox_rows = [
     type: 'boolean',
     default: 'false',
     options: 'true | false',
-    description: 'controls the switch display',
+    description: 'controls the checkbox checked',
     uuid: 6,
   },
   {
@@ -74,7 +74,7 @@ export const checkbox_rows = [
     type: 'string | number',
     default: '0px',
     options: '',
-    description: 'adds margin',
+    description: 'sets margin on checkbox',
     uuid: 7,
   },
   {
@@ -82,7 +82,7 @@ export const checkbox_rows = [
     type: 'number | string',
     default: '100%',
     options: '',
-    description: 'sets width',
+    description: 'sets width on checkbox',
     uuid: 8,
   },
   {
@@ -90,7 +90,7 @@ export const checkbox_rows = [
     type: 'number',
     default: '30',
     options: '',
-    description: 'sets height',
+    description: 'sets height on checkbox',
     uuid: 9,
   },
   {
@@ -98,15 +98,15 @@ export const checkbox_rows = [
     type: 'boolean',
     default: 'false',
     options: '',
-    description: 'disabled checkbox',
+    description: 'disables checkbox',
     uuid: 10,
   },
   {
     name: 'native',
     type: 'boolean',
     default: 'true',
-    options: 'true | false',
-    description: 'uses native input checkbox or fontawesome checkbox',
-    uuid: 10,
+    options: '',
+    description: 'toggles native input checkbox or fontawesome checkbox',
+    uuid: 11,
   },
 ];

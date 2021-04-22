@@ -13,6 +13,8 @@ export const Select = ({
   open,
   disabled,
   children,
+  height,
+  position,
   scroll_height,
   options,
   theme,
@@ -34,7 +36,8 @@ export const Select = ({
             width,
             marginTop: transparent ? 0 : -1,
             left: transparent ? left - 1 : left,
-            right: transparent ? right - 1 : right
+            right: transparent ? right - 1 : right,
+            bottom: position === 'top' ? height - 1 : null
           }}
         >
           {options.map((option, index) =>
@@ -59,6 +62,8 @@ Select.defaultProps = {
   open: false,
   disabled: false,
   scroll_height: 200,
+  height: 30,
+  position: 'bottom',
   onFocus: () => {},
   onBlur: () => {},
   onKeyDown: () => {},
@@ -69,6 +74,8 @@ Select.defaultProps = {
 Select.propTypes = {
   options: PropTypes.array,
   theme: PropTypes.object,
+  height: PropTypes.number,
+  position: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   left: PropTypes.number,
   transparent: PropTypes.bool,

@@ -42,7 +42,7 @@ export const switch_rows = [
     type: 'boolean',
     default: 'true',
     options: 'true | false',
-    description: 'highlights label depending on selection',
+    description: 'highlights switch label depending on checked',
     uuid: 2,
   },
   {
@@ -50,7 +50,7 @@ export const switch_rows = [
     type: 'string',
     default: 'null',
     options: '',
-    description: 'prepended label',
+    description: 'switch prepend label',
     uuid: 3,
   },
   {
@@ -58,7 +58,7 @@ export const switch_rows = [
     type: 'string',
     default: 'null',
     options: '',
-    description: 'appended label',
+    description: 'switch appended label',
     uuid: 4,
   },
   {
@@ -74,7 +74,7 @@ export const switch_rows = [
     type: 'boolean',
     default: 'false',
     options: 'true | false',
-    description: 'controls the switch display',
+    description: 'controls switch checked',
     uuid: 6,
   },
   {
@@ -82,7 +82,7 @@ export const switch_rows = [
     type: 'string | number',
     default: '0px',
     options: '',
-    description: 'adds margin',
+    description: 'sets switch margin',
     uuid: 7,
   },
   {
@@ -90,7 +90,7 @@ export const switch_rows = [
     type: 'number | string',
     default: '100%',
     options: '',
-    description: 'sets width',
+    description: 'sets switch width',
     uuid: 8,
   },
   {
@@ -98,7 +98,7 @@ export const switch_rows = [
     type: 'number',
     default: '30',
     options: '',
-    description: 'sets height',
+    description: 'sets switch height',
     uuid: 9,
   },
   {
@@ -106,7 +106,7 @@ export const switch_rows = [
     type: 'boolean',
     default: 'false',
     options: 'true | false',
-    description: 'disables the switch',
+    description: 'disables switch',
     uuid: 10,
   },
 ];

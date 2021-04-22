@@ -50,7 +50,7 @@ export const theme_rows = [
     type: 'fontawesome',
     default: "['far', 'file-alt']",
     options: '',
-    description: 'optional fontawesome icon',
+    description: 'fontawesome icon',
     uuid: 3,
   },
   {
@@ -140,5 +140,21 @@ export const theme_rows = [
     options: '',
     description: 'disables the button',
     uuid: 14,
+  },
+  {
+    name: 'button_upload',
+    type: 'string',
+    default: 'Upload documents',
+    options: '',
+    description: 'upload documents button',
+    uuid: 15,
+  },
+  {
+    name: 'button_external',
+    type: 'Import documents',
+    default: 'null',
+    options: '',
+    description: 'controlled button for onClick prop',
+    uuid: 16,
   },
 ];

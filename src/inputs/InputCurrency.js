@@ -87,7 +87,7 @@ InputCurrency.defaultProps = {
   value: undefined,
   default_value: undefined,
   debounce: null,
-  controlled: false,
+  controlled: true,
   name: '',
   label: null,
   placeholder: '',
@@ -155,7 +155,7 @@ const Base = React.memo(
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
-  controlled: false,
+  controlled: true,
   name: '',
   placeholder: '',
   text_align: 'right',

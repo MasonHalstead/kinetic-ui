@@ -67,7 +67,12 @@ export const ButtonBase = ({
         </div>
       )}
       {tooltip && (
-        <Tooltip tooltip={tooltip} caret={caret} position={position} />
+        <Tooltip
+          tooltip={tooltip}
+          caret={caret}
+          width='max-content'
+          position={position}
+        />
       )}
     </Button>
   )

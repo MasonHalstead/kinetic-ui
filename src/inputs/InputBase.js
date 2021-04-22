@@ -148,6 +148,7 @@ export const InputBase = ({
             tooltip={error_message}
             theme={inputs}
             caret='right'
+            width='max-content'
             position={{ right: 34 }}
           />
         )}

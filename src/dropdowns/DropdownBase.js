@@ -217,7 +217,7 @@ DropdownBase.defaultProps = {
   value: null,
   options: [],
   option_key: 'name',
-  controlled: false,
+  controlled: true,
   nullable: false,
   onChange: () => {},
   onSelect: () => {},

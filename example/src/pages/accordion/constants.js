@@ -58,7 +58,7 @@ export const accordion_props = [
     type: 'object',
     default: '{}',
     options: 'refer to theme',
-    description: 'theme override for table',
+    description: 'theme override for accordion',
     uuid: 8,
   },
 ];
@@ -69,7 +69,7 @@ export const accordion_child_props = [
     type: 'string',
     default: 'null',
     options: '',
-    description: 'accordion item title',
+    description: 'accordion child title',
     uuid: 1,
   },
   {
@@ -77,7 +77,7 @@ export const accordion_child_props = [
     type: 'boolean',
     default: 'false',
     options: '',
-    description: 'special case when an overflow is needed outside the accordion item',
+    description: 'special case when overflow is needed for dropdowns etc',
     uuid: 2,
   },
   {
@@ -85,7 +85,7 @@ export const accordion_child_props = [
     type: 'boolean',
     default: 'true',
     options: '',
-    description: 'display or hide the accordion item',
+    description: 'display or hide the accordion child',
     uuid: 3,
   },
   {
@@ -101,7 +101,7 @@ export const accordion_child_props = [
     type: 'boolean',
     default: `false`,
     options: '',
-    description: 'default expanded accordion item',
+    description: 'default expanded accordion child',
     uuid: 5,
   },
   {
@@ -125,7 +125,7 @@ export const accordion_child_props = [
     type: 'object',
     default: '{}',
     options: 'refer to theme',
-    description: 'theme override for table',
+    description: 'theme override for child',
     uuid: 8,
   },
 ];

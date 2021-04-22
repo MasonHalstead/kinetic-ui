@@ -120,6 +120,7 @@ export const createTheme = (override) => {
     font_snackbar_size: default_globals.font_size,
     ...fonts
   }
+
   const default_backgrounds = {
     background_tooltip: '#2e3440',
     background_input: '#fff',
@@ -141,6 +142,7 @@ export const createTheme = (override) => {
     background_snackbar: default_colors.secondary,
     ...backgrounds
   }
+
   const default_borders = {
     border_input: `1px solid ${default_globals.border_color}`,
     border_input_focus: `1px solid ${default_globals.active_color}`,

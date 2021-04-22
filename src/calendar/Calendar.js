@@ -15,8 +15,6 @@ export const Calendar = ({
   start_date,
   finish_date,
   calendar_days,
-  calendar_primary,
-  calendar_secondary,
   theme,
   min_date,
   max_date,

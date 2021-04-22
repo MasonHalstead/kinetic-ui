@@ -80,6 +80,7 @@ export const TextareaBase = ({
               <Tooltip
                 tooltip={error_message}
                 caret='right'
+                width='max-content'
                 theme={inputs}
                 position={{ right: 28 }}
               />

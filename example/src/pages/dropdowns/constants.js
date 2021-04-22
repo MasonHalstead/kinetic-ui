@@ -50,7 +50,7 @@ export const dropdown_rows = [
     type: 'fontawesome',
     default: 'null',
     options: '',
-    description: 'optional fontawesome left icon',
+    description: 'fontawesome left icon',
     uuid: 3,
   },
   {
@@ -58,7 +58,7 @@ export const dropdown_rows = [
     type: 'fontawesome',
     default: `['fas', 'chevron-down']`,
     options: '',
-    description: 'optional fontawesome right icon',
+    description: 'fontawesome right icon',
     uuid: 4,
   },
   {
@@ -82,15 +82,15 @@ export const dropdown_rows = [
     type: 'string | number',
     default: '0px',
     options: '',
-    description: 'adds margin',
+    description: 'sets dropdown margin',
     uuid: 7,
   },
   {
     name: 'width',
-    type: 'number',
-    default: '0',
+    type: 'string | number',
+    default: '100%',
     options: '',
-    description: 'sets max-width',
+    description: 'sets dropdown width',
     uuid: 8,
   },
   {
@@ -98,7 +98,7 @@ export const dropdown_rows = [
     type: 'array',
     default: '[]',
     options: '',
-    description: 'array of objects',
+    description: 'array of objects to select on the dropdown',
     uuid: 9,
   },
   {
@@ -138,7 +138,7 @@ export const dropdown_rows = [
     type: 'hexcode | rgba',
     default: 'null',
     options: '',
-    description: 'sets background color',
+    description: 'sets dropdown background color',
     uuid: 14,
   },
   {
@@ -146,7 +146,7 @@ export const dropdown_rows = [
     type: 'number',
     default: '30',
     options: '',
-    description: 'sets the height and line-height',
+    description: 'sets the dropdown height and line-height',
     uuid: 15,
   },
   {
@@ -204,6 +204,14 @@ export const dropdown_rows = [
     options: '',
     description: 'tooltip message when nullable is true',
     uuid: 22,
+  },
+  {
+    name: 'position',
+    type: 'string',
+    default: 'bottom',
+    options: 'bottom | top',
+    description: 'change the select position to open up or down',
+    uuid: 23,
   },
 ];
 

@@ -205,4 +205,12 @@ export const input_rows = [
     description: 'error message for the tooltip',
     uuid: 22,
   },
+  {
+    name: 'controlled',
+    type: 'boolean',
+    default: 'false',
+    options: '',
+    description: 'allows the dropdown to be controlled by the value prop',
+    uuid: 22,
+  },
 ];

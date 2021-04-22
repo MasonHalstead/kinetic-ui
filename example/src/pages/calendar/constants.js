@@ -141,4 +141,12 @@ export const calendar_props = [
     description: 'onSelect format for the selected dates',
     uuid: 14,
   },
+  {
+    name: 'theme',
+    type: 'object',
+    default: '{}',
+    options: 'refer to theme',
+    description: 'theme override for calendar',
+    uuid: 15,
+  },
 ];
