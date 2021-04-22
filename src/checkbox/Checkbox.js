@@ -41,7 +41,7 @@ export const Checkbox = ({
       }}
     >
       {native && (
-        <input type='checkbox' checked={checked} disabled={disabled} />
+        <input type='checkbox' checked={checked} disabled={disabled} readOnly />
       )}
       {!native && (
         <FontAwesomeIcon

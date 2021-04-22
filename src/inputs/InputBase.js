@@ -28,6 +28,7 @@ export const InputBase = ({
 }) => {
   const [focus, setFocus] = useState(false)
   const onFocus = (e, override) => {
+    console.log(e, override)
     // special case that abuses the right icon
     // built in for the dropdown remove functionality
     if (override && error_level === 99) {
@@ -35,6 +36,10 @@ export const InputBase = ({
       e.preventDefault()
       rest.onRemove()
       return
+    }
+
+    if (inputRef && inputRef.current) {
+      inputRef.current.focus()
     }
 
     setFocus(true)
