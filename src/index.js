@@ -12,6 +12,7 @@ import { Option } from './options/index'
 import {
   Dropdown,
   DropdownCheckbox,
+  DropdownCalendar,
   DropdownIcon,
   DropdownBase
 } from './dropdowns/index'
@@ -63,6 +64,7 @@ export {
   Dropdown,
   DropdownCheckbox,
   DropdownBase,
+  DropdownCalendar,
   DropdownIcon,
   Input,
   InputBase,

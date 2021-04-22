@@ -33,6 +33,7 @@ export const Select = ({
             maxHeight: scroll_height,
             border: theme.border_select,
             background: theme.background_select,
+            minWidth: 100,
             width,
             marginTop: transparent ? 0 : -1,
             left: transparent ? left - 1 : left,

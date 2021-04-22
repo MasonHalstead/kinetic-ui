@@ -14,14 +14,16 @@ export const App = () => {
         <PublicRouter exact path={routes.THEME} component={WaitingComponent(pages.ThemePage)} />
         <PublicRouter exact path={routes.ACCORDION} component={WaitingComponent(pages.AccordionPage)} />
         <PublicRouter exact path={routes.CALENDAR} component={WaitingComponent(pages.CalendarPage)} />
-        <PublicRouter exact path={routes.FORM} component={WaitingComponent(pages.FormPage)} />
+        <PublicRouter exact path={routes.TAB_INDEX} component={WaitingComponent(pages.TabIndexPage)} />
         <PublicRouter exact path={routes.BUTTONS} component={WaitingComponent(pages.ButtonsPage)} />
         <PublicRouter exact path={routes.SNACKBAR} component={WaitingComponent(pages.SnackbarPage)} />
         <PublicRouter exact path={routes.TABS} component={WaitingComponent(pages.TabsPage)} />
         <PublicRouter exact path={routes.PROGRESS} component={WaitingComponent(pages.ProgressPage)} />
         <PublicRouter exact path={routes.CHECKBOX} component={WaitingComponent(pages.CheckboxPage)} />
         <PublicRouter exact path={routes.DROPDOWNS} component={WaitingComponent(pages.DropdownsPage)} />
+        <PublicRouter exact path={routes.DROPDOWN_CALENDAR} component={WaitingComponent(pages.DropdownCalendarPage)} />
         <PublicRouter exact path={routes.DROPDOWN_CHECKBOX} component={WaitingComponent(pages.DropdownCheckboxPage)} />
+        <PublicRouter exact path={routes.DROPDOWN_ICON} component={WaitingComponent(pages.DropdownIconPage)} />
         <PublicRouter exact path={routes.SWITCH} component={WaitingComponent(pages.SwitchPage)} />
         <PublicRouter exact path={routes.INPUTS} component={WaitingComponent(pages.InputsPage)} />
         <PublicRouter exact path={routes.INPUTS_SPECIAL} component={WaitingComponent(pages.InputsSpecialPage)} />

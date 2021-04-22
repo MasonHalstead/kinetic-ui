@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Input, Dropdown, DropdownCheckbox } from 'kinetic-ui';
 import { options } from './constants';
-import cn from './Form.module.scss';
+import cn from './TabIndex.module.scss';
 
-const FormPage = () => {
+const TabIndexPage = () => {
   const [select_options, onSelect] = useState([...options]);
   const [option, setOption] = useState({
     name: 'Option 1',
@@ -65,4 +65,4 @@ const FormPage = () => {
   );
 };
 
-export default FormPage;
+export default TabIndexPage;

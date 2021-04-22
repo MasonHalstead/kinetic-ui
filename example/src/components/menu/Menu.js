@@ -8,7 +8,7 @@ const options = {
     { link: '/install', name: 'Installation' },
     { link: '/theme', name: 'Theme' },
   ],
-  form: [{ link: '/form', name: 'Form' }],
+  tabindex: [{ link: '/tab-index', name: 'Tab Index' }],
   accordion: [{ link: '/accordion', name: 'Accordion' }],
   calendar: [{ link: '/calendar', name: 'Calendar' }],
   buttons: [{ link: '/buttons', name: 'Buttons' }],
@@ -16,6 +16,8 @@ const options = {
   dropdowns: [
     { link: '/dropdowns', name: 'Dropdowns' },
     { link: '/dropdown-checkbox', name: 'Dropdown Checkbox' },
+    { link: '/dropdown-calendar', name: 'Dropdown Calendar' },
+    { link: '/dropdown-icon', name: 'Dropdown Icon' },
   ],
   dropzone: [{ link: '/dropzone', name: 'Dropzone' }],
   inputs: [
@@ -44,7 +46,7 @@ export const Menu = () => {
     <div className={cn.menu}>
       <Accordion>
         <AccordionItem title="Getting Started" options={options.installation} />
-        <AccordionItem title="Form" options={options.form} />
+        <AccordionItem title="Tab Index" options={options.tabindex} />
         <AccordionItem title="Accordion" options={options.accordion} />
         <AccordionItem title="Calendar" options={options.calendar} />
         <AccordionItem title="Checkbox" options={options.checkbox} />

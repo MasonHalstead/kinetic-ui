@@ -11,25 +11,22 @@ export const DropdownIcon = ({
   label,
   margin,
   background,
-  default_value,
+  position,
   height,
   disabled,
-  placeholder,
   theme,
-  text_align,
   transparent,
   options,
   option_key,
-  error_message,
   scroll_height,
   nullable,
   onChange,
   onSelect
 }) => {
   const dropdowns = useTheme('dropdowns', theme)
+  const select_position = position === 'left' ? 0 : null
   return (
     <DropdownBase
-      default_value={default_value}
       options={options}
       option_key={option_key}
       margin={margin}
@@ -46,9 +43,6 @@ export const DropdownIcon = ({
         transparent={transparent}
         height={height}
         disabled={disabled}
-        text_align={text_align}
-        placeholder={placeholder}
-        error_message={error_message}
       />
       <Select
         theme={dropdowns}
@@ -56,7 +50,7 @@ export const DropdownIcon = ({
         disabled={disabled}
         width='max-content'
         scroll_height={scroll_height}
-        left={null}
+        left={select_position}
       >
         <Option theme={dropdowns} option_key={option_key} />
       </Select>
@@ -68,12 +62,12 @@ DropdownIcon.defaultProps = {
   label: null,
   margin: 0,
   background: null,
-  default_value: null,
   height: 30,
   disabled: false,
   options: [],
   option_key: 'name',
   transparent: false,
+  position: 'right',
   theme: {},
   scroll_height: 200,
   nullable: false,
@@ -85,6 +79,7 @@ DropdownIcon.propTypes = {
   label: PropTypes.string,
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   background: PropTypes.string,
+  position: PropTypes.string,
   height: PropTypes.number,
   disabled: PropTypes.bool,
   options: PropTypes.array,
