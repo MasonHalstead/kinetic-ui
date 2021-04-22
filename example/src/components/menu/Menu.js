@@ -8,11 +8,15 @@ const options = {
     { link: '/install', name: 'Installation' },
     { link: '/theme', name: 'Theme' },
   ],
+  form: [{ link: '/form', name: 'Form' }],
   accordion: [{ link: '/accordion', name: 'Accordion' }],
   calendar: [{ link: '/calendar', name: 'Calendar' }],
   buttons: [{ link: '/buttons', name: 'Buttons' }],
   checkbox: [{ link: '/checkbox', name: 'Checkbox' }],
-  dropdowns: [{ link: '/dropdowns', name: 'Dropdowns' }],
+  dropdowns: [
+    { link: '/dropdowns', name: 'Dropdowns' },
+    { link: '/dropdown-checkbox', name: 'Dropdown Checkbox' },
+  ],
   dropzone: [{ link: '/dropzone', name: 'Dropzone' }],
   inputs: [
     { link: '/inputs', name: 'Inputs' },
@@ -40,6 +44,7 @@ export const Menu = () => {
     <div className={cn.menu}>
       <Accordion>
         <AccordionItem title="Getting Started" options={options.installation} />
+        <AccordionItem title="Form" options={options.form} />
         <AccordionItem title="Accordion" options={options.accordion} />
         <AccordionItem title="Calendar" options={options.calendar} />
         <AccordionItem title="Checkbox" options={options.checkbox} />

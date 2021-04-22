@@ -4,8 +4,10 @@ export const InstallationPage = lazy(() => import('pages/starting/InstallationPa
 export const ThemePage = lazy(() => import('pages/starting/ThemePage'));
 export const ButtonsPage = lazy(() => import('pages/buttons/ButtonsPage'));
 export const CalendarPage = lazy(() => import('pages/calendar/CalendarPage'));
+export const FormPage = lazy(() => import('pages/form/FormPage'));
 export const AccordionPage = lazy(() => import('pages/accordion/AccordionPage'));
 export const DropdownsPage = lazy(() => import('pages/dropdowns/DropdownsPage'));
+export const DropdownCheckboxPage = lazy(() => import('pages/dropdowns/DropdownCheckboxPage'));
 export const DropzonePage = lazy(() => import('pages/dropzone/DropzonePage'));
 export const TabsPage = lazy(() => import('pages/tabs/TabsPage'));
 export const ProgressPage = lazy(() => import('pages/progress/ProgressPage'));

@@ -9,7 +9,12 @@ import {
 import { Dropzone } from './dropzone/index'
 import { Label } from './labels/index'
 import { Option } from './options/index'
-import { Dropdown, DropdownIcon, DropdownBase } from './dropdowns/index'
+import {
+  Dropdown,
+  DropdownCheckbox,
+  DropdownIcon,
+  DropdownBase
+} from './dropdowns/index'
 import { Wizard } from './wizard/index'
 import { Calendar } from './calendar/index'
 import {
@@ -56,6 +61,7 @@ export {
   Label,
   Option,
   Dropdown,
+  DropdownCheckbox,
   DropdownBase,
   DropdownIcon,
   Input,

@@ -58,7 +58,7 @@ export const DropdownBase = ({
 
   useEffect(() => {
     // setting a default value for uncontrolled dropdown
-    if (default_value) {
+    if (!controlled) {
       const index = findOptionIndex(options, option_key, default_value)
       setSettings((prev) => ({
         ...prev,
@@ -121,12 +121,10 @@ export const DropdownBase = ({
   }
 
   const onSelect = (option, i) => {
-    if (multi_select) {
-      // dont know what to do yet
-    } else {
-      rest.onSelect(option, i)
-      setOpen(false)
+    rest.onSelect(option, i)
 
+    if (!multi_select) {
+      setOpen(false)
       if (!controlled) {
         setSettings((prev) => ({
           ...prev,
@@ -144,10 +142,12 @@ export const DropdownBase = ({
     setOpen(true)
   }
   const onBlur = (override) => {
-    if (multi_select && !override) {
-      return
+    // override also could be the element
+    // need to check the value is a boolean
+    // override the onBlur when the label is clicked
+    if (override === true) {
+      setOpen(false)
     }
-    setOpen(false)
   }
 
   const onKeyDown = (e) => {
@@ -182,6 +182,7 @@ export const DropdownBase = ({
   // special case inside input base
   // abusing the input component a little bit
   const error_level = remove && nullable ? 99 : null
+
   return (
     <div
       className={cn.wrapper}

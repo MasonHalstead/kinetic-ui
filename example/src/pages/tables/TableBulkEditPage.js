@@ -32,7 +32,6 @@ const TableBulkEditPage = () => {
       currency: item.value,
       uuid: row.uuid,
     };
-    console.log(new_row);
     rowManagement(new_row);
   };
 

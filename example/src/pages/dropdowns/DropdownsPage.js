@@ -71,35 +71,45 @@ const options_custom = [
 </div>`}</code>
       </pre>
       <div className={cn.wrapperFlex}>
-        <Dropdown label="Uncontrolled" options={options} default_value="Option 1" />
+        <Dropdown label="Uncontrolled" options={options} default_value="Option 1" controlled={false} />
         <Dropdown
           label="Uncontrolled Left Icon"
           left_icon={['fas', 'coins']}
           default_value="Option 2"
           options={options}
           margin="0px 10px 0px 10px"
+          controlled={false}
         />
         <Dropdown
           label="Uncontrolled Right Icon"
           options={options}
           default_value="Option 3"
           right_icon={['fas', 'coins']}
+          controlled={false}
         />
       </div>
       <div className={cn.wrapperFlex}>
-        <Dropdown label="Uncontrolled Nullable" options={options} default_value="Option 1" nullable />
+        <Dropdown
+          label="Uncontrolled Nullable"
+          options={options}
+          default_value="Option 1"
+          nullable
+          controlled={false}
+        />
         <Dropdown
           label="Uncontrolled Left Icon"
           left_icon={['fas', 'coins']}
           default_value="Option 2"
           options={options}
           margin="0px 10px 0px 10px"
+          controlled={false}
         />
         <Dropdown
           label="Uncontrolled Right Icon"
           options={options}
           default_value="Option 3"
           right_icon={['fas', 'coins']}
+          controlled={false}
         />
       </div>
       <div className={cn.header}>
@@ -133,7 +143,6 @@ const Form = () => {
           onSelect={() => setOption({ name: null, id: null })}
           options={[{ name: 'Null', id: 100, uuid: 100 }]}
           margin="0px 10px 0px 10px"
-          controlled
           value={option.name}
         />
         <Dropdown
@@ -141,7 +150,6 @@ const Form = () => {
           onSelect={selectControlNullable}
           options={options}
           value={option.name}
-          controlled
           nullable
         />
       </div>

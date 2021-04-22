@@ -182,7 +182,6 @@ InputBase.propTypes = {
   label: PropTypes.string,
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   background: PropTypes.string,
-  default_value: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
   disabled: PropTypes.bool,

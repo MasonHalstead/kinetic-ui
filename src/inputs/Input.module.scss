@@ -40,17 +40,30 @@
     outline: none;
   }
   .base {
-    border: none;
+    display: flex;
     flex-grow: 1;
+    border: none;
     padding: 0px 5px;
-    width: 100%;
+    margin: 0px;
+    max-width: 100%;
     border-radius: 3px;
     background: transparent;
     font-size: inherit;
     font-weight: inherit;
     font-family: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
     &:focus {
       outline: 0;
+    }
+    p {
+      margin: 0px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      white-space: nowrap;
     }
   }
 }
