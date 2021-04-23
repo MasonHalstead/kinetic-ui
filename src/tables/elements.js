@@ -9,11 +9,11 @@ export const HeadersElement = styled.div(({ theme, borders }) => ({
 export const HeaderElement = styled.div(({ theme, borders }) => ({
   background: theme.background_header,
   borderRight: borders && `1px solid ${theme.border_table_color}`,
-  fontSize: theme.font_table_size,
-  textTransform: theme.font_table_transform,
-  fontFamily: theme.font_table_family,
-  fontWeight: theme.font_table_weight,
-  color: theme.font_table_color
+  fontSize: theme.font_header_size,
+  textTransform: theme.font_header_transform,
+  fontFamily: theme.font_header_family,
+  fontWeight: theme.font_header_weight,
+  color: theme.font_header_color
 }))
 export const ContentElement = styled.div(({ theme, sort_direction }) => ({
   '&:hover': {
