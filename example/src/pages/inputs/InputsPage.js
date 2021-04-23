@@ -23,15 +23,36 @@ const InputsPage = () => {
 import { Input } from 'kinetic-ui'
 
 <div className={cn.wrapper}>
-  <Input label="Uncontrolled" default_value="default value" />
-  <Input label="Left Icon" left_icon={['fas', 'coins']} margin="0px 10px 0px 10px" />
-  <Input label="Right Icon" right_icon={['fas', 'coins']} />
+  <Input
+    label="Debounce 1000"
+    debounce={1000}
+    onChange={(value) => alert(value)}
+    default_value="alert value onChange"
+    controlled={false}
+  />
+  <Input
+    label="Left Icon Ex."
+    left_icon={['fas', 'coins']}
+    margin="0px 10px 0px 10px"
+    controlled={false}
+  />
+  <Input 
+    label="Right Icon Ex." 
+    right_icon={['fas', 'coins']} 
+    controlled={false}
+  />
 </div>`}</code>
       </pre>
       <div className={cn.wrapperFlex}>
-        <Input label="Uncontrolled" debounce={1000} onChange={(value) => alert(value)} default_value="default value" />
-        <Input label="Left Icon" left_icon={['fas', 'coins']} margin="0px 10px 0px 10px" />
-        <Input label="Right Icon" right_icon={['fas', 'coins']} />
+        <Input
+          label="Debounce 1000"
+          debounce={1000}
+          onChange={(value) => alert(value)}
+          default_value="alert value onChange"
+          controlled={false}
+        />
+        <Input label="Left Icon Ex." left_icon={['fas', 'coins']} margin="0px 10px 0px 10px" controlled={false} />
+        <Input label="Right Icon Ex." right_icon={['fas', 'coins']} controlled={false} />
       </div>
       <div className={cn.header}>
         <h2>Inputs Controlled</h2>
@@ -54,9 +75,9 @@ const Form = () => {
 }`}</code>
       </pre>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Input label="Controlled" onChange={setValue} value={value} controlled />
-        <Input label="Controlled" onChange={setValue} value={value} margin="0px 10px 0px 10px" controlled />
-        <Input label="Controlled" onChange={setValue} value={value} controlled />
+        <Input label="Controlled" onChange={setValue} value={value} />
+        <Input label="Controlled" onChange={setValue} value={value} margin="0px 10px 0px 10px" />
+        <Input label="Controlled" onChange={setValue} value={value} />
       </div>
       <div className={cn.header}>
         <h2>Input Error Levels</h2>
@@ -92,9 +113,9 @@ import { Input } from 'kinetic-ui'
 </div>`}</code>
       </pre>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Input label="Background #ebeeff" background="#ebeeff" />
+        <Input label="Background #ebeeff" background="#ebeeff" controlled={false} />
         <Input label="Disabled" placeholder="disabled" margin="0px 10px 0px 10px" disabled />
-        <Input label="Text Align" text_align="right" placeholder="ex. Text Align" />
+        <Input label="Text Align Right" text_align="right" placeholder="ex. Placeholder" controlled={false} />
       </div>
       <div className={cn.header}>
         <h2>Input Props</h2>

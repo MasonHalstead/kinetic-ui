@@ -13,9 +13,6 @@
     input:focus {
       outline: 0;
     }
-    &:hover [data-role='tooltip'] {
-      display: block;
-    }
     &:focus {
       outline: 0;
     }
@@ -38,6 +35,9 @@
     cursor: pointer;
     font-size: 13px;
     outline: none;
+    &:hover [data-role='tooltip'] {
+      display: block;
+    }
   }
   .base {
     display: flex;

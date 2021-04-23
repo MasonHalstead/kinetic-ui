@@ -145,16 +145,16 @@ export const InputBase = ({
             style={{ color: setErrorColor() }}
           >
             <FontAwesomeIcon icon={setError()} />
+            {show_tooltip && (
+              <Tooltip
+                tooltip={error_message}
+                theme={inputs}
+                caret='right'
+                width='max-content'
+                position={{ right: 34 }}
+              />
+            )}
           </div>
-        )}
-        {show_tooltip && (
-          <Tooltip
-            tooltip={error_message}
-            theme={inputs}
-            caret='right'
-            width='max-content'
-            position={{ right: 34 }}
-          />
         )}
       </Input>
     </Wrapper>

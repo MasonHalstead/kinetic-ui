@@ -33,7 +33,7 @@ export const variant = (color, disabled, outline) => {
       background: `linear-gradient(90deg, ${dark} 1%, ${dark} 100%)`
     },
     '&:focus': {
-      background: `linear-gradient(90deg, ${darker} 1%, ${darker} 100%)`
+      background: `linear-gradient(90deg, ${color} 1%, ${color} 100%)`
     },
     '&:active': {
       background: `linear-gradient(90deg, ${darker} 1%, ${darker} 100%)`

@@ -208,7 +208,7 @@ export const input_rows = [
   {
     name: 'controlled',
     type: 'boolean',
-    default: 'false',
+    default: 'true',
     options: '',
     description: 'allows the dropdown to be controlled by the value prop',
     uuid: 22,

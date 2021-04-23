@@ -40,7 +40,7 @@ export const ButtonBase = ({
       type={type}
       color={colors[variant] || 'primary'}
       style={{
-        width,
+        minWidth: width,
         margin,
         color: outline ? buttons.font_button_color : '#fff',
         fontFamily: buttons.font_button_family,

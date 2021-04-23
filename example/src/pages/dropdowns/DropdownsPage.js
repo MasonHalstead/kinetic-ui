@@ -182,14 +182,19 @@ import { Dropdown } from 'kinetic-ui'
           onSelect={selectNullable}
           error_message="remove item"
           value={null_option.name}
-          controlled
           nullable
         />
       </div>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Dropdown label="Background #ebeeff" background="#ebeeff" />
-        <Dropdown label="Text Align" options={options} text_align="center" margin="0px 10px 0px 10px" />
-        <Dropdown label="Scroll Height" options={options} scroll_height={50} />
+        <Dropdown label="Background #ebeeff" options={options} background="#ebeeff" controlled={false} />
+        <Dropdown
+          label="Text Align"
+          options={options}
+          text_align="center"
+          margin="0px 10px 0px 10px"
+          controlled={false}
+        />
+        <Dropdown label="Scroll Height" options={options} scroll_height={50} controlled={false} />
       </div>
       <div className={cn.header}>
         <h2>Dropdown Props</h2>
