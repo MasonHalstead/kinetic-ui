@@ -41,6 +41,7 @@ export const Row = ({
             {cloneElement(child, {
               row,
               header,
+              row_index,
               settings
             })}
           </CellWrapper>

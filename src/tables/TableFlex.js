@@ -38,7 +38,8 @@ const TableWrapper = ({
       style={{
         borderBottom: `1px solid ${theme.border_table_color}`,
         minHeight: min_height,
-        maxHeight: max_height
+        maxHeight: max_height,
+        overflow: 'hidden'
       }}
     >
       <AutoSizer>

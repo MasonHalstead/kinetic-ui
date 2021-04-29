@@ -50,8 +50,19 @@ export const Headers = ({ headers, theme, settings, onSortHeaders }) => {
     })
   }
 
+  const headerAlign = (align) => {
+    switch (align) {
+      case 'left':
+        return 'flex-start'
+      case 'right':
+        return 'flex-end'
+      default:
+        return 'center'
+    }
+  }
+
   const insertHeaders = (header) => {
-    const { sort_direction } = header
+    const { sort_direction, align } = header
     const { header_row_height, row_borders } = settings
     return (
       <HeaderElement
@@ -60,6 +71,7 @@ export const Headers = ({ headers, theme, settings, onSortHeaders }) => {
         theme={theme}
         key={header.uuid}
         style={{
+          alignItems: headerAlign(align),
           minWidth: header.width || 10,
           width: header.width || 10,
           flexGrow: header.flex_grow

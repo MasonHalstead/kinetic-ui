@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  cloneElement,
-  Children,
-  useRef
-} from 'react'
+import React, { useState, useEffect, cloneElement, Children } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import { RowElement, AccordionElement, AccordionCellElement } from './elements'
