@@ -34,10 +34,19 @@ export const DropdownCalendar = ({
   preset_dates,
   valid_formats,
   output_format,
+  nullable,
   onSelect: onSelectProps
 }) => {
   const onSelect = (calendar) => {
-    onSelectProps(calendar)
+    if (calendar) {
+      onSelectProps(calendar)
+    } else {
+      onSelectProps({
+        selected_date: null,
+        start_date: null,
+        finish_date: null
+      })
+    }
   }
 
   const calendarValue = () => {
@@ -71,7 +80,8 @@ export const DropdownCalendar = ({
       margin={margin}
       width={width}
       onSelect={onSelect}
-      multi_select
+      nullable={nullable}
+      multi_select={calendar_range}
     >
       <InputDropdown
         left_icon={left_icon}
@@ -135,6 +145,7 @@ DropdownCalendar.defaultProps = {
   min_date: null,
   max_date: null,
   preset_dates: presets,
+  nullable: false,
   valid_formats: ['M/D/YYYY', 'M-D-YYYY'],
   output_format: 'M/D/YYYY',
   onSelect: () => {}
@@ -165,6 +176,7 @@ DropdownCalendar.propTypes = {
   min_date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
   max_date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
   calendar_presets: PropTypes.bool,
+  nullable: PropTypes.bool,
   preset_dates: PropTypes.array,
   calendar_days: PropTypes.oneOf([42, 49, 56]),
   calendar_display: PropTypes.bool,

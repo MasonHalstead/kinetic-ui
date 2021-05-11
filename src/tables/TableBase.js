@@ -79,7 +79,8 @@ export const TableBase = ({
     submit_disabled: false,
     pagination: null,
     button_variant: 'primary',
-    button_size: 'medium'
+    button_size: 'medium',
+    button_width: 'max-content'
   })
   useEffect(() => {
     const new_settings = {

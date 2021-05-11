@@ -111,6 +111,8 @@ export const createTheme = (override) => {
     font_table_weight: 500,
     font_table_transform: 'none',
     font_header_hover: default_colors.secondary,
+    // font calendar settings
+    font_calendar_size: default_globals.font_size,
     // font tabs settings
     font_tab_color: '#fff',
     font_tab_transform: 'none',
@@ -330,6 +332,8 @@ export const createTheme = (override) => {
   const default_calendar = {
     calendar_primary: default_colors.primary,
     calendar_secondary: default_colors.secondary,
+    background_calendar: default_backgrounds.background_calendar,
+    font_calendar_size: default_fonts.font_calendar_size,
     ...calendar
   }
   return {

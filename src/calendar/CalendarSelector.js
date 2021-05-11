@@ -15,6 +15,7 @@ const dateBreakdown = (moment) => ({
 })
 
 export const CalendarSelector = ({
+  theme,
   months,
   primary,
   secondary,
@@ -239,7 +240,10 @@ export const CalendarSelector = ({
   const calendar_year = calendar_moment.year()
 
   return (
-    <div className={cn.calendar}>
+    <div
+      className={cn.calendar}
+      style={{ background: theme.background_calendar }}
+    >
       <SelectorElement className={cn.selector} secondary={secondary}>
         <SelectElement
           className={cn.select}
@@ -313,6 +317,7 @@ export const CalendarSelector = ({
 }
 
 CalendarSelector.defaultProps = {
+  theme: {},
   primary: null,
   secondary: null,
   preset_index: -1,
@@ -342,6 +347,7 @@ CalendarSelector.defaultProps = {
   ]
 }
 CalendarSelector.propTypes = {
+  theme: PropTypes.object,
   primary: PropTypes.string,
   secondary: PropTypes.string,
   locked: PropTypes.bool,

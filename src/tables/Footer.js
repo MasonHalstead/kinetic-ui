@@ -7,6 +7,7 @@ export const Footer = ({
   pagination,
   submit_disabled,
   submit_text,
+  button_width,
   button_variant,
   button_size,
   onSubmit
@@ -20,6 +21,7 @@ export const Footer = ({
             onClick={onSubmit}
             variant={button_variant || 'primary'}
             button_size={button_size || 'medium'}
+            width={button_width}
             disabled={submit_disabled}
           >
             {submit_text}
@@ -36,6 +38,7 @@ Footer.defaultProps = {
   submit_disabled: false,
   submit_text: null,
   button_variant: null,
+  button_width: 'max-content',
   button_size: 'medium',
   onSubmit: () => {}
 }
@@ -46,6 +49,7 @@ Footer.propTypes = {
   submit_text: PropTypes.string,
   button_variant: PropTypes.string,
   button_size: PropTypes.string,
+  button_width: PropTypes.string,
   onSubmit: PropTypes.func,
   footer: PropTypes.func
 }

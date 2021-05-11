@@ -11,6 +11,7 @@ export const Modal = ({
   wizard,
   onClose,
   theme,
+  standard,
   mobile,
   width,
   padding,
@@ -19,6 +20,12 @@ export const Modal = ({
   const handleKeyDown = (e) => {
     // escape close modal
     if (e.keyCode === 27) {
+      onClose()
+    }
+  }
+
+  const onCloseModal = () => {
+    if (standard) {
       onClose()
     }
   }
@@ -37,7 +44,7 @@ export const Modal = ({
       className={classNames(cn.modal, { [cn.mobile]: mobile })}
       theme={modal}
       show={show}
-      onClick={onClose}
+      onClick={onCloseModal}
     >
       <div
         className={classNames(cn.content, { [cn.mobile]: mobile })}
@@ -75,6 +82,7 @@ export const Modal = ({
 Modal.defaultProps = {
   width: 500,
   padding: 10,
+  standard: true,
   wizard: false,
   show: false,
   mobile: false,
@@ -86,6 +94,8 @@ Modal.propTypes = {
   wizard: PropTypes.bool,
   width: PropTypes.number,
   mobile: PropTypes.bool,
+  standard: PropTypes.bool,
+  children: PropTypes.any,
   padding: PropTypes.number,
   show: PropTypes.bool,
   theme: PropTypes.object,

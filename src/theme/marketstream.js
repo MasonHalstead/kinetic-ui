@@ -102,6 +102,8 @@ export const createTheme = (override) => {
     font_accordion_hover: default_colors.primary,
     font_accordion_transform: 'none',
     font_accordion_weight: 600,
+    // font calendar settings
+    font_calendar_size: default_globals.font_size,
     // font table settings
     font_header_hover: default_colors.secondary,
     font_table_family: default_globals.primary_font,
@@ -330,6 +332,8 @@ export const createTheme = (override) => {
   const default_calendar = {
     calendar_primary: default_colors.secondary,
     calendar_secondary: default_colors.primary,
+    background_calendar: default_backgrounds.background_calendar,
+    font_calendar_size: default_fonts.font_calendar_size,
     ...calendar
   }
   return {

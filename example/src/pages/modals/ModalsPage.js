@@ -30,7 +30,7 @@ const ModalsPage = () => {
       </pre>
       <div className={cn.wrapper}>
         <Button onClick={() => setModal(true)}>Open Modal</Button>
-        <Modal show={modal} onClose={() => setModal(false)} width={500}>
+        <Modal show={modal} onClose={() => setModal(false)} width={500} standard={false}>
           <div className={cn.page}>welcome to modal</div>
         </Modal>
       </div>

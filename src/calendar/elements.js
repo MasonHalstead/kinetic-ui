@@ -3,7 +3,8 @@ import { lighten } from 'polished'
 
 export const CalendarElement = styled.div(({ secondary, theme }) => ({
   border: `1px solid ${lighten(0.05, secondary)}`,
-  background: '#fff'
+  background: '#fff',
+  fontSize: theme.font_calendar_size
 }))
 
 export const PresetsElement = styled.div(({ secondary }) => ({
