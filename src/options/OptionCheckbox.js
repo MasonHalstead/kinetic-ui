@@ -48,8 +48,8 @@ OptionCheckbox.defaultProps = {
 OptionCheckbox.propTypes = {
   option: PropTypes.object,
   theme: PropTypes.object,
-  highlight: PropTypes.object,
-  native: PropTypes.object,
+  highlight: PropTypes.bool,
+  native: PropTypes.bool,
   index: PropTypes.number,
   option_key: PropTypes.string,
   checked_key: PropTypes.string,

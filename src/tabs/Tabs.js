@@ -64,11 +64,11 @@ Tabs.defaultProps = {
   margin: '0px'
 }
 Tabs.propTypes = {
-  default_tab: PropTypes.string,
-  tabs: PropTypes.string,
-  theme: PropTypes.string,
+  default_tab: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  tabs: PropTypes.array,
+  theme: PropTypes.object,
   children: PropTypes.any,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onSelect: PropTypes.string
+  onSelect: PropTypes.func
 }

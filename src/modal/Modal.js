@@ -42,7 +42,6 @@ export const Modal = ({
   return (
     <ModalElement
       className={classNames(cn.modal, { [cn.mobile]: mobile })}
-      theme={modal}
       show={show}
       onClick={onCloseModal}
     >

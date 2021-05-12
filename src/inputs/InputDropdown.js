@@ -80,7 +80,7 @@ Base.defaultProps = {
   onKeyDown: () => {}
 }
 Base.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   type: PropTypes.string,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),

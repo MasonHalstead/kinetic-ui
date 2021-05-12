@@ -51,10 +51,10 @@ export const Input = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || ''
+    props.default_value = default_value
   }
   if (controlled) {
-    props.value = value || ''
+    props.value = value
     props.default_value = undefined
   }
 
@@ -84,8 +84,8 @@ Input.defaultProps = {
   onChange: () => {}
 }
 Input.propTypes = {
-  value: PropTypes.string,
-  default_value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   controlled: PropTypes.bool,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
@@ -138,8 +138,8 @@ Base.defaultProps = {
   onKeyDown: () => {}
 }
 Base.propTypes = {
-  default_value: PropTypes.string,
-  value: PropTypes.string,
+  default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   type: PropTypes.string,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),

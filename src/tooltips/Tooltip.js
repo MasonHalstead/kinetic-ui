@@ -71,10 +71,10 @@ Tooltip.defaultProps = {
   children: () => {}
 }
 Tooltip.propTypes = {
-  tooltip: PropTypes.string,
+  tooltip: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   theme: PropTypes.object,
   position: PropTypes.object,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   children: PropTypes.any,
   caret: PropTypes.oneOf(['top', 'right', 'bottom', 'left', false])
 }

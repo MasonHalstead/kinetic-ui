@@ -114,8 +114,8 @@ export const DropdownCalendar = ({
         preset_dates={preset_dates}
         valid_formats={valid_formats}
         output_format={output_format}
-        left={select_position && 0}
-        right={!select_position && 0}
+        left={select_position ? 0 : null}
+        right={!select_position ? 0 : null}
       />
     </DropdownBase>
   )

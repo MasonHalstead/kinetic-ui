@@ -88,5 +88,5 @@ Select.propTypes = {
   onBlur: PropTypes.func,
   onKeyDown: PropTypes.func,
   onChange: PropTypes.func,
-  children: PropTypes.func
+  children: PropTypes.any
 }

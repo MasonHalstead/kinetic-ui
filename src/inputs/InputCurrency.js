@@ -61,10 +61,10 @@ export const InputCurrency = ({
 
   if (!controlled) {
     props.value = undefined
-    props.default_value = default_value || ''
+    props.default_value = default_value
   }
   if (controlled) {
-    props.value = value || ''
+    props.value = value
     props.default_value = undefined
   }
   return (
@@ -98,9 +98,9 @@ InputCurrency.defaultProps = {
   onChange: () => {}
 }
 InputCurrency.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   controlled: PropTypes.bool,
-  default_value: PropTypes.string,
+  default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
   thousand_separator: PropTypes.bool,
@@ -169,8 +169,8 @@ Base.defaultProps = {
   onKeyDown: () => {}
 }
 Base.propTypes = {
-  default_value: PropTypes.string,
-  value: PropTypes.string,
+  default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   controlled: PropTypes.bool,
   text_align: PropTypes.string,
