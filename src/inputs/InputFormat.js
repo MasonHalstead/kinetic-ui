@@ -10,6 +10,7 @@ export const InputFormat = ({
   value,
   default_value,
   controlled,
+  auto_focus,
   name,
   debounce,
   thousand_separator,
@@ -80,11 +81,12 @@ export const InputFormat = ({
   }
 
   return (
-    <InputBase {...rest}>
+    <InputBase {...rest} auto_focus={auto_focus}>
       <Base
         {...props}
         onChange={onChange}
         placeholder={placeholder}
+        auto_focus={auto_focus}
         name={name}
         controlled={controlled}
         text_align={text_align}
@@ -109,6 +111,7 @@ InputFormat.defaultProps = {
   default_value: undefined,
   debounce: null,
   name: '',
+  auto_focus: false,
   label: null,
   placeholder: '',
   text_align: 'right',
@@ -136,6 +139,7 @@ InputFormat.propTypes = {
   thousand_separator: PropTypes.bool,
   decimal_scale: PropTypes.number,
   suffix: PropTypes.string,
+  auto_focus: PropTypes.bool,
   decimal_separator: PropTypes.string,
   fixed_decimal_scale: PropTypes.bool,
   allow_negative: PropTypes.bool,
@@ -166,6 +170,7 @@ const Base = React.memo(
     allow_empty_formatting,
     allow_leading_zeros,
     prefix,
+    auto_focus,
     is_numeric_string,
     format,
     mask,
@@ -182,6 +187,7 @@ const Base = React.memo(
       thousandSeparator={thousand_separator}
       decimalScale={decimal_scale}
       suffix={suffix}
+      autoFocus={auto_focus}
       placeholder={placeholder}
       defaultValue={default_value}
       decimal_separator={decimal_separator}
@@ -219,6 +225,7 @@ Base.defaultProps = {
   default_value: undefined,
   value: undefined,
   name: '',
+  auto_focus: false,
   placeholder: '',
   text_align: 'right',
   disabled: null,
@@ -244,6 +251,7 @@ Base.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
+  auto_focus: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,

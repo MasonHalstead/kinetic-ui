@@ -9,6 +9,7 @@ export const InputCurrency = ({
   placeholder,
   value,
   default_value,
+  auto_focus,
   name,
   debounce,
   thousand_separator,
@@ -68,12 +69,13 @@ export const InputCurrency = ({
     props.default_value = undefined
   }
   return (
-    <InputBase {...rest}>
+    <InputBase {...rest} auto_focus={auto_focus}>
       <Base
         {...props}
         onChange={onChange}
         placeholder={placeholder}
         name={name}
+        auto_focus={auto_focus}
         controlled={controlled}
         text_align={text_align}
         thousand_separator={thousand_separator}
@@ -88,6 +90,7 @@ InputCurrency.defaultProps = {
   default_value: undefined,
   debounce: null,
   controlled: true,
+  auto_focus: false,
   name: '',
   label: null,
   placeholder: '',
@@ -100,6 +103,7 @@ InputCurrency.defaultProps = {
 InputCurrency.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   controlled: PropTypes.bool,
+  auto_focus: PropTypes.bool,
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
@@ -117,6 +121,7 @@ const Base = React.memo(
     thousand_separator,
     decimal_scale,
     prefix,
+    auto_focus,
     placeholder,
     text_align,
     default_value,
@@ -133,6 +138,7 @@ const Base = React.memo(
       thousandSeparator={thousand_separator}
       decimalScale={decimal_scale}
       prefix={prefix}
+      autoFocus={auto_focus}
       placeholder={placeholder}
       defaultValue={default_value}
       value={value}
@@ -156,6 +162,7 @@ Base.defaultProps = {
   default_value: undefined,
   value: undefined,
   controlled: true,
+  auto_focus: false,
   name: '',
   placeholder: '',
   text_align: 'right',
@@ -172,6 +179,7 @@ Base.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
+  auto_focus: PropTypes.bool,
   controlled: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,

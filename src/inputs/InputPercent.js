@@ -9,6 +9,7 @@ export const InputPercent = ({
   placeholder,
   value,
   default_value,
+  auto_focus,
   name,
   debounce,
   thousand_separator,
@@ -71,10 +72,11 @@ export const InputPercent = ({
   }
 
   return (
-    <InputBase {...rest}>
+    <InputBase {...rest} auto_focus={auto_focus}>
       <Base
         {...props}
         onChange={onChange}
+        auto_focus={auto_focus}
         placeholder={placeholder}
         name={name}
         controlled={controlled}
@@ -90,6 +92,7 @@ InputPercent.defaultProps = {
   value: undefined,
   default_value: undefined,
   debounce: null,
+  auto_focus: false,
   name: '',
   label: null,
   placeholder: '',
@@ -103,6 +106,7 @@ InputPercent.defaultProps = {
 InputPercent.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   controlled: PropTypes.bool,
+  auto_focus: PropTypes.bool,
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
@@ -120,6 +124,7 @@ const Base = React.memo(
     thousand_separator,
     decimal_scale,
     suffix,
+    auto_focus,
     placeholder,
     text_align,
     default_value,
@@ -136,6 +141,7 @@ const Base = React.memo(
       className={cn.base}
       thousandSeparator={thousand_separator}
       decimalScale={decimal_scale}
+      autoFocus={auto_focus}
       suffix={suffix}
       placeholder={placeholder}
       defaultValue={default_value}
@@ -165,6 +171,7 @@ Base.defaultProps = {
   default_value: undefined,
   value: undefined,
   name: '',
+  auto_focus: false,
   controlled: true,
   placeholder: '',
   text_align: 'right',
@@ -181,6 +188,7 @@ Base.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
+  auto_focus: PropTypes.bool,
   controlled: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,

@@ -1,4 +1,4 @@
-import React, { useState, Children, cloneElement } from 'react'
+import React, { useState, Children, cloneElement, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Wrapper, Input } from './elements'
@@ -11,6 +11,7 @@ import cn from './Input.module.scss'
 export const InputBase = ({
   left_icon,
   right_icon,
+  auto_focus,
   label,
   margin,
   background,
@@ -27,6 +28,12 @@ export const InputBase = ({
   ...rest
 }) => {
   const [focus, setFocus] = useState(false)
+
+  useEffect(() => {
+    if (auto_focus) {
+      setFocus(true)
+    }
+  }, [])
   const onFocus = (e, override) => {
     // special case that abuses the right icon
     // built in for the dropdown remove functionality
@@ -168,6 +175,7 @@ InputBase.defaultProps = {
   background: null,
   width: '100%',
   height: 30,
+  auto_focus: false,
   error_level: null,
   error_message: null,
   disabled: false,
@@ -184,6 +192,7 @@ InputBase.propTypes = {
   left_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   right_icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   label: PropTypes.string,
+  auto_focus: PropTypes.bool,
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   background: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

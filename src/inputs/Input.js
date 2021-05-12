@@ -8,6 +8,7 @@ export const Input = ({
   placeholder,
   debounce,
   text_align,
+  auto_focus,
   type,
   name,
   value,
@@ -59,13 +60,14 @@ export const Input = ({
   }
 
   return (
-    <InputBase {...rest}>
+    <InputBase {...rest} auto_focus={auto_focus}>
       <Base
         {...props}
         onChange={onChange}
         placeholder={placeholder}
         type={type}
         name={name}
+        auto_focus={auto_focus}
         text_align={text_align}
       />
     </InputBase>
@@ -74,6 +76,7 @@ export const Input = ({
 Input.defaultProps = {
   value: undefined,
   default_value: undefined,
+  auto_focus: false,
   controlled: true,
   placeholder: '',
   text_align: 'left',
@@ -87,6 +90,7 @@ Input.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
+  auto_focus: PropTypes.bool,
   controlled: PropTypes.bool,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
   type: PropTypes.string,
@@ -99,6 +103,7 @@ Input.propTypes = {
 const Base = ({
   placeholder,
   default_value,
+  auto_focus,
   value,
   text_align,
   type,
@@ -116,6 +121,7 @@ const Base = ({
     value={value}
     type={type}
     name={name}
+    autoFocus={auto_focus}
     onChange={onChange}
     onBlur={onBlur}
     onFocus={onFocus}
@@ -127,6 +133,7 @@ const Base = ({
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
+  auto_focus: false,
   type: '',
   name: '',
   placeholder: '',
@@ -140,6 +147,7 @@ Base.defaultProps = {
 Base.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  auto_focus: PropTypes.bool,
   name: PropTypes.string,
   type: PropTypes.string,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),

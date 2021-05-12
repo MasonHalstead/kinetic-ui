@@ -9,6 +9,7 @@ export const InputPhone = ({
   placeholder,
   value,
   default_value,
+  auto_focus,
   name,
   debounce,
   format,
@@ -70,12 +71,13 @@ export const InputPhone = ({
   }
 
   return (
-    <InputBase {...rest}>
+    <InputBase {...rest} auto_focus={auto_focus}>
       <Base
         {...props}
         onChange={onChange}
         placeholder={placeholder}
         name={name}
+        auto_focus={auto_focus}
         controlled={controlled}
         text_align={text_align}
         format={format}
@@ -87,6 +89,7 @@ export const InputPhone = ({
 InputPhone.defaultProps = {
   value: undefined,
   default_value: undefined,
+  auto_focus: false,
   debounce: null,
   name: '',
   label: null,
@@ -101,6 +104,7 @@ InputPhone.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
+  auto_focus: PropTypes.bool,
   text_align: PropTypes.string,
   format: PropTypes.string,
   mask: PropTypes.string,
@@ -115,6 +119,7 @@ const Base = React.memo(
   ({
     format,
     mask,
+    auto_focus,
     placeholder,
     text_align,
     default_value,
@@ -131,6 +136,7 @@ const Base = React.memo(
       className={cn.base}
       format={format}
       mask={mask}
+      autoFocus={auto_focus}
       placeholder={placeholder}
       defaultValue={default_value}
       value={value}
@@ -158,6 +164,7 @@ const Base = React.memo(
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
+  auto_focus: false,
   controlled: true,
   name: '',
   placeholder: '',
@@ -174,6 +181,7 @@ Base.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
+  auto_focus: PropTypes.bool,
   controlled: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,

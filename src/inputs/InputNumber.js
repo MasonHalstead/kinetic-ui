@@ -9,6 +9,7 @@ export const InputNumber = ({
   placeholder,
   value,
   default_value,
+  auto_focus,
   name,
   debounce,
   thousand_separator,
@@ -69,11 +70,12 @@ export const InputNumber = ({
     props.default_value = undefined
   }
   return (
-    <InputBase {...rest}>
+    <InputBase {...rest} auto_focus={auto_focus}>
       <Base
         {...props}
         onChange={onChange}
         placeholder={placeholder}
+        auto_focus={auto_focus}
         name={name}
         controlled={controlled}
         text_align={text_align}
@@ -86,6 +88,7 @@ export const InputNumber = ({
 InputNumber.defaultProps = {
   value: undefined,
   default_value: undefined,
+  auto_focus: false,
   debounce: null,
   name: '',
   controlled: true,
@@ -99,6 +102,7 @@ InputNumber.defaultProps = {
 InputNumber.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   controlled: PropTypes.bool,
+  auto_focus: PropTypes.bool,
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   text_align: PropTypes.string,
@@ -115,6 +119,7 @@ const Base = React.memo(
     thousand_separator,
     decimal_scale,
     placeholder,
+    auto_focus,
     text_align,
     default_value,
     value,
@@ -129,6 +134,7 @@ const Base = React.memo(
     <NumberFormat
       className={cn.base}
       thousandSeparator={thousand_separator}
+      autoFocus={auto_focus}
       decimalScale={decimal_scale}
       placeholder={placeholder}
       defaultValue={default_value}
@@ -157,6 +163,7 @@ const Base = React.memo(
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
+  auto_focus: false,
   name: '',
   placeholder: '',
   text_align: 'right',
@@ -173,6 +180,7 @@ Base.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
+  auto_focus: PropTypes.bool,
   text_align: PropTypes.string,
   placeholder: PropTypes.string,
   controlled: PropTypes.bool,

@@ -75,7 +75,7 @@ const Form = () => {
 }`}</code>
       </pre>
       <div className={cn.wrapperFlex} style={{ marginTop: 0 }}>
-        <Input label="Controlled" onChange={setValue} value={value} />
+        <Input label="Controlled" auto_focus onChange={setValue} value={value} />
         <Input label="Controlled" onChange={setValue} value={value} margin="0px 10px 0px 10px" />
         <Input label="Controlled" onChange={setValue} value={value} />
       </div>

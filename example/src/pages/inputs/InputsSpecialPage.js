@@ -46,6 +46,7 @@ import { InputCurrency, InputPercent, InputNumber } from 'kinetic-ui'
         <InputNumber
           label="Uncontrolled Number"
           placeholder="ex. 100"
+          auto_focus
           debounce={1000}
           onChange={(value) => alert(JSON.stringify(value))}
         />
