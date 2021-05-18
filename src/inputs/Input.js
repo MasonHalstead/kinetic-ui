@@ -9,6 +9,7 @@ export const Input = ({
   debounce,
   text_align,
   auto_focus,
+  input_control,
   type,
   name,
   value,
@@ -67,6 +68,7 @@ export const Input = ({
         placeholder={placeholder}
         type={type}
         name={name}
+        input_control={input_control}
         auto_focus={auto_focus}
         text_align={text_align}
       />
@@ -77,6 +79,7 @@ Input.defaultProps = {
   value: undefined,
   default_value: undefined,
   auto_focus: false,
+  input_control: true,
   controlled: true,
   placeholder: '',
   text_align: 'left',
@@ -91,6 +94,7 @@ Input.propTypes = {
   default_value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   auto_focus: PropTypes.bool,
+  input_control: PropTypes.bool,
   controlled: PropTypes.bool,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
   type: PropTypes.string,
@@ -104,6 +108,7 @@ const Base = ({
   placeholder,
   default_value,
   auto_focus,
+  input_control,
   value,
   text_align,
   type,
@@ -127,13 +132,18 @@ const Base = ({
     onFocus={onFocus}
     onKeyDown={onKeyDown}
     disabled={disabled}
-    style={{ textAlign: text_align }}
+    style={{
+      textAlign: text_align,
+      cursor: input_control && 'pointer',
+      caretColor: input_control && 'transparent'
+    }}
   />
 )
 Base.defaultProps = {
   default_value: undefined,
   value: undefined,
   auto_focus: false,
+  input_control: true,
   type: '',
   name: '',
   placeholder: '',
@@ -149,6 +159,7 @@ Base.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   auto_focus: PropTypes.bool,
   name: PropTypes.string,
+  input_control: PropTypes.bool,
   type: PropTypes.string,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
   placeholder: PropTypes.string,

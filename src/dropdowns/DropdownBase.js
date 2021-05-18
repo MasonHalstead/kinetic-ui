@@ -38,6 +38,7 @@ export const DropdownBase = ({
   width,
   multi_select,
   children,
+  input_control,
   default_value,
   value,
   options,
@@ -183,6 +184,26 @@ export const DropdownBase = ({
   // abusing the input component a little bit
   const error_level = remove && nullable ? 99 : null
 
+  if (input_control) {
+    return (
+      <div className={cn.wrapper} style={{ margin, maxWidth: width }}>
+        <div className={cn.dropdown} ref={dropdownRef}>
+          {Children.map(children, (child) =>
+            cloneElement(child, {
+              onFocus,
+              onBlur,
+              onSelect,
+              onRemove,
+              active,
+              selected,
+              open,
+              error_level
+            })
+          )}
+        </div>
+      </div>
+    )
+  }
   return (
     <div
       className={cn.wrapper}
@@ -213,6 +234,7 @@ export const DropdownBase = ({
 DropdownBase.defaultProps = {
   margin: 0,
   multi_select: false,
+  input_control: false,
   width: '100%',
   default_value: null,
   value: null,
@@ -227,6 +249,7 @@ DropdownBase.defaultProps = {
 DropdownBase.propTypes = {
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   multi_select: PropTypes.bool,
+  input_control: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   default_value: PropTypes.string,
   value: PropTypes.string,

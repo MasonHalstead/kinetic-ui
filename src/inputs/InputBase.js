@@ -141,6 +141,7 @@ export const InputBase = ({
             onBlur,
             height,
             disabled,
+            input_control: !!inputRef,
             theme: inputs
           })
         )}

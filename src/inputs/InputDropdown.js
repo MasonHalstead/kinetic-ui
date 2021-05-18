@@ -9,18 +9,16 @@ export const InputDropdown = ({
   text_align,
   theme,
   ...rest
-}) => {
-  return (
-    <InputBase theme={theme} {...rest}>
-      <Base
-        theme={theme}
-        value={value}
-        placeholder={placeholder}
-        text_align={text_align}
-      />
-    </InputBase>
-  )
-}
+}) => (
+  <InputBase theme={theme} {...rest}>
+    <Base
+      theme={theme}
+      value={value}
+      placeholder={placeholder}
+      text_align={text_align}
+    />
+  </InputBase>
+)
 InputDropdown.defaultProps = {
   theme: {},
   value: undefined,
@@ -45,28 +43,26 @@ const Base = ({
   onBlur,
   onFocus,
   disabled
-}) => {
-  return (
-    <input
-      className={cn.base}
-      tabIndex='-1' // allows to tab through dropdowns
-      placeholder={placeholder}
-      value={value || ''} // null wont clear input
-      type={type}
-      name={name}
-      onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      disabled={disabled}
-      style={{
-        textAlign: text_align,
-        cursor: 'pointer',
-        caretColor: 'transparent'
-      }}
-    />
-  )
-}
+}) => (
+  <input
+    className={cn.base}
+    tabIndex='-1' // allows to tab through dropdowns
+    placeholder={placeholder}
+    value={value || ''} // null wont clear input
+    type={type}
+    name={name}
+    onChange={onChange}
+    onBlur={onBlur}
+    onFocus={onFocus}
+    onKeyDown={onKeyDown}
+    disabled={disabled}
+    style={{
+      textAlign: text_align,
+      cursor: 'pointer',
+      caretColor: 'transparent'
+    }}
+  />
+)
 Base.defaultProps = {
   value: '',
   type: '',
