@@ -17,7 +17,7 @@ export const SelectTimeBar = ({
   return (
     <SelectTimeBarElement className={cn.bar} secondary={secondary}>
       <div className={cn.now} style={{ color: primary }} onClick={selectToday}>
-        <p>Today</p>
+        <p>Now</p>
       </div>
       <p style={{ color: '#fff' }}>
         {moment(select_date_moment).format('MMMM D, YYYY hh:mm A')}

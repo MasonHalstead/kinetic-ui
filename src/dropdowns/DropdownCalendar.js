@@ -76,6 +76,12 @@ export const DropdownCalendar = ({
 
     if (calendar_time && selected_valid) {
       const date = moment(input).format(output)
+
+      // accounts for edge cases where isValid returns false positive
+      if (date === 'Invalid date') {
+        return
+      }
+
       onSelectProps({
         selected_date: date,
         start_date: null,
