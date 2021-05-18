@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from '../theme/ThemeProvider'
 import { DropdownBase } from './DropdownBase'
@@ -6,6 +6,7 @@ import { InputDropdown } from '../inputs/InputDropdown'
 import { SelectCalendar } from '../selects/SelectCalendar'
 import { presets } from '../calendar/constants'
 import moment from 'moment'
+import { mergeInputFormats, mergeOutputFormat } from '../calendar/utils'
 
 export const DropdownCalendar = ({
   left_icon,
@@ -16,6 +17,8 @@ export const DropdownCalendar = ({
   width,
   disabled,
   placeholder,
+  calendar_time,
+  time_format,
   theme,
   transparent,
   error_level,
@@ -37,6 +40,23 @@ export const DropdownCalendar = ({
   nullable,
   onSelect: onSelectProps
 }) => {
+  const [inputs, setInputs] = useState(valid_formats)
+  const [output, setOutput] = useState(output_format)
+  useEffect(() => {
+    const inputs_merged = mergeInputFormats({
+      calendar_time,
+      time_format,
+      valid_formats
+    })
+    const output_merged = mergeOutputFormat({
+      calendar_time,
+      time_format,
+      output_format
+    })
+    setInputs(inputs_merged)
+    setOutput(output_merged)
+  }, [calendar_time, time_format, valid_formats])
+
   const onSelect = (calendar) => {
     if (calendar) {
       onSelectProps(calendar)
@@ -50,22 +70,22 @@ export const DropdownCalendar = ({
   }
 
   const calendarValue = () => {
-    const selected_valid = moment(selected_date, valid_formats, true).isValid()
-    const start_valid = moment(start_date, valid_formats, true).isValid()
-    const finish_valid = moment(finish_date, valid_formats, true).isValid()
+    const selected_valid = moment(selected_date, inputs, true).isValid()
+    const start_valid = moment(start_date, inputs, true).isValid()
+    const finish_valid = moment(finish_date, inputs, true).isValid()
 
     let value = ''
 
     if (!calendar_range && selected_valid) {
-      return moment(selected_date).format(output_format)
+      return moment(selected_date).format(output)
     }
 
     if (calendar_range && start_valid) {
-      value = moment(start_date).format(output_format)
+      value = moment(start_date).format(output)
     }
 
     if (calendar_range && finish_valid) {
-      value += `- ${moment(finish_date).format(output_format)}`
+      value += `- ${moment(finish_date).format(output)}`
     }
 
     return value
@@ -81,7 +101,7 @@ export const DropdownCalendar = ({
       width={width}
       onSelect={onSelect}
       nullable={nullable}
-      multi_select={calendar_range}
+      multi_select={calendar_range || calendar_time}
     >
       <InputDropdown
         left_icon={left_icon}
@@ -104,6 +124,7 @@ export const DropdownCalendar = ({
         calendar_panels={calendar_panels}
         calendar_days={calendar_days}
         calendar_display={calendar_display}
+        calendar_time={calendar_time}
         calendar_presets={calendar_presets}
         calendar_range={calendar_range}
         selected_date={selected_date}
@@ -111,6 +132,7 @@ export const DropdownCalendar = ({
         finish_date={finish_date}
         min_date={min_date}
         max_date={max_date}
+        time_format={time_format}
         preset_dates={preset_dates}
         valid_formats={valid_formats}
         output_format={output_format}
@@ -137,6 +159,7 @@ DropdownCalendar.defaultProps = {
   calendar_panels: 1,
   calendar_days: 42,
   calendar_display: true,
+  calendar_time: false,
   calendar_presets: false,
   calendar_range: false,
   selected_date: null,
@@ -146,6 +169,7 @@ DropdownCalendar.defaultProps = {
   max_date: null,
   preset_dates: presets,
   nullable: false,
+  time_format: 'hh:mm A',
   valid_formats: ['M/D/YYYY', 'M-D-YYYY'],
   output_format: 'M/D/YYYY',
   onSelect: () => {}
@@ -176,6 +200,7 @@ DropdownCalendar.propTypes = {
   min_date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
   max_date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
   calendar_presets: PropTypes.bool,
+  calendar_time: PropTypes.bool,
   nullable: PropTypes.bool,
   preset_dates: PropTypes.array,
   calendar_days: PropTypes.oneOf([42, 49, 56]),
@@ -186,6 +211,7 @@ DropdownCalendar.propTypes = {
   valid_formats: PropTypes.array,
   output_format: PropTypes.string,
   transparent: PropTypes.bool,
+  time_format: PropTypes.string,
   placeholder: PropTypes.string,
   text_align: PropTypes.oneOf(['left', 'center', 'right']),
   onSelect: PropTypes.func

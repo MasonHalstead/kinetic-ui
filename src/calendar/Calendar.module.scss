@@ -3,8 +3,12 @@ $height: 31px;
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   width: max-content;
   box-sizing: border-box;
+}
+.stacked {
+  display: flex;
 }
 .calendar {
   display: flex;
@@ -87,8 +91,10 @@ $height: 31px;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
   p {
-    font-size: 13px;
     margin: 0px 5px;
   }
 }
@@ -152,5 +158,83 @@ $height: 31px;
   }
   .day {
     cursor: pointer;
+  }
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $height;
+  padding: 0px 8px;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  p {
+    margin: 0px;
+  }
+  .now {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    color: #fff;
+  }
+}
+.time {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-width: 140px;
+  max-width: 140px;
+  padding: 0px 10px;
+  color: #fff;
+  box-sizing: border-box;
+  .gradient {
+    position: absolute;
+    height: 36px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  .selector {
+    display: flex;
+    align-items: stretch;
+    flex-grow: 1;
+    max-height: 250px;
+  }
+  .selector div::-webkit-scrollbar {
+    display: none;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 0px;
+    padding: 5px 6px;
+    box-sizing: border-box;
+  }
+  .left {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: none;
+  }
+  .right {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left: none;
+  }
+  .active {
+    padding: 5px 6px;
+    background: #91a7ff;
+  }
+  p:hover {
+    background: lighten(#91a7ff, 10%);
+  }
+}
+.time :global {
+  [style*='overflow'] {
+    scroll-behavior: smooth;
   }
 }

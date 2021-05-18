@@ -35,3 +35,19 @@ export const getStartOfYear = (year = 0, date = new Date()) =>
 export const getEndOfYear = (year = 0, date = new Date()) => {
   moment(date).add(year, 'year').endOf('year').format('M-D-YYYY')
 }
+
+export const mergeInputFormats = ({
+  calendar_time,
+  valid_formats,
+  time_format
+}) => {
+  return valid_formats.map((v) => (calendar_time ? `${v} ${time_format}` : v))
+}
+
+export const mergeOutputFormat = ({
+  calendar_time,
+  time_format,
+  output_format
+}) => {
+  return calendar_time ? `${output_format} ${time_format}` : output_format
+}

@@ -25,6 +25,7 @@ export const CalendarSelector = ({
   select_date_moment,
   start_date_moment,
   finish_date_moment,
+  calendar_time,
   calendar_range,
   calendar_days,
   weekdays,
@@ -233,6 +234,12 @@ export const CalendarSelector = ({
     }
 
     const new_date = `${month + 1}/${day}/${year}`
+
+    if (calendar_time) {
+      const time = select_date_moment.format('hh:mm A')
+      return rest.selectDate(moment(`${new_date} ${time}`))
+    }
+
     rest.selectDate(moment(new_date))
   }
 
@@ -327,6 +334,7 @@ CalendarSelector.defaultProps = {
   start_date_moment: moment(),
   finish_date_moment: moment(),
   calendar_range: false,
+  calendar_time: false,
   calendar_days: 42,
   locked: false,
   setLocked: () => {},
@@ -351,6 +359,7 @@ CalendarSelector.propTypes = {
   primary: PropTypes.string,
   secondary: PropTypes.string,
   locked: PropTypes.bool,
+  calendar_time: PropTypes.bool,
   setLocked: PropTypes.func,
   preset_index: PropTypes.number,
   min_date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),

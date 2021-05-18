@@ -7,6 +7,7 @@ export const SelectCalendar = ({
   open,
   disabled,
   calendar_panels,
+  calendar_time,
   calendar_days,
   calendar_display,
   calendar_presets,
@@ -16,6 +17,7 @@ export const SelectCalendar = ({
   finish_date,
   min_date,
   max_date,
+  time_format,
   preset_dates,
   valid_formats,
   output_format,
@@ -41,11 +43,13 @@ export const SelectCalendar = ({
             calendar_display={calendar_display}
             calendar_presets={calendar_presets}
             calendar_range={calendar_range}
+            calendar_time={calendar_time}
             selected_date={selected_date}
             start_date={start_date}
             finish_date={finish_date}
             min_date={min_date}
             max_date={max_date}
+            time_format={time_format}
             preset_dates={preset_dates}
             valid_formats={valid_formats}
             output_format={output_format}
@@ -73,6 +77,7 @@ SelectCalendar.defaultProps = {
   calendar_days: 42,
   calendar_display: true,
   calendar_presets: false,
+  calendar_time: false,
   calendar_range: false,
   selected_date: new Date(),
   start_date: new Date(),
@@ -82,6 +87,7 @@ SelectCalendar.defaultProps = {
   preset_dates: [],
   valid_formats: ['M/D/YYYY', 'M-D-YYYY'],
   output_format: 'M/D/YYYY',
+  time_format: 'hh:mm A',
   onFocus: () => {},
   onBlur: () => {},
   onKeyDown: () => {},
@@ -94,6 +100,7 @@ SelectCalendar.propTypes = {
   options: PropTypes.array,
   theme: PropTypes.object,
   height: PropTypes.number,
+  calendar_time: PropTypes.bool,
   position: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   left: PropTypes.number,
@@ -120,6 +127,7 @@ SelectCalendar.propTypes = {
   preset_dates: PropTypes.array,
   calendar_days: PropTypes.oneOf([42, 49, 56]),
   calendar_display: PropTypes.bool,
+  time_format: PropTypes.string,
   calendar_range: PropTypes.bool,
   calendar_panels: PropTypes.number,
   valid_formats: PropTypes.array,

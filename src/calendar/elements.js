@@ -14,6 +14,7 @@ export const PresetsElement = styled.div(({ secondary }) => ({
     borderBottom: `1px solid ${lighten(0.05, secondary)}`
   }
 }))
+
 export const PresetElement = styled.p(({ active, primary, secondary }) => ({
   background: active ? primary : secondary,
   borderBottom: `1px solid ${lighten(0.05, secondary)}`,
@@ -25,6 +26,10 @@ export const PresetElement = styled.p(({ active, primary, secondary }) => ({
 export const SelectorElement = styled.div(({ secondary }) => ({
   background: secondary,
   borderBottom: `1px solid ${lighten(0.05, secondary)}`
+}))
+
+export const SelectTimeBarElement = styled.div(({ secondary }) => ({
+  background: secondary
 }))
 
 export const SelectElement = styled.div(({ primary }) => ({
@@ -42,6 +47,41 @@ export const CurrentElement = styled.div(({ secondary }) => ({
   background: secondary,
   borderLeft: `1px solid ${lighten(0.05, secondary)}`
 }))
+
+export const SelectDateTimeElement = styled.div(({ secondary }) => ({
+  background: secondary,
+  borderLeft: `1px solid ${lighten(0.05, secondary)}`
+}))
+
+export const GradientElement = styled.div(({ secondary, top }) => {
+  if (top) {
+    return {
+      top: 0,
+      background: `linear-gradient(
+        180deg,
+        ${secondary} 50%,
+        rgba(0, 0, 0, 0) 100%
+      )`
+    }
+  }
+  return {
+    bottom: 0,
+    background: `linear-gradient(
+      360deg,
+      ${secondary} 50%,
+      rgba(0, 0, 0, 0) 100%
+    )`
+  }
+})
+
+export const SelectTimeElement = styled.p(({ primary, active }) => {
+  if (active) {
+    return {
+      background: primary,
+      border: `1px solid ${lighten(0.05, primary)}`
+    }
+  }
+})
 
 export const WeekdayElement = styled.div(({ secondary }) => ({
   background: secondary,

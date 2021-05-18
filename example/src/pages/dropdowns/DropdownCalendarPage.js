@@ -62,6 +62,7 @@ const [calendar, onSelect] = useState({
           selected_date={calendar.selected_date}
           onSelect={onSelect}
           margin="0px 10px"
+          calendar_time
           nullable
         />
         <DropdownCalendar
