@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from '../theme/ThemeProvider'
 import { DropdownBase } from './DropdownBase'
-import { InputDropdown } from '../inputs/InputDropdown'
+import { Input } from '../inputs/Input'
 import { SelectCalendar } from '../selects/SelectCalendar'
 import { presets } from '../calendar/constants'
 import moment from 'moment'
@@ -42,6 +42,19 @@ export const DropdownCalendar = ({
 }) => {
   const [inputs, setInputs] = useState(valid_formats)
   const [output, setOutput] = useState(output_format)
+  const [value, setValue] = useState('')
+
+  useEffect(() => {
+    const selected_value = calendarValue({
+      selected_date,
+      start_date,
+      finish_date
+    })
+    if (selected_value !== value) {
+      setValue(selected_value)
+    }
+  }, [selected_date, start_date, finish_date, inputs, output])
+
   useEffect(() => {
     const inputs_merged = mergeInputFormats({
       calendar_time,
@@ -57,6 +70,20 @@ export const DropdownCalendar = ({
     setOutput(output_merged)
   }, [calendar_time, time_format, valid_formats])
 
+  const onChange = (input) => {
+    const selected_valid = moment(input, inputs, true).isValid()
+    setValue(input)
+
+    if (calendar_time && selected_valid) {
+      const date = moment(input).format(output)
+      onSelectProps({
+        selected_date: date,
+        start_date: null,
+        finish_date: null
+      })
+    }
+  }
+
   const onSelect = (calendar) => {
     if (calendar) {
       onSelectProps(calendar)
@@ -69,7 +96,8 @@ export const DropdownCalendar = ({
     }
   }
 
-  const calendarValue = () => {
+  const calendarValue = (calendar) => {
+    const { selected_date, start_date, finish_date } = calendar
     const selected_valid = moment(selected_date, inputs, true).isValid()
     const start_valid = moment(start_date, inputs, true).isValid()
     const finish_valid = moment(finish_date, inputs, true).isValid()
@@ -96,21 +124,25 @@ export const DropdownCalendar = ({
 
   return (
     <DropdownBase
-      value={calendarValue()}
       margin={margin}
       width={width}
+      value={value}
       onSelect={onSelect}
       nullable={nullable}
+      input_control={calendar_time}
       multi_select={calendar_range || calendar_time}
     >
-      <InputDropdown
+      <Input
         left_icon={left_icon}
         right_icon={right_icon}
         background={background}
+        value={value}
+        onChange={onChange}
         label={label}
         theme={dropdowns}
         transparent={transparent}
         disabled={disabled}
+        input_control={calendar_time}
         placeholder={placeholder}
         error_level={error_level}
         error_message={error_message}

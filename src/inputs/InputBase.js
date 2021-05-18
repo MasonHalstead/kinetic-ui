@@ -22,6 +22,7 @@ export const InputBase = ({
   error_message,
   transparent,
   inputRef,
+  onKeyDown,
   open,
   children,
   theme,
@@ -141,6 +142,7 @@ export const InputBase = ({
             onBlur,
             height,
             disabled,
+            onKeyDown,
             input_control: !!inputRef,
             theme: inputs
           })
@@ -185,6 +187,7 @@ InputBase.defaultProps = {
   open: false,
   theme: {},
   children: () => {},
+  onKeyDown: () => {},
   onFocus: () => {},
   onRemove: () => {},
   onBlur: () => {}
@@ -208,6 +211,7 @@ InputBase.propTypes = {
   open: PropTypes.bool,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onRemove: PropTypes.func,
   onBlur: PropTypes.func,
   children: PropTypes.any

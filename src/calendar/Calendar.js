@@ -70,7 +70,7 @@ export const Calendar = ({
     if (finish_valid) {
       setFinishDate(moment(finish_date))
     }
-  }, [calendar_time, time_format, valid_formats])
+  }, [inputs, output])
 
   const setPresets = (preset) => {
     const {

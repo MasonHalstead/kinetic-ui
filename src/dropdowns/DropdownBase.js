@@ -135,7 +135,9 @@ export const DropdownBase = ({
           remove: true
         }))
       }
-      inputRef.current.blur()
+      if (inputRef && inputRef.current) {
+        inputRef.current.blur()
+      }
     }
   }
 
@@ -154,27 +156,26 @@ export const DropdownBase = ({
   const onKeyDown = (e) => {
     const { active } = settings
     const options_length = options.length - 1
-    e.preventDefault()
 
     if (e.keyCode === key_codes.down_arrow) {
       if (active < options_length) {
         setSettings((prev) => ({ ...prev, active: prev.active + 1 }))
       }
-    }
-    if (e.keyCode === key_codes.up_arrow) {
+    } else if (e.keyCode === key_codes.up_arrow) {
       if (active > 0) {
         setSettings((prev) => ({ ...prev, active: prev.active - 1 }))
       }
-    }
-    if (e.keyCode === key_codes.enter) {
+    } else if (e.keyCode === key_codes.enter && input_control) {
+      return setOpen(false)
+    } else if (e.keyCode === key_codes.enter) {
       onSelect(options[active], active)
-    }
-    if (e.keyCode === key_codes.escape && nullable) {
+    } else if (e.keyCode === key_codes.escape && nullable) {
       onRemove()
-    }
-    if (e.keyCode === key_codes.tab) {
+    } else if (e.keyCode === key_codes.tab) {
       setOpen(false)
-      inputRef.current.blur()
+      if (inputRef && inputRef.current) {
+        inputRef.current.blur()
+      }
     }
   }
 
@@ -194,6 +195,7 @@ export const DropdownBase = ({
               onBlur,
               onSelect,
               onRemove,
+              onKeyDown,
               active,
               selected,
               open,
