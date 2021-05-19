@@ -71,25 +71,33 @@ export const DropdownCalendar = ({
   }, [calendar_time, time_format, valid_formats])
 
   const onChange = (input) => {
-    const selected_valid = moment(input, inputs, true).isValid()
-
     // always updating the input
-    setValue(input)
+    setValue(input || '')
 
-    // only allow inputs on calendar time
-    if (calendar_time && selected_valid) {
-      const date = moment(input).format(output)
-
-      // accounts for edge cases where isValid returns false positive
-      if (date === 'Invalid date') {
-        return
-      }
-
+    if (input === null) {
       onSelectProps({
-        selected_date: date,
+        selected_date: null,
         start_date: null,
         finish_date: null
       })
+    } else {
+      const selected_valid = moment(input, inputs, true).isValid()
+
+      // only allow inputs on calendar time
+      if (calendar_time && selected_valid) {
+        const date = moment(input).format(output)
+
+        // accounts for edge cases where isValid returns false positive
+        if (date === 'Invalid date') {
+          return
+        }
+
+        onSelectProps({
+          selected_date: date,
+          start_date: null,
+          finish_date: null
+        })
+      }
     }
   }
 
@@ -136,10 +144,11 @@ export const DropdownCalendar = ({
       margin={margin}
       width={width}
       value={value}
+      onChange={onChange}
       onSelect={onSelect}
       nullable={nullable}
-      input_control={calendar_time}
-      multi_select={calendar_range || calendar_time}
+      multi_select
+      input_control
     >
       <Input
         left_icon={left_icon}
@@ -151,9 +160,9 @@ export const DropdownCalendar = ({
         theme={dropdowns}
         transparent={transparent}
         disabled={disabled}
-        input_control={calendar_time}
         placeholder={placeholder}
         error_level={error_level}
+        input_control={calendar_time}
         error_message={error_message}
       />
       <SelectCalendar

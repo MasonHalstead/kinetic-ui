@@ -134,8 +134,8 @@ const Base = ({
     disabled={disabled}
     style={{
       textAlign: text_align,
-      cursor: input_control && 'pointer',
-      caretColor: input_control && 'transparent'
+      cursor: !input_control && 'pointer',
+      caretColor: !input_control && 'transparent'
     }}
   />
 )

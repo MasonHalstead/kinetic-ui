@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Dropdown, DropdownCheckbox } from 'kinetic-ui';
+import { Input, Dropdown, DropdownCalendar, DropdownCheckbox } from 'kinetic-ui';
 import { options } from './constants';
 import cn from './TabIndex.module.scss';
 
@@ -53,6 +53,10 @@ const TabIndexPage = () => {
           <Dropdown label="33%" options={options} value={option.name} margin="10px 5px" onSelect={setOption} />
           <Input label="33%" margin="10px 5px" controlled={false} />
           <Input label="33%" margin="10px 5px" controlled={false} />
+        </div>
+        <div className={cn.row}>
+          <DropdownCalendar label="50%" margin="10px 5px" />
+          <DropdownCalendar label="50%" margin="10px 5px" />
         </div>
         <div className={cn.row}>
           <Dropdown label="25%" options={options} value={option.name} margin="10px 5px" onSelect={setOption} />

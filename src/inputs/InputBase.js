@@ -37,9 +37,9 @@ export const InputBase = ({
   }, [])
 
   const onFocus = () => {
-    if (inputRef && inputRef.current) {
-      inputRef.current.focus()
-    }
+    // if (inputRef && inputRef.current) {
+    //   inputRef.current.focus()
+    // }
     setFocus(true)
     rest.onFocus()
   }
@@ -50,9 +50,6 @@ export const InputBase = ({
   }
 
   const iconSwitch = (e, override) => {
-    e.stopPropagation()
-    e.preventDefault()
-
     if (error_level === 99) {
       rest.onRemove()
       return
@@ -156,7 +153,6 @@ export const InputBase = ({
             height,
             disabled,
             onKeyDown,
-            input_control: !!inputRef,
             theme: inputs
           })
         )}

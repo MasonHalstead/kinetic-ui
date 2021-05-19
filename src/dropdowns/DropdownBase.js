@@ -109,6 +109,7 @@ export const DropdownBase = ({
   }
 
   const onRemove = () => {
+    rest.onChange(null)
     rest.onSelect(null, -1)
 
     if (!controlled) {
@@ -128,9 +129,9 @@ export const DropdownBase = ({
     if (!multi_select) {
       setOpen(false)
 
-      if (inputRef && inputRef.current) {
-        inputRef.current.blur()
-      }
+      // if (inputRef && inputRef.current) {
+      //   inputRef.current.blur()
+      // }
 
       if (!controlled) {
         setSettings((prev) => ({
@@ -175,11 +176,7 @@ export const DropdownBase = ({
     } else if (e.keyCode === key_codes.escape && nullable) {
       onRemove()
     } else if (e.keyCode === key_codes.tab) {
-      e.preventDefault()
       setOpen(false)
-      if (inputRef && inputRef.current) {
-        inputRef.current.blur()
-      }
     }
   }
 
@@ -191,7 +188,11 @@ export const DropdownBase = ({
 
   if (input_control) {
     return (
-      <div className={cn.wrapper} style={{ margin, maxWidth: width }}>
+      <div
+        tabIndex={-1}
+        className={cn.wrapper}
+        style={{ margin, maxWidth: width }}
+      >
         <div className={cn.dropdown} ref={dropdownRef}>
           {Children.map(children, (child) =>
             cloneElement(child, {
