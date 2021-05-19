@@ -72,8 +72,11 @@ export const DropdownCalendar = ({
 
   const onChange = (input) => {
     const selected_valid = moment(input, inputs, true).isValid()
+
+    // always updating the input
     setValue(input)
 
+    // only allow inputs on calendar time
     if (calendar_time && selected_valid) {
       const date = moment(input).format(output)
 

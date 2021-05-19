@@ -176,6 +176,7 @@ $height: 31px;
     cursor: pointer;
     justify-content: center;
     color: #fff;
+    font-size: 13px;
   }
 }
 .time {
@@ -207,10 +208,13 @@ $height: 31px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     cursor: pointer;
+    flex-grow: 1;
+    width: 100%;
     font-size: 12px;
     margin: 0px;
-    padding: 5px 6px;
+    padding: 5px 0px;
     box-sizing: border-box;
   }
   .left {
@@ -226,6 +230,7 @@ $height: 31px;
   .active {
     padding: 5px 6px;
     background: #91a7ff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   }
   p:hover {
     background: lighten(#91a7ff, 10%);

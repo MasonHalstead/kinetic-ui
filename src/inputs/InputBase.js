@@ -35,26 +35,40 @@ export const InputBase = ({
       setFocus(true)
     }
   }, [])
-  const onFocus = (e, override) => {
-    // special case that abuses the right icon
-    // built in for the dropdown remove functionality
-    if (override && error_level === 99) {
-      e.stopPropagation()
-      e.preventDefault()
-      rest.onRemove()
-      return
-    }
 
+  const onFocus = () => {
     if (inputRef && inputRef.current) {
       inputRef.current.focus()
     }
-
     setFocus(true)
     rest.onFocus()
   }
+
   const onBlur = (override) => {
     setFocus(false)
     rest.onBlur(override)
+  }
+
+  const iconSwitch = (e, override) => {
+    e.stopPropagation()
+    e.preventDefault()
+
+    if (error_level === 99) {
+      rest.onRemove()
+      return
+    }
+    if (focus) {
+      rest.onBlur(override)
+      if (inputRef && inputRef.current) {
+        inputRef.current.blur()
+      }
+    }
+    if (!focus) {
+      rest.onFocus()
+      if (inputRef && inputRef.current) {
+        inputRef.current.focus()
+      }
+    }
   }
 
   const setErrorColor = () => {
@@ -96,7 +110,6 @@ export const InputBase = ({
   const tab_index = inputRef ? 0 : -1
   const check_focus = inputRef ? open : focus
   const show_icon = right_icon || error_level
-  const error_index = error_level === 99 ? -1 : undefined
   const show_tooltip = error_level && error_message
 
   return (
@@ -114,8 +127,8 @@ export const InputBase = ({
       }}
     >
       {show_label && (
-        <div className={cn.custom}>
-          <Label label={label} theme={inputs} onClick={() => onBlur(true)} />
+        <div className={cn.custom} onClick={() => onBlur(true)}>
+          <Label label={label} theme={inputs} />
         </div>
       )}
       <Input
@@ -149,8 +162,7 @@ export const InputBase = ({
         )}
         {show_icon && (
           <div
-            tabIndex={error_index}
-            onFocus={(e) => onFocus(e, true)}
+            onMouseDown={(e) => iconSwitch(e, true)}
             className={cn.icon}
             style={{ color: setErrorColor() }}
           >

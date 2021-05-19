@@ -73,6 +73,7 @@ export const DropdownBase = ({
 
   useEffect(() => {
     // controlled needs to be explicitly set for value
+    // to account for empty strings and null etc
     if (controlled) {
       const index = findOptionIndex(options, option_key, value)
       setSettings((prev) => ({
@@ -103,8 +104,8 @@ export const DropdownBase = ({
     setOpen(false)
   }
 
-  const onChange = (v) => {
-    rest.onChange(v)
+  const onChange = (input) => {
+    rest.onChange(input)
   }
 
   const onRemove = () => {
@@ -126,6 +127,11 @@ export const DropdownBase = ({
 
     if (!multi_select) {
       setOpen(false)
+
+      if (inputRef && inputRef.current) {
+        inputRef.current.blur()
+      }
+
       if (!controlled) {
         setSettings((prev) => ({
           ...prev,
@@ -134,9 +140,6 @@ export const DropdownBase = ({
           value: option[option_key],
           remove: true
         }))
-      }
-      if (inputRef && inputRef.current) {
-        inputRef.current.blur()
       }
     }
   }
@@ -156,22 +159,23 @@ export const DropdownBase = ({
   const onKeyDown = (e) => {
     const { active } = settings
     const options_length = options.length - 1
-
-    if (e.keyCode === key_codes.down_arrow) {
-      if (active < options_length) {
-        setSettings((prev) => ({ ...prev, active: prev.active + 1 }))
-      }
-    } else if (e.keyCode === key_codes.up_arrow) {
-      if (active > 0) {
-        setSettings((prev) => ({ ...prev, active: prev.active - 1 }))
-      }
+    // e.preventDefault() is case by case basis
+    // it prevents onChange from firing for input control
+    // also prevents scroll behavior from bubbling
+    if (e.keyCode === key_codes.down_arrow && active < options_length) {
+      e.preventDefault()
+      setSettings((prev) => ({ ...prev, active: prev.active + 1 }))
+    } else if (e.keyCode === key_codes.up_arrow && active > 0) {
+      e.preventDefault()
+      setSettings((prev) => ({ ...prev, active: prev.active - 1 }))
     } else if (e.keyCode === key_codes.enter && input_control) {
-      return setOpen(false)
+      setOpen(false)
     } else if (e.keyCode === key_codes.enter) {
       onSelect(options[active], active)
     } else if (e.keyCode === key_codes.escape && nullable) {
       onRemove()
     } else if (e.keyCode === key_codes.tab) {
+      e.preventDefault()
       setOpen(false)
       if (inputRef && inputRef.current) {
         inputRef.current.blur()
