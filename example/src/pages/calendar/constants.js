@@ -62,6 +62,14 @@ export const calendar_props = [
     uuid: 4,
   },
   {
+    name: 'calendar_time',
+    type: 'boolean',
+    default: 'false',
+    options: '',
+    description: 'shows the time picker component for calendar selection',
+    uuid: 100,
+  },
+  {
     name: 'calendar_presets',
     type: 'boolean',
     default: 'false',

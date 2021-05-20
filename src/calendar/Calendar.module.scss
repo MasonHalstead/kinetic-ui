@@ -78,9 +78,8 @@ $height: 31px;
   cursor: pointer;
   font-size: 13px;
   border: 1px solid transparent;
-  height: 22px;
+  height: 26px;
   width: 22px;
-  border-radius: 22px;
   margin: 0px 3px;
 }
 .select:hover {
@@ -212,6 +211,7 @@ $height: 31px;
     cursor: pointer;
     flex-grow: 1;
     width: 100%;
+    max-width: 40px;
     font-size: 12px;
     margin: 0px;
     padding: 5px 0px;
@@ -229,11 +229,7 @@ $height: 31px;
   }
   .active {
     padding: 5px 6px;
-    background: #91a7ff;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-  }
-  p:hover {
-    background: lighten(#91a7ff, 10%);
   }
 }
 .time :global {

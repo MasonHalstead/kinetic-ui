@@ -30,13 +30,13 @@ export const SelectTime = ({
   return (
     <div className={cn.selector}>
       <AutoSizer>
-        {({ height, width }) => (
+        {({ height }) => (
           <Scrollbars
             ref={scrollRef}
             autoHeight
             className={cn.scroll}
             autoHeightMin={height}
-            style={{ width }}
+            style={{ width: '40px' }}
           >
             <div style={{ padding: '130px 0px' }}>
               {intervals.map((t) => {

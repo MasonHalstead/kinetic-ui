@@ -12,9 +12,9 @@ const CalendarPage = () => {
       </div>
       <div className={cn.block}>
         <p>
-          Calendar functionality includes a day picker, range picker, presets and a simplified theme. The Calendar has
-          been boiled down to take a primary and secondary color for simplicity that can be injected into the theme
-          prop. The component is uncontrolled but can take default dates during the initial render.
+          Calendar functionality includes a day picker, range picker, time picker, presets and a simplified theme. The
+          Calendar has been boiled down to take a primary and secondary color for simplicity that can be injected into
+          the theme prop. The component is uncontrolled but can take default dates during the initial render.
         </p>
       </div>
       <pre className="code code-javascript">
@@ -22,10 +22,18 @@ const CalendarPage = () => {
         <code>{`import React from 'react'
 import { Calendar } from 'kinetic-ui'
 
-<Calendar onSelect={(d) => console.log(d)} />`}</code>
+const Component = () => {
+  return (
+    <>
+      <Calendar onSelect={(d) => console.log(d)} />
+      <Calendar onSelect={(d) => console.log(d)} calendar_time />
+    </>
+  )
+}`}</code>
       </pre>
       <div className={cn.wrapper}>
         <Calendar />
+        <Calendar calendar_time />
       </div>
       <div className={cn.header}>
         <h2>Calendar Date Picker</h2>
@@ -35,9 +43,17 @@ import { Calendar } from 'kinetic-ui'
         <code>{`import React from 'react'
 import { Calendar } from 'kinetic-ui'
 
-<Calendar onSelect={(d) => console.log(d)} calendar_presets />`}</code>
+const Component = () => {
+  return (
+    <>
+      <Calendar onSelect={(d) => console.log(d)} calendar_presets calendar_display={false}/>
+      <Calendar onSelect={(d) => console.log(d)} calendar_presets />
+    </>
+  )
+}`}</code>
       </pre>
       <div className={cn.wrapper}>
+        <Calendar calendar_presets calendar_display={false} />
         <Calendar calendar_presets />
       </div>
       <div className={cn.header}>

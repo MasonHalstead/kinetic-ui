@@ -32,9 +32,15 @@ export const SelectTimeBarElement = styled.div(({ secondary }) => ({
   background: secondary
 }))
 
+export const SelectNowElement = styled.div(({ primary }) => ({
+  '&:hover': {
+    color: primary
+  }
+}))
+
 export const SelectElement = styled.div(({ primary }) => ({
   '&:hover': {
-    background: primary
+    color: lighten(0.05, primary)
   }
 }))
 
@@ -78,7 +84,15 @@ export const SelectTimeElement = styled.p(({ primary, active }) => {
   if (active) {
     return {
       background: primary,
-      border: `1px solid ${lighten(0.05, primary)}`
+      border: `1px solid ${lighten(0.05, primary)}`,
+      '&:hover': {
+        background: lighten(0.1, primary)
+      }
+    }
+  }
+  return {
+    '&:hover': {
+      background: lighten(0.1, primary)
     }
   }
 })

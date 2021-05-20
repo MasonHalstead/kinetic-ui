@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SelectTimeBarElement } from './elements'
+import { SelectTimeBarElement, SelectNowElement } from './elements'
 import moment from 'moment'
 import cn from './Calendar.module.scss'
 
@@ -16,9 +16,13 @@ export const SelectTimeBar = ({
   }
   return (
     <SelectTimeBarElement className={cn.bar} secondary={secondary}>
-      <div className={cn.now} style={{ color: primary }} onClick={selectToday}>
+      <SelectNowElement
+        className={cn.now}
+        primary={primary}
+        onClick={selectToday}
+      >
         <p>Now</p>
-      </div>
+      </SelectNowElement>
       <p style={{ color: '#fff' }}>
         {moment(select_date_moment).format('MMMM D, YYYY hh:mm A')}
       </p>
