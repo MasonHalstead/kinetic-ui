@@ -31,6 +31,10 @@ const TabIndexPage = () => {
         <Input label="33%" margin="10px 5px" controlled={false} />
     </div>
     <div className={cn.row}>
+      <DropdownCalendar label="50%" margin="10px 5px" />
+      <DropdownCalendar label="50%" margin="10px 5px" />
+    </div>
+    <div className={cn.row}>
         <Dropdown label="25%" options={options} value={option.name} margin="10px 5px" onSelect={setOption} />
         <DropdownCheckbox options={select_options} label="25%" onSelect={onSelect} margin="10px 5px" />
         <DropdownCheckbox options={select_options} label="25%" onSelect={onSelect} margin="10px 5px" />

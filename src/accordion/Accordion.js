@@ -4,7 +4,7 @@ import { useTheme } from '../theme/ThemeProvider'
 import PropTypes from 'prop-types'
 import cn from './Accordion.module.scss'
 
-export const Accordion = ({ margin, width, theme, children }) => {
+export const Accordion = ({ margin, borders, width, theme, children }) => {
   const accordions = useTheme('accordions', theme)
   return (
     <div
@@ -12,8 +12,8 @@ export const Accordion = ({ margin, width, theme, children }) => {
       style={{
         margin,
         maxWidth: width,
-        borderLeft: accordions.border_accordion,
-        borderRight: accordions.border_accordion
+        borderLeft: borders && accordions.border_accordion,
+        borderRight: borders && accordions.border_accordion
       }}
     >
       {Children.map(children, (child) => (
@@ -27,6 +27,7 @@ export const Accordion = ({ margin, width, theme, children }) => {
 Accordion.defaultProps = {
   margin: 0,
   width: '100%',
+  borders: true,
   theme: {},
   children: () => {}
 }
@@ -34,5 +35,6 @@ Accordion.propTypes = {
   margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.string,
   theme: PropTypes.object,
+  borders: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

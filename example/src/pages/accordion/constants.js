@@ -46,12 +46,20 @@ export const accordion_props = [
     uuid: 2,
   },
   {
+    name: 'borders',
+    type: 'bool',
+    default: 'true',
+    options: '',
+    description: 'sets letf and right border',
+    uuid: 3,
+  },
+  {
     name: 'children',
     type: 'component',
     default: '',
     options: '',
     description: 'each child represents one accordion item',
-    uuid: 7,
+    uuid: 4,
   },
   {
     name: 'theme',
@@ -59,7 +67,7 @@ export const accordion_props = [
     default: '{}',
     options: 'refer to theme',
     description: 'theme override for accordion',
-    uuid: 8,
+    uuid: 5,
   },
 ];
 

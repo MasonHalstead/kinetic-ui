@@ -44,7 +44,7 @@ const options = {
 export const Menu = () => {
   return (
     <div className={cn.menu}>
-      <Accordion>
+      <Accordion borders={false}>
         <AccordionItem title="Getting Started" options={options.installation} />
         <AccordionItem title="Tab Index" options={options.tabindex} />
         <AccordionItem title="Accordion" options={options.accordion} />

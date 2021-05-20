@@ -116,20 +116,23 @@ export const DropdownCalendar = ({
   const calendarValue = (calendar) => {
     const { selected_date, start_date, finish_date } = calendar
     const selected_valid = moment(selected_date, inputs, true).isValid()
-    const start_valid = moment(start_date, inputs, true).isValid()
-    const finish_valid = moment(finish_date, inputs, true).isValid()
 
-    let value = ''
-
-    if (!calendar_range && selected_valid) {
-      return moment(selected_date).format(output)
+    if (!calendar_range) {
+      if (selected_valid) {
+        return moment(selected_date).format(output)
+      }
+      return ''
     }
 
-    if (calendar_range && start_valid) {
+    const start_valid = moment(start_date, inputs, true).isValid()
+    const finish_valid = moment(finish_date, inputs, true).isValid()
+    let value = ''
+
+    if (start_valid) {
       value = moment(start_date).format(output)
     }
 
-    if (calendar_range && finish_valid) {
+    if (finish_valid) {
       value += `- ${moment(finish_date).format(output)}`
     }
 

@@ -34,7 +34,7 @@ export const AccordionBase = ({
   }, [expanded])
 
   useEffect(() => {
-    if (expanded) {
+    if (expand) {
       setHeight(content_height)
     }
   }, [content_height])
