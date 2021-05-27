@@ -131,11 +131,18 @@ const Form = () => {
           placeholder="ex. 123"
           default_value="This is a default value"
           debounce={2000}
-          onChange={(value) => alert(value)}
           width="50%"
           margin="0px 5px 0px 0px"
+          disabled
+          controlled={false}
         />
-        <Textarea label="Textarea" value="This is a value" width="50%" margin="0px 0px 0px 5px" />
+        <Textarea
+          label="Textarea"
+          default_value="This is a value"
+          width="50%"
+          margin="0px 0px 0px 5px"
+          controlled={false}
+        />
       </div>
     </div>
   );

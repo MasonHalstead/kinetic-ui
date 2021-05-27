@@ -19,11 +19,11 @@ export const Input = styled.div(
     }
     if (disabled) {
       return {
-        color: theme.font_input_color,
+        color: theme.font_input_color_disabled,
         border: theme.border_input_disabled,
         background: theme.background_input_disabled,
         '& input': {
-          color: theme.font_input_color
+          color: theme.font_input_color_disabled
         }
       }
     }

@@ -86,6 +86,7 @@ export const createTheme = (override) => {
     font_input_color: default_globals.font_primary_color,
     font_input_focus: default_globals.active_color,
     font_input_hover: default_colors.primary,
+    font_input_color_disabled: default_globals.font_primary_color,
     font_input_placeholder: default_globals.placeholder_color,
     // font tooltips settings
     font_tooltip_color: default_globals.font_secondary_color,
@@ -200,6 +201,7 @@ export const createTheme = (override) => {
     font_input_transform: default_fonts.font_input_transform,
     font_input_weight: default_fonts.font_input_weight,
     font_input_color: default_fonts.font_input_color,
+    font_input_color_disabled: default_fonts.font_input_color_disabled,
     font_input_placeholder: default_fonts.font_input_placeholder,
     font_input_focus: default_fonts.font_input_focus,
     font_input_hover: default_fonts.font_input_hover,

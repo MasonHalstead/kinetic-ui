@@ -5,20 +5,26 @@ export const Wrapper = styled.div(({ color }) => ({
 }))
 
 export const Textarea = styled.div(
-  ({ focus, disabled, background, transparent, theme }) => {
+  ({ focus, disabled, transparent, background, theme }) => {
     if (transparent) {
       return {
         color: theme.font_input_color,
         border: 'none',
         background: disabled ? theme.background_input_disabled : 'transparent',
-        borderRadius: '0px'
+        borderRadius: '0px',
+        '& textarea': {
+          color: theme.font_input_color
+        }
       }
     }
     if (disabled) {
       return {
-        color: theme.font_input_color,
+        color: theme.font_input_color_disabled,
         border: theme.border_input_disabled,
-        background: theme.background_input_disabled
+        background: theme.background_input_disabled,
+        '& textarea': {
+          color: theme.font_input_color_disabled
+        }
       }
     }
     if (focus) {
