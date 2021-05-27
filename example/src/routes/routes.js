@@ -19,6 +19,7 @@ export const routes = {
   INPUTS: '/inputs',
   INPUTS_SPECIAL: '/inputs-special',
   MODALS: '/modals',
+  MODALS_TABLE: '/modals-table',
   MODALS_WIZARD: '/modals-wizard',
   TABLE_BASICS: '/table-basics',
   TABLE_FOOTER: '/table-footer',

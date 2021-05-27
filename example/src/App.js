@@ -28,6 +28,7 @@ export const App = () => {
         <PublicRouter exact path={routes.INPUTS} component={WaitingComponent(pages.InputsPage)} />
         <PublicRouter exact path={routes.INPUTS_SPECIAL} component={WaitingComponent(pages.InputsSpecialPage)} />
         <PublicRouter exact path={routes.MODALS} component={WaitingComponent(pages.ModalsPage)} />
+        <PublicRouter exact path={routes.MODALS_TABLE} component={WaitingComponent(pages.ModalsTable)} />
         <PublicRouter exact path={routes.MODALS_WIZARD} component={WaitingComponent(pages.ModalsWizardPage)} />
         <PublicRouter exact path={routes.DROPZONE} component={WaitingComponent(pages.DropzonePage)} />
         <PublicRouter exact path={routes.TABLE_BASICS} component={WaitingComponent(pages.TableBasicsPage)} />

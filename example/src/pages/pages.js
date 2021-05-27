@@ -17,6 +17,7 @@ export const SwitchPage = lazy(() => import('pages/switch/SwitchPage'));
 export const CheckboxPage = lazy(() => import('pages/checkbox/CheckboxPage'));
 export const SnackbarPage = lazy(() => import('pages/snackbar/SnackbarPage'));
 export const ModalsPage = lazy(() => import('pages/modals/ModalsPage'));
+export const ModalsTable = lazy(() => import('pages/modals/ModalsTable'));
 export const ModalsWizardPage = lazy(() => import('pages/modals/ModalsWizardPage'));
 export const InputsPage = lazy(() => import('pages/inputs/InputsPage'));
 export const InputsSpecialPage = lazy(() => import('pages/inputs/InputsSpecialPage'));

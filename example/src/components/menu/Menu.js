@@ -30,6 +30,7 @@ const options = {
   snackbar: [{ link: '/snackbar', name: 'Snackbar' }],
   modals: [
     { link: '/modals', name: 'Modals' },
+    { link: '/modals-table', name: 'Modals Table' },
     { link: '/modals-wizard', name: 'Modals Wizard' },
   ],
   tables: [

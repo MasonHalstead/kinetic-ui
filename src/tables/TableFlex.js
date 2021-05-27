@@ -29,8 +29,9 @@ const TableWrapper = ({
   children
 }) => {
   const { rows_sticky, row_height } = settings
-  const min_height = (rows_sticky || 1) * row_height
-  const max_height = rows.length * row_height
+  const min_height = (rows_sticky || 1) * (row_height + 1)
+  const max_height = rows.length * (row_height + 1)
+  console.log(min_height, max_height)
   return (
     <RowsElement
       className={cn.resizer}
